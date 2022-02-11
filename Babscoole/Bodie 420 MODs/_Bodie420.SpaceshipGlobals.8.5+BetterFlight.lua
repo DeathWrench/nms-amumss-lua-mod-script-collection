@@ -3,7 +3,7 @@ NMS_MOD_DEFINITION_CONTAINER =
 ["MOD_FILENAME"] 			= "_Bodie420.SpaceshipGlobals.8.5.pak",
 ["MOD_DESCRIPTION"]			= "",
 ["MOD_AUTHOR"]				= "Bodie420",
-["LUA_AUTHOR"]				= "Babscoole+DeathWrench",	
+["LUA_AUTHOR"]				= "Babscoole+DeathWrench",
 ["NMS_VERSION"]				= "8.5",
 ["MODIFICATIONS"] 			= 
 	{
@@ -31,6 +31,8 @@ NMS_MOD_DEFINITION_CONTAINER =
 								{"WarpNexusDistance", "-8000"},  --Original  -9000
 								{"LandingCheckBuildings", "false"},  --Original  true
 								{"LandingButtonMinTime", "0.05"},  --Original  0.5
+								{"GroundHeightSmoothTime",		"1000000"},-- Original v1.24 "0.4", 	Original v1.77 "0"  --underwater	--THIS WILL GENERATE A WARNING
+								{"GroundHeightSmoothTime",		"9000000"},-- Original v1.24 "0.4", 	Original v1.77 "0"  --underwater
 								{"LockTargetMinDistance", "1"},  --Original  0.5
 								{"NoBoostStationDistance", "0.1"},  --Original  5
 								{"NoBoostAnomalyDistance", "0.1"},  --Original  10
@@ -49,6 +51,8 @@ NMS_MOD_DEFINITION_CONTAINER =
 								{"MiniWarpSpeed", "99999"},  --Original  30000
 								{"MiniWarpTime", "0.1"},  --Original  10
 								{"MiniWarpCooldownTime",			"0.1"},	 --Original 2
+								{"CollisionSpeedDamageAmount",	"1"},		-- Original v1.24 "", 		Original v1.77 "1"		
+								{"CollisionDistanceGround",		"10"},		-- Original v1.24 "30", 		Original v1.77 "10"	
 								{"DockingRotateSpeed", "9"},  --Original  1
 								{"DockingRotateSpeedVR", "9"},  --Original  0.6
 								{"ShipEnterRange", "70"},	 --Original 7
@@ -194,5 +198,5 @@ NMS_MOD_DEFINITION_CONTAINER =
 				}
 			}
 		}
-	}
+	}	
 }
