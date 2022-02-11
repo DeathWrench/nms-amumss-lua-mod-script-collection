@@ -3,7 +3,7 @@ NMS_MOD_DEFINITION_CONTAINER =
 ["MOD_FILENAME"] 			= "_Bodie420.SpaceshipGlobals.8.5.pak",
 ["MOD_DESCRIPTION"]			= "",
 ["MOD_AUTHOR"]				= "Bodie420",
-["LUA_AUTHOR"]				= "Babscoole+DeathWrench",
+["LUA_AUTHOR"]				= "Babscoole+DeathWrench",	
 ["NMS_VERSION"]				= "8.5",
 ["MODIFICATIONS"] 			= 
 	{
