@@ -96,14 +96,7 @@ NMS_MOD_DEFINITION_CONTAINER =
 								{"MaxSpeed", "1440"},  -- Original 180
 								{"MinSpeed", "0"},  -- Original 1
 								{"BoostThrustForce", "4000"},  -- Original 500
-								{"BoostMaxSpeed", "9600"},  -- Original 1200	--_below here are better flight values, you can delete them if you don't like them not a part of the mod normally_--
-								{"BoostFalloff",			"0"},		-- Original v1.24 "0.7", 	Original v1.77 "0.7"
-								{"BoostingTurnDamp",		"0.5"},		-- Original v1.24 "0.1", 	Original v1.77 "0.1"	
-								{"DirectionBrakeMin",		"0.5"},		-- Original v1.24 "1", 		Original v1.77 "1"			
-								{"DirectionBrake",			"1"},		-- Original v1.24 "2", 		Original v1.77 "2"							
-								{"OverspeedBrake",			"0.2"},		-- Original v1.24 "3", 		Original v1.77 "3"							
-								{"TurnBrakeMin",			"0.5"},		-- Original v1.24 "1", 		Original v1.77 "1"							
-								{"TurnBrakeMax",			"1"},		-- Original v1.24 "4", 		Original v1.77 "4"	
+								{"BoostMaxSpeed", "9600"},  -- Original 1200	
 							}
 						},
 						{
@@ -114,11 +107,7 @@ NMS_MOD_DEFINITION_CONTAINER =
 								{"MaxSpeed", "1000"},  -- Original 125
 								{"MinSpeed", "0"},  -- Original 1
 								{"BoostThrustForce", "800"},  -- Original 100
-								{"BoostMaxSpeed", "1240"},  -- Original 155		--_below here are better flight values, you can delete them if you don't like them not a part of the mod normally_--
-								{"LowSpeedTurnDamper",		"1"},		-- Original v1.24 "0.3", 	Original v1.77 "0.25"	
-								{"TurnBrakeMin",			"0.2"},		-- Original v1.24 "0.8", 	Original v1.77 "2"	
-								{"TurnBrakeMax",			"5"},		-- Original v1.24 "6", 		Original v1.77 "3"	
-								{"TurnStrength",			"10"},		-- Original v1.24 "5", 		Original v1.77 "1"
+								{"BoostMaxSpeed", "1240"},  -- Original 155		
 							}
 						},
 						{
@@ -140,14 +129,7 @@ NMS_MOD_DEFINITION_CONTAINER =
 								{"MaxSpeed", "1440"},  -- Original 125
 								{"MinSpeed", "0"},  -- Original 20
 								{"BoostThrustForce", "4000"},  -- Original 400
-								{"BoostMaxSpeed", "9600"},  -- Original 1300	--_below here are better flight values, you can delete them if you don't like them not a part of the mod normally_--
-								{"BoostFalloff",			"0"},		-- Original v1.24 "0.7", 	Original v1.77 "0.7"
-								{"BoostingTurnDamp",		"0.5"},		-- Original v1.24 "0.1", 	Original v1.77 "0.1"	
-								{"DirectionBrakeMin",		"0.5"},		-- Original v1.24 "1", 		Original v1.77 "1"			
-								{"DirectionBrake",			"1"},		-- Original v1.24 "2", 		Original v1.77 "1.5"							
-								{"OverspeedBrake",			"0.2"},		-- Original v1.24 "3", 		Original v1.77 "3"							
-								{"TurnBrakeMin",			"0.5"},		-- Original v1.24 "1", 		Original v1.77 "1"							
-								{"TurnBrakeMax",			"1"},		-- Original v1.24 "4", 		Original v1.77 "4"
+								{"BoostMaxSpeed", "9600"},  -- Original 1300	
 							}
 						},
 						{
@@ -158,11 +140,7 @@ NMS_MOD_DEFINITION_CONTAINER =
 								{"MaxSpeed", "1000"},  -- Original 125
 								{"MinSpeed", "0"},  -- Original 20
 								{"BoostThrustForce", "800"},  -- Original 200
-								{"BoostMaxSpeed", "1240"},  -- Original 150		--_below here are better flight values, you can delete them if you don't like them not a part of the mod normally_--
-								{"LowSpeedTurnDamper",		"1"},		-- Original v1.24 "0.3", 	Original v1.77 "0.25"	
-								{"TurnBrakeMin",			"0.2"},		-- Original v1.24 "0.8", 	Original v1.77 "3"	
-								{"TurnBrakeMax",			"5"},		-- Original v1.24 "6", 		Original v1.77 "4"	
-								{"TurnStrength",			"10"},		-- Original v1.24 "5", 		Original v1.77 "1.65"
+								{"BoostMaxSpeed", "1240"},  -- Original 150		
 							}
 						},
 						{
@@ -184,14 +162,7 @@ NMS_MOD_DEFINITION_CONTAINER =
 								{"MaxSpeed", "1440"},  -- Original 125
 								{"MinSpeed", "0"},  -- Original 20
 								{"BoostThrustForce", "4000"},  -- Original 200
-								{"BoostMaxSpeed", "9600"},  -- Original 150		--_below here are better flight values, you can delete them if you don't like them not a part of the mod normally_--
-								{"BoostFalloff",			"0"},		-- Original v1.24 "0.7", 	Original v1.77 "0.7"
-								{"BoostingTurnDamp",		"0.5"},		-- Original v1.24 "0.1", 	Original v1.77 "0.1"	
-								{"DirectionBrakeMin",		"0.5"},		-- Original v1.24 "1", 		Original v1.77 "1"			
-								{"DirectionBrake",			"1"},		-- Original v1.24 "2", 		Original v1.77 "2"							
-								{"OverspeedBrake",			"0.2"},		-- Original v1.24 "3", 		Original v1.77 "3"							
-								{"TurnBrakeMin",			"0.5"},		-- Original v1.24 "1", 		Original v1.77 "1"							
-								{"TurnBrakeMax",			"1"},		-- Original v1.24 "4", 		Original v1.77 "4"
+								{"BoostMaxSpeed", "9600"},  -- Original 150		
 							}
 						},
 						{
@@ -202,11 +173,7 @@ NMS_MOD_DEFINITION_CONTAINER =
 								{"MaxSpeed", "1000"},  -- Original 130
 								{"MinSpeed", "0"},  -- Original 20
 								{"BoostThrustForce", "800"},  -- Original 20
-								{"BoostMaxSpeed", "1240"},  -- Original 185		--_below here are better flight values, you can delete them if you don't like them not a part of the mod normally_--
-								{"LowSpeedTurnDamper",		"1"},		-- Original v1.24 "0.3", 	Original v1.77 "0.01"	
-								{"TurnBrakeMin",			"0.2"},		-- Original v1.24 "0.8", 	Original v1.77 "1"	
-								{"TurnBrakeMax",			"5"},		-- Original v1.24 "6", 		Original v1.77 "4"	
-								{"TurnStrength",			"10"},		-- Original v1.24 "5", 		Original v1.77 "0.6"
+								{"BoostMaxSpeed", "1240"},  -- Original 185		
 							}
 						},
 						{
