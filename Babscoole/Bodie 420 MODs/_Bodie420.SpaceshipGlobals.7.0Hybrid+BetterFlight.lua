@@ -18,7 +18,7 @@ NMS_MOD_DEFINITION_CONTAINER =
 						{
 							["VALUE_CHANGE_TABLE"] 	= 	
 							{
-								{"LandingMaxSpeed", "1000"},  --Original  80
+								{"LandingMaxSpeed", "100"},  --Original  80
 								{"LandingObstacleMinHeight", "2000"},  --Original  2
 								{"MaximumDistanceFromShipWhenExiting", "2"},  --Original  10
 								{"MaximumHeightWhenExitingShip", "2"},  --Original  5
@@ -26,14 +26,12 @@ NMS_MOD_DEFINITION_CONTAINER =
 								{"OutpostDockSpeedAlignRange", "1000"},  --Original  300
 								{"WarpInTimeFreighter", "0.1"},  --Original  1
 								{"WarpInFlashTimeFreighter", "0.1"},  --Original  0.98
-								{"WarpInTime", "0.1"},  --Original  1
-								{"WarpOutTime", "0.1"},  --Original  1
 								{"WarpInTimeNexus", "0.1"},  --Original  1
 								{"WarpInFlashTimeNexus", "0.1"},  --Original  0.98
 								{"WarpNexusRotation", "0.1"},  --Original  15
 								{"WarpNexusPitch", "0.1"},  --Original  15
 								{"WarpNexusDistance", "-8000"},  --Original  -9000
-								{"PulseDrivePlanetApproachHeight", "2000"},  --Original  6000
+								{"PulseDrivePlanetApproachHeight", "2000"},  --Original  -6000
 								{"HoverMinSpeed", "0"},  --Original  1
 								{"LandingCheckBuildings", "false"},  --Original  true
 								{"LandingCheckBuildingsRadiusFactor", "0.75"},  --Original  1.1
@@ -85,7 +83,11 @@ NMS_MOD_DEFINITION_CONTAINER =
 								{"ShipEnterSpeed", "99"},  --Original  15
 								{"ShipEnterMinTime", "0.05"},  --Original  0.5
 								{"LaunchThrustersMinimumSummonPercentage", "0"},  --Original  25
-								{"LaunchThrustersSummonCostMultiplier", "0"},  --Original  1
+								{"LaunchThrustersSummonCostMultiplier", "0"},  --Original  1	--_below here are better flight values, you can delete them if you don't like them not a part of the mod normally_--
+								{"GroundHeightSmoothTime",		"1000000"},-- Original v1.24 "0.4", 	Original v1.77 "0"  --underwater	--THIS WILL GENERATE A WARNING
+								{"GroundHeightSmoothTime",		"9000000"},-- Original v1.24 "0.4", 	Original v1.77 "0"  --underwater
+								{"CollisionSpeedDamageAmount",	"1"},		-- Original v1.24 "", 		Original v1.77 "1"		
+								{"CollisionDistanceGround",		"10"},		-- Original v1.24 "30", 		Original v1.77 "10"		
 							}
 						},
 						{
