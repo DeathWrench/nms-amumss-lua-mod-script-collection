@@ -18,7 +18,7 @@ NMS_MOD_DEFINITION_CONTAINER =
 						{
 							["VALUE_CHANGE_TABLE"] 	= 	
 							{
-								{"LandingMaxSpeed", "100"},  --Original  80
+								{"LandingMaxSpeed", "1000"},  --Original  80
 								{"LandingObstacleMinHeight", "2000"},  --Original  2
 								{"MaximumDistanceFromShipWhenExiting", "2"},  --Original  10
 								{"MaximumHeightWhenExitingShip", "2"},  --Original  5
@@ -26,12 +26,14 @@ NMS_MOD_DEFINITION_CONTAINER =
 								{"OutpostDockSpeedAlignRange", "1000"},  --Original  300
 								{"WarpInTimeFreighter", "0.1"},  --Original  1
 								{"WarpInFlashTimeFreighter", "0.1"},  --Original  0.98
+								{"WarpInTime", "0.1"},  --Original  1
+								{"WarpOutTime", "0.1"},  --Original  1
 								{"WarpInTimeNexus", "0.1"},  --Original  1
 								{"WarpInFlashTimeNexus", "0.1"},  --Original  0.98
 								{"WarpNexusRotation", "0.1"},  --Original  15
 								{"WarpNexusPitch", "0.1"},  --Original  15
 								{"WarpNexusDistance", "-8000"},  --Original  -9000
-								{"PulseDrivePlanetApproachHeight", "2000"},  --Original  -6000
+								{"PulseDrivePlanetApproachHeight", "2000"},  --Original  6000
 								{"HoverMinSpeed", "0"},  --Original  1
 								{"LandingCheckBuildings", "false"},  --Original  true
 								{"LandingCheckBuildingsRadiusFactor", "0.75"},  --Original  1.1
