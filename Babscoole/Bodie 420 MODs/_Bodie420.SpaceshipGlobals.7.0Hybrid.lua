@@ -18,7 +18,7 @@ NMS_MOD_DEFINITION_CONTAINER =
 						{
 							["VALUE_CHANGE_TABLE"] 	= 	
 							{
-								{"LandingMaxSpeed", "100"},  --Original  80
+								{"LandingMaxSpeed", "1000"},  --Original  80
 								{"LandingObstacleMinHeight", "2000"},  --Original  2
 								{"MaximumDistanceFromShipWhenExiting", "2"},  --Original  10
 								{"MaximumHeightWhenExitingShip", "2"},  --Original  5
