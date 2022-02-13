@@ -206,4 +206,3 @@ NMS_MOD_DEFINITION_CONTAINER =
 			}
 		}
 	}	
-}
