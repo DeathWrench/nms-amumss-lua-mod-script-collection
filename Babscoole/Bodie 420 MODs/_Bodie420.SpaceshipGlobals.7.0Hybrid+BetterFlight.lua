@@ -164,7 +164,7 @@ NMS_MOD_DEFINITION_CONTAINER =
 								{"LowSpeedTurnDamper",		"1"},		-- Original v1.24 "0.3", 	Original v1.77 "0.25"	
 								{"TurnBrakeMin",			"0.2"},		-- Original v1.24 "0.8", 	Original v1.77 "3"	
 								{"TurnBrakeMax",			"5"},		-- Original v1.24 "6", 		Original v1.77 "4"	
-								{"TurnStrength",			"10"},		-- Original v1.24 "5", 		Original v1.77 "1.65"
+								--{"TurnStrength",			"10"},		-- Original v1.24 "5", 		Original v1.77 "1.65"
 							}
 						},
 						{
@@ -208,7 +208,7 @@ NMS_MOD_DEFINITION_CONTAINER =
 								{"LowSpeedTurnDamper",		"1"},		-- Original v1.24 "0.3", 	Original v1.77 "0.01"	
 								{"TurnBrakeMin",			"0.2"},		-- Original v1.24 "0.8", 	Original v1.77 "1"	
 								{"TurnBrakeMax",			"5"},		-- Original v1.24 "6", 		Original v1.77 "4"	
-								{"TurnStrength",			"10"},		-- Original v1.24 "5", 		Original v1.77 "0.6"
+								--{"TurnStrength",			"10"},		-- Original v1.24 "5", 		Original v1.77 "0.6"
 							}
 						},
 						{
