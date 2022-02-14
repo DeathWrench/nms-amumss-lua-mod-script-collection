@@ -31,7 +31,7 @@ NMS_MOD_DEFINITION_CONTAINER =
 								{"WarpNexusRotation", "0.1"},  --Original  15
 								{"WarpNexusPitch", "0.1"},  --Original  15
 								{"WarpNexusDistance", "-8000"},  --Original  -9000
-								{"PulseDrivePlanetApproachHeight", "2000"},  --Original  -6000
+								--{"PulseDrivePlanetApproachHeight", "2000"},  --Original  6000
 								{"HoverMinSpeed", "0"},  --Original  1
 								{"LandingCheckBuildings", "false"},  --Original  true
 								{"LandingCheckBuildingsRadiusFactor", "0.75"},  --Original  1.1
