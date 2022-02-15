@@ -1,6 +1,6 @@
 NMS_MOD_DEFINITION_CONTAINER = 
 {
-["MOD_FILENAME"] 			= "_Bodie420.999999Stacks+48SuitTech.8.5.pak",
+["MOD_FILENAME"] 			= "_Bodie420.99999Stacks+48SuitTech.8.5.pak",
 ["MOD_DESCRIPTION"]			= "",
 ["MOD_AUTHOR"]				= "Bodie420",
 ["LUA_AUTHOR"]				= "Babscoole+DeathWrench",
