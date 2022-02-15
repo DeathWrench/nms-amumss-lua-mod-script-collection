@@ -17,8 +17,8 @@ NMS_MOD_DEFINITION_CONTAINER =
 						{
 							["VALUE_CHANGE_TABLE"] 	= 	
 							{
-								{"DefaultSubstanceMaxAmount",				"999999"},  -- Original "9999" - Mod8.5 ""
-								{"DefaultProductMaxAmount",					"999999"},  -- Original "1" - Mod8.5 "10" - Mod 6.5 "99999"
+								{"DefaultSubstanceMaxAmount",				"99999"},  -- Original "9999" - Mod8.5 ""
+								{"DefaultProductMaxAmount",					"10"},  -- Original "1" - Mod8.5 "10" - Mod 6.5 "99999"
 								{"CargoSubstanceStorageMultiplier",			"50"},  -- Original "1"
 								{"CargoProductStorageMultiplier",			"50"},  -- Original "10"
 								{"ShipSubstanceStorageMultiplier",			"50"},  -- Original "1"
@@ -31,8 +31,8 @@ NMS_MOD_DEFINITION_CONTAINER =
 								{"BaseCapsuleProductStorageMultiplier",		"50"},  -- Original "100"
 								{"DefaultSubstanceStorageMultiplier",		"50"},  -- Original "1"
 								{"DefaultProductStorageMultiplier",			"50"},  -- Original "5"
-								{"SubstanceMaxAmountLimit",					"999999"},  -- Original "9999"
-								{"ProductMaxAmountLimit",					"999999"},  -- Original "9999"								
+								{"SubstanceMaxAmountLimit",					"99999"},  -- Original "9999"
+								{"ProductMaxAmountLimit",					"99999"},  -- Original "9999"								
 								{"PlayerPersonalInventoryTechWidth",		"8"},  -- Original "7"
 								{"PlayerPersonalInventoryTechHeight",		"6"},  -- Original "2"
 							}
@@ -47,7 +47,7 @@ NMS_MOD_DEFINITION_CONTAINER =
 							["VALUE_CHANGE_TABLE"] 	= 	
 							{
 								{"DefaultSubstanceMaxAmount",				"999999"},  -- Original "250"							
-								{"DefaultProductMaxAmount",					"999999"},  -- Original "1" - Mod8.5 "10" - Mod 6.5 "99999"
+								{"DefaultProductMaxAmount",					"10"},  -- Original "1" - Mod8.5 "10" - Mod 6.5 "99999"
 								{"CargoSubstanceStorageMultiplier",			"50"},  -- Original "2"
 								{"CargoProductStorageMultiplier",			"50"},  -- Original "10"
 								{"ShipSubstanceStorageMultiplier",			"50"},  -- Original "2"
@@ -60,8 +60,8 @@ NMS_MOD_DEFINITION_CONTAINER =
 								{"BaseCapsuleProductStorageMultiplier",		"50"},  -- Original "100"
 								{"DefaultSubstanceStorageMultiplier",		"50"},  -- Original "1"
 								{"DefaultProductStorageMultiplier",			"50"},  -- Original "5"
-								{"SubstanceMaxAmountLimit",					"999999"},  -- Original "9999"
-								{"ProductMaxAmountLimit",					"999999"},  -- Original "9999"								
+								{"SubstanceMaxAmountLimit",					"99999"},  -- Original "9999"
+								{"ProductMaxAmountLimit",					"99999"},  -- Original "9999"								
 								{"PlayerPersonalInventoryTechWidth",		"8"},  -- Original "7"
 								{"PlayerPersonalInventoryTechHeight",		"6"},  -- Original "2"
 							}
