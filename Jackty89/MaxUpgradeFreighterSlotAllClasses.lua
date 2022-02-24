@@ -1,7 +1,9 @@
-GameVersion = "3_70"
+GameVersion = "3_81"
 ModeName = "MaxUpgradeFreighterSlotAllClasses"
 Author = "Jackty89"
 Description = "Tiny mod that allows any class of freighter to be upgraded to 48/21"
+
+InventoryTablePath = "METADATA\\REALITY\\TABLES\\INVENTORYTABLE.MBIN"
 
 NMS_MOD_DEFINITION_CONTAINER =
 {
@@ -15,7 +17,7 @@ NMS_MOD_DEFINITION_CONTAINER =
             ["MBIN_CHANGE_TABLE"] 	=
 			{
                 {
-                    ["MBIN_FILE_SOURCE"] 	= "METADATA\REALITY\TABLES\INVENTORYTABLE.MBIN",
+                    ["MBIN_FILE_SOURCE"] 	= InventoryTablePath,
                     ["EXML_CHANGE_TABLE"] 	=
                     {
                         {
@@ -33,7 +35,7 @@ NMS_MOD_DEFINITION_CONTAINER =
                             {
                                 {"14","21"},
                                 {"7","21"},
-                                {"0","21"}
+                                {"7","21"}
                             }
                         }
                     }
@@ -42,6 +44,3 @@ NMS_MOD_DEFINITION_CONTAINER =
 		}
 	}
 }
---NOTE: ANYTHING NOT in table NMS_MOD_DEFINITION_CONTAINER IS IGNORED AFTER THE SCRIPT IS LOADED
---IT IS BETTER TO ADD THINGS AT THE TOP IF YOU NEED TO
---DON'T ADD ANYTHING PASS THIS POINT HERE

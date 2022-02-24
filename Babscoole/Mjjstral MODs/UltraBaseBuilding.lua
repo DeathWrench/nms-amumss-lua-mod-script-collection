@@ -628,6 +628,7 @@ BUILDABLE_OBJECT_TABLE =
 	{ ["ID_NAME"]="MAPSHOP", 	    		["PATH"]="MODELS/SPACE/SPACESTATION/MODULARPARTS/DOCK/SHOPS/", 			  				["GROUP_NAME"]="UBB-OTHER", ["SUBGROUP_NAME"]="BUILDINGS", ["OFFSET"]="0", ["ICON"]=BLDGICON },
 	{ ["ID_NAME"]="MISSIONSHOP", 	    	["PATH"]="MODELS/SPACE/SPACESTATION/MODULARPARTS/DOCK/SHOPS/", 			  				["GROUP_NAME"]="UBB-OTHER", ["SUBGROUP_NAME"]="BUILDINGS", ["OFFSET"]="0", ["ICON"]=BLDGICON },
 	{ ["ID_NAME"]="WEAPONSHOP", 	    	["PATH"]="MODELS/SPACE/SPACESTATION/MODULARPARTS/DOCK/SHOPS/", 			  				["GROUP_NAME"]="UBB-OTHER", ["SUBGROUP_NAME"]="BUILDINGS", ["OFFSET"]="0", ["ICON"]=BLDGICON },
+	{ ["ID_NAME"]="EGGMACHINE", 	    	["PATH"]="MODELS/SPACE/NEXUS/PARTS/RIGHTSECTION/", 			  							["GROUP_NAME"]="UBB-OTHER", ["SUBGROUP_NAME"]="BUILDINGS", ["OFFSET"]="0", ["ICON"]=BLDGICON },	
 	{ ["ID_NAME"]="LARGETERMINAL", 	    	["PATH"]="MODELS/SPACE/NEXUS/PARTS/BRIDGE/", 			  								["GROUP_NAME"]="UBB-OTHER", ["SUBGROUP_NAME"]="BUILDINGS", ["OFFSET"]="0", ["ICON"]=BLDGICON },
 	{ ["ID_NAME"]="SPECIALSHOP", 	    	["PATH"]="MODELS/SPACE/NEXUS/PARTS/CENTRALPOINT/", 			  							["GROUP_NAME"]="UBB-OTHER", ["SUBGROUP_NAME"]="BUILDINGS", ["OFFSET"]="0", ["ICON"]=BLDGICON },
 	{ ["ID_NAME"]="MECHANICALCORE", 	    ["PATH"]="MODELS/SPACE/NEXUS/PARTS/CORE/", 			  									["GROUP_NAME"]="UBB-OTHER", ["SUBGROUP_NAME"]="BUILDINGS", ["OFFSET"]="0", ["ICON"]=BLDGICON },
@@ -649,6 +650,7 @@ BUILDABLE_OBJECT_TABLE =
 	{ ["ID_NAME"]="TURRETA", 	    		["PATH"]="MODELS/COMMON/SPACECRAFT/INDUSTRIAL/TURRET/", 			  					["GROUP_NAME"]="UBB-OTHER", ["SUBGROUP_NAME"]="BUILDINGS", ["OFFSET"]="0", ["ICON"]=BLDGICON },
 	{ ["ID_NAME"]="TURRETB", 	    		["PATH"]="MODELS/COMMON/SPACECRAFT/INDUSTRIAL/TURRET/", 			  					["GROUP_NAME"]="UBB-OTHER", ["SUBGROUP_NAME"]="BUILDINGS", ["OFFSET"]="0", ["ICON"]=BLDGICON },
 	{ ["ID_NAME"]="OLDTURRET", 	    		["PATH"]="MODELS/PLANETS/SNOW/WRECKS/", 			  									["GROUP_NAME"]="UBB-OTHER", ["SUBGROUP_NAME"]="BUILDINGS", ["OFFSET"]="0", ["ICON"]=BLDGICON },
+	{ ["ID_NAME"]="SENTINELHIVE", 			["PATH"]="MODELS/PLANETS/BIOMES/COMMON/BUILDINGS/SENTINELHIVE/", 						["GROUP_NAME"]="UBB-OTHER", ["SUBGROUP_NAME"]="BUILDINGS", ["OFFSET"]="0", ["ICON"]=BLDGICON },	
 	{ ["ID_NAME"]="MODULE_COOLINGTOWER", 	["PATH"]="MODELS/PLANETS/BIOMES/COMMON/BUILDINGS/PARTS/BUILDABLEPARTS/UTILITYPARTS/", 	["GROUP_NAME"]="UBB-OTHER", ["SUBGROUP_NAME"]="BUILDINGS", ["OFFSET"]="0", ["ICON"]=BLDGICON },
 	{ ["ID_NAME"]="MODULE_DISTRIBUTOR", 	["PATH"]="MODELS/PLANETS/BIOMES/COMMON/BUILDINGS/PARTS/BUILDABLEPARTS/UTILITYPARTS/", 	["GROUP_NAME"]="UBB-OTHER", ["SUBGROUP_NAME"]="BUILDINGS", ["OFFSET"]="0", ["ICON"]=BLDGICON },
 	{ ["ID_NAME"]="MODULE_WINDTURBINE", 	["PATH"]="MODELS/PLANETS/BIOMES/COMMON/BUILDINGS/PARTS/BUILDABLEPARTS/UTILITYPARTS/", 	["GROUP_NAME"]="UBB-OTHER", ["SUBGROUP_NAME"]="BUILDINGS", ["OFFSET"]="0", ["ICON"]=BLDGICON },
@@ -844,15 +846,6 @@ BASEBUILDINGTABLE_ADDING =
       <Property name="PlacementScene" value="TkModelResource.xml">
         <Property name="Filename" value="]].. PATH .. ID_NAME ..[[_PLACEMENT.SCENE.MBIN" />
       </Property>
-      <Property name="SnapPoints" value="TkModelResource.xml">
-        <Property name="Filename" value="" />
-      </Property>
-      <Property name="Model" value="TkModelResource.xml">
-		<Property name="Filename" value="" />
-      </Property>
-      <Property name="InactiveModel" value="TkModelResource.xml">
-		<Property name="Filename" value="" />
-      </Property>
       <Property name="DecorationType" value="GcBaseBuildingObjectDecorationTypes.xml">
         <Property name="BaseBuildingDecorationType" value="Normal" />
       </Property>
@@ -874,7 +867,6 @@ BASEBUILDINGTABLE_ADDING =
       <Property name="PlanetBaseLimit" value="0" />
       <Property name="FreighterBaseLimit" value="0" />
       <Property name="CheckPlaceholderCollision" value="False" />
-      <Property name="CollisionScale" value="0.9" />
       <Property name="EnableCollision" value="True" />
       <Property name="OptionalPhysics" value="False" />
       <Property name="CanPlaceOnItself" value="True" />
@@ -895,13 +887,11 @@ BASEBUILDINGTABLE_ADDING =
       <Property name="CanChangeColour" value="True" />
       <Property name="CanChangeMaterial" value="True" />
       <Property name="CanPickUp" value="False" />
-      <Property name="ScanRadius" value="0" />
+      <Property name="ShowInBuildMenu" value="True" />
+      <Property name="CompositePartObjectIDs" />
       <Property name="RemovesAttachedDecoration" value="True" />
       <Property name="EditsTerrain" value="False" />
       <Property name="BaseTerrainEditShape" value="Cube" />
-      <Property name="TerrainEditBaseYOffset" value="0" />
-      <Property name="TerrainEditTopYOffset" value="0" />
-      <Property name="TerrainEditBoundsScalar" value="1" />
       <Property name="IsSealed" value="False" />
       <Property name="CloseMenuAfterBuild" value="False" />
       <Property name="LinkGridData" value="GcBaseLinkGridData.xml">
@@ -1355,7 +1345,7 @@ NMS_MOD_DEFINITION_CONTAINER =
 ["MOD_FILENAME"] 			= "0-UltraBaseBuilding.pak",
 ["MOD_AUTHOR"]				= "Mjjstral and Babscoole",
 ["Contributors"]			= "Ignacio and GhostRick",
-["NMS_VERSION"]				= "3.75",
+["NMS_VERSION"]				= "3.81",
 ["ADD_FILES"] = ADD_FILES_TABLE,
 ["MODIFICATIONS"] 			=
 	{
