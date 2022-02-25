@@ -8,7 +8,7 @@ NMS_MOD_DEFINITION_CONTAINER =
 ["MODIFICATIONS"] 			= 
 	{
 		{
-			["PAK_FILE_SOURCE"] 	= "NMSARC.59B126E2.pak",
+			--["PAK_FILE_SOURCE"] 	= "NMSARC.59B126E2.pak",
 			["MBIN_CHANGE_TABLE"] 	= 
 			{ 
 				{
@@ -24,39 +24,39 @@ NMS_MOD_DEFINITION_CONTAINER =
 								{"MaximumHeightWhenExitingShip", "2"},  --Original  5
 								{"OutpostDockSpeedAlignMinDistance", "1"},  --Original  100
 								{"OutpostDockSpeedAlignRange", "1000"},  --Original  300
-								{"WarpInTimeFreighter", "0.1"},  --Original  1
-								{"WarpInFlashTimeFreighter", "0.1"},  --Original  0.98
-								{"WarpInTime", "0.1"},  --Original  1
-								{"WarpOutTime", "0.1"},  --Original  1
-								{"WarpInTimeNexus", "0.1"},  --Original  1
-								{"WarpInFlashTimeNexus", "0.1"},  --Original  0.98
-								{"WarpNexusRotation", "0.1"},  --Original  15
-								{"WarpNexusPitch", "0.1"},  --Original  15
-								{"WarpNexusDistance", "-8000"},  --Original  -9000
-								--{"PulseDrivePlanetApproachHeight", "2000"},  --Original  6000
+								--{"WarpInTimeFreighter", "0.1"},  --Original  1
+								--{"WarpInFlashTimeFreighter", "0.1"},  --Original  0.98
+								--{"WarpInTime", "0.1"},  --Original  1
+								--{"WarpOutTime", "0.1"},  --Original  1
+								--{"WarpInTimeNexus", "0.1"},  --Original  1
+								--{"WarpInFlashTimeNexus", "0.1"},  --Original  0.98
+								--{"WarpNexusRotation", "0.1"},  --Original  15
+								--{"WarpNexusPitch", "0.1"},  --Original  15
+								--{"WarpNexusDistance", "-8000"},  --Original  -9000
+								--{"PulseDrivePlanetApproachHeight", "6000"},  --Original  6000
 								{"HoverMinSpeed", "0"},  --Original  1
 								{"LandingCheckBuildings", "false"},  --Original  true
 								{"LandingCheckBuildingsRadiusFactor", "0.75"},  --Original  1.1
 								{"AutoLevelWaterMargin", "-500"},  --Original  0.5
 								{"LandingButtonMinTime", "0.05"},  --Original  0.5
 								{"LockTargetMinDistance", "1"},  --Original  0.5
-								{"NoBoostStationDistance", "0.1"},  --Original  5
-								{"NoBoostAnomalyDistance", "0.1"},  --Original  10
-								{"NoBoostSpaceAnomalyDistance", "0.1"},  --Original  10
-								{"NoBoostFreighterDistance", "0.1"},  --Original  10
-								{"NoBoostShipNearMinTime", "0.1"},  --Original  5
-								{"NoBoostShipLastHitTime", "0.1"},  --Original  10
-								{"NoBoostCombatEventMinBattleTime", "0.1"},  --Original  35
-								{"NoBoostCombatEventMinFreighterBattleTime", "0.1"},  --Original  55
-								{"NoBoostCombatEventTime", "0.1"},  --Original  25
+								{"NoBoostStationDistance", "0"},  --Original  5
+								{"NoBoostAnomalyDistance", "0"},  --Original  10
+								{"NoBoostSpaceAnomalyDistance", "0"},  --Original  10
+								{"NoBoostFreighterDistance", "0"},  --Original  10
+								{"NoBoostShipNearMinTime", "0"},  --Original  5
+								{"NoBoostShipLastHitTime", "0"},  --Original  10
+								{"NoBoostCombatEventMinBattleTime", "0"},  --Original  35
+								{"NoBoostCombatEventMinFreighterBattleTime", "0"},  --Original  55
+								{"NoBoostCombatEventTime", "0"},  --Original  25
 								{"NormalModeTakeOffCostMultiplier", "0"},  --Original  1
 								{"SurvivalTakeOffCostMultiplier", "0"},  --Original  2
 								{"TakeOffCost", "0"},  --Original  100
 								{"MiniWarpFuelTime", "999999"},  --Original  0.5
-								{"MiniWarpChargeTime", "0.1"},  --Original  2
+								{"MiniWarpChargeTime", "0"},  --Original  2
 								{"MiniWarpSpeed", "99999"},  --Original  30000
-								{"MiniWarpTime", "0.1"},  --Original  10
-								{"MiniWarpCooldownTime",			"0.1"},	 --Original 2
+								{"MiniWarpTime", "0"},  --Original  10
+								{"MiniWarpCooldownTime",			"0"},	 --Original 2
 								{"LaserOverheatTime", "0"},  --Original  1
 								{"LaserOverheatDownTime", "0"},  --Original  0.6
 								{"LaserFireTime", "999"},  --Original  5
@@ -70,8 +70,7 @@ NMS_MOD_DEFINITION_CONTAINER =
 								{"AnomalyStationMaxApproachSpeed", "600"},  --Original  5
 								{"LandGroundTakeOffTime", "0.1"},  --Original  0.6
 								{"LandSlopeMax", "80"},  --Original 5
-								{"TragetLockChangeTime", "0.1"},  --Original  0.6
-								{"TargetLockChangeTime", "0.1"},  --Original  1
+								{"TargetLockChangeTime", "0"},  --Original  0.6
 								{"BoostChargeRate", "999"},  --Original  0.6
 								{"DamageMinHitTime", "0"},  --Original  1
 								{"DamageMaxHitTime", "1"},  --Original  0.6
@@ -80,7 +79,7 @@ NMS_MOD_DEFINITION_CONTAINER =
 								{"DockingRotateSpeedVR", "9"},  --Original  0.6
 								{"AtmosphereSpeed", "1000"},  --Original  100
 								{"FreighterSpeed", "99"},  --Original  25
-								{"ShipEnterRange", "700"},	 --Original 7
+								--{"ShipEnterRange", "700"},	 --Original 7
 								{"ShipEnterTransitionTime", "0.1"},	 --Original 0.3
 								{"ShipEnterSpeed", "99"},  --Original  15
 								{"ShipEnterMinTime", "0.05"},  --Original  0.5
@@ -94,9 +93,11 @@ NMS_MOD_DEFINITION_CONTAINER =
 							{
 								{"ThrustForce", "320"},  -- Original 40
 								{"MaxSpeed", "1440"},  -- Original 180
-								{"MinSpeed", "0"},  -- Original 1
+								{"MinSpeed", "-5"},  -- Original 1
+								{"Falloff",			"0"},		-- Original v1.24 "0.7", 	Original v1.77 "0.7"
 								{"BoostThrustForce", "4000"},  -- Original 500
 								{"BoostMaxSpeed", "9600"},  -- Original 1200	
+								{"BoostFalloff",			"0"},		-- Original v1.24 "0.7", 	Original v1.77 "0.7"
 							}
 						},
 						{
@@ -105,7 +106,7 @@ NMS_MOD_DEFINITION_CONTAINER =
 							{
 								{"ThrustForce", "160"},  -- Original 20
 								{"MaxSpeed", "1000"},  -- Original 125
-								{"MinSpeed", "0"},  -- Original 1
+								{"MinSpeed", "-5"},  -- Original 1
 								{"BoostThrustForce", "800"},  -- Original 100
 								{"BoostMaxSpeed", "1240"},  -- Original 155		
 							}
@@ -116,7 +117,7 @@ NMS_MOD_DEFINITION_CONTAINER =
 							{
 								{"ThrustForce", "320"},  -- Original 40
 								{"MaxSpeed", "1440"},  -- Original 80
-								{"MinSpeed", "0"},  -- Original 50
+								{"MinSpeed", "-5"},  -- Original 50
 								{"BoostThrustForce", "4000"},  -- Original 500
 								{"BoostMaxSpeed", "9600"},  -- Original 1200		
 							}
@@ -127,9 +128,12 @@ NMS_MOD_DEFINITION_CONTAINER =
 							{
 								{"ThrustForce", "320"},  -- Original 40
 								{"MaxSpeed", "1440"},  -- Original 125
-								{"MinSpeed", "0"},  -- Original 20
+								{"MinSpeed", "-5"},  -- Original 20
+								{"Falloff",			"0"},		-- Original v1.24 "0.7", 	Original v1.77 "0.7"
 								{"BoostThrustForce", "4000"},  -- Original 400
 								{"BoostMaxSpeed", "9600"},  -- Original 1300	
+								{"BoostFalloff",			"0"},		-- Original v1.24 "0.7", 	Original v1.77 "0.7"
+								
 							}
 						},
 						{
@@ -138,7 +142,7 @@ NMS_MOD_DEFINITION_CONTAINER =
 							{
 								{"ThrustForce", "160"},  -- Original 40
 								{"MaxSpeed", "1000"},  -- Original 125
-								{"MinSpeed", "0"},  -- Original 20
+								{"MinSpeed", "-5"},  -- Original 20
 								{"BoostThrustForce", "800"},  -- Original 200
 								{"BoostMaxSpeed", "1240"},  -- Original 150		
 							}
@@ -149,7 +153,7 @@ NMS_MOD_DEFINITION_CONTAINER =
 							{
 								{"ThrustForce", "320"},  -- Original 40
 								{"MaxSpeed", "1440"},  -- Original 125
-								{"MinSpeed", "0"},  -- Original 20
+								{"MinSpeed", "-5"},  -- Original 20
 								{"BoostThrustForce", "4000"},  -- Original 200
 								{"BoostMaxSpeed", "9600"},  -- Original 150		
 							}
@@ -160,9 +164,11 @@ NMS_MOD_DEFINITION_CONTAINER =
 							{
 								{"ThrustForce", "320"},  -- Original 40
 								{"MaxSpeed", "1440"},  -- Original 125
-								{"MinSpeed", "0"},  -- Original 20
+								{"MinSpeed", "-5"},  -- Original 20
+								{"Falloff",			"0"},		-- Original v1.24 "0.7", 	Original v1.77 "0.7"
 								{"BoostThrustForce", "4000"},  -- Original 200
 								{"BoostMaxSpeed", "9600"},  -- Original 150		
+								{"BoostFalloff",			"0"},		-- Original v1.24 "0.7", 	Original v1.77 "0.7"
 							}
 						},
 						{
@@ -171,7 +177,7 @@ NMS_MOD_DEFINITION_CONTAINER =
 							{
 								{"ThrustForce", "160"},  -- Original 20
 								{"MaxSpeed", "1000"},  -- Original 130
-								{"MinSpeed", "0"},  -- Original 20
+								{"MinSpeed", "-5"},  -- Original 20
 								{"BoostThrustForce", "800"},  -- Original 20
 								{"BoostMaxSpeed", "1240"},  -- Original 185		
 							}
@@ -182,7 +188,7 @@ NMS_MOD_DEFINITION_CONTAINER =
 							{
 								{"ThrustForce", "320"},  -- Original 40
 								{"MaxSpeed", "1440"},  -- Original 80
-								{"MinSpeed", "0"},  -- Original 50
+								{"MinSpeed", "-5"},  -- Original 50
 								{"BoostThrustForce", "4000"},  -- Original 500
 								{"BoostMaxSpeed", "9600"},  -- Original 1100		
 							}
