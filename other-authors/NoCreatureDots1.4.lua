@@ -2,13 +2,13 @@ NMS_MOD_DEFINITION_CONTAINER =
 {
 ["MOD_FILENAME"] 			= "NoCreatureDots.pak",
 ["MOD_AUTHOR"]				= "DeathWrench",
-["LUA_AUTHOR"]				= "Babscoole+DeathWrench+Gumsk",
+["LUA_AUTHOR"]				= "Babscoole+DeathWrench",
 ["NMS_VERSION"]				= "",
-["ADD_FILES"] = 
-{
-    {["FILE_DESTINATION"] = "NoCreatureDots.DDS",["EXTERNAL_FILE_SOURCE"]="NoCreatureDots.DDS",},
-	{["FILE_DESTINATION"] = "TEXTURES/UI/HUD/EYE.CREATURE.DDS",["EXTERNAL_FILE_SOURCE"]="NoCreatureDots.DDS",}, -- Comment this line instead of down below
-	{["FILE_DESTINATION"] = "TEXTURES/UI/HUD/ARROW.DANGER.DDS",["EXTERNAL_FILE_SOURCE"]="NoCreatureDots.DDS",}, -- You can also comment this line out (arrow for eye.creature.dds)
+["ADD_FILES"] = {
+    {
+        ["FILE_DESTINATION"]        = "NoCreatureDots.DDS",
+        ["EXTERNAL_FILE_SOURCE"]    = "NoCreatureDots.DDS",
+    },
 },  
 ["MODIFICATIONS"] 			= 
 	{
@@ -61,13 +61,13 @@ NMS_MOD_DEFINITION_CONTAINER =
 								{"Filename",	"NoCreatureDots.DDS"}, -- Original "TEXTURES/UI/HUD/ICONS/CREATUREFRIEND.DDS"
 							}
 						},	
-						-- { -- Do Not Edit This Part (It's just here for reference) 
-							-- ["PRECEDING_KEY_WORDS"] = "CreatureDanger", 
-							-- ["VALUE_CHANGE_TABLE"] 	= 
-							-- {
-								-- {"Filename",	"NoCreatureDots.DDS"}, -- Original "TEXTURES/UI/HUD/EYE.CREATURE.DDS"
-							-- }
-						-- }, -- Comment out this line instead: {["FILE_DESTINATION"]="TEXTURES/UI/HUD/EYE.CREATURE.DDS",["EXTERNAL_FILE_SOURCE"]="NoCreatureDots.DDS",},
+						{
+							["PRECEDING_KEY_WORDS"] = "CreatureDanger", 
+							["VALUE_CHANGE_TABLE"] 	= 
+							{
+								{"Filename",	"NoCreatureDots.DDS"}, -- Original "TEXTURES/UI/HUD/EYE.CREATURE.DDS"
+							}
+						},	
 						{
 							["PRECEDING_KEY_WORDS"] = "CreatureFiend", 
 							["VALUE_CHANGE_TABLE"] 	= 
