@@ -2,7 +2,7 @@ Author = "Gumsk"
 ModName = "GExos Challenge"
 ModNameSub = "gDamage"
 BaseDescription = "Damage adjustments"
-GameVersion = "382"
+GameVersion = "401"
 ModVersion = "a"
 
 FileSource = "METADATA\REALITY\TABLES\DAMAGETABLE.MBIN"
@@ -99,7 +99,7 @@ NMS_MOD_DEFINITION_CONTAINER = {
 		
 	{["SPECIAL_KEY_WORDS"] = {"Id","PLANTDMG"},
 	["VALUE_CHANGE_TABLE"] = {	
-		{"Damage", 100}}}, --default 20
+		{"Damage", 75}}}, --default 20
 		
 	{["SPECIAL_KEY_WORDS"] = {"Id","AISHIPGUN"},
 	["VALUE_CHANGE_TABLE"] = {	
@@ -125,11 +125,12 @@ NMS_MOD_DEFINITION_CONTAINER = {
 	["VALUE_CHANGE_TABLE"] = {	
 		{"Damage", 30}}}, --default 20
 		
-	{["SPECIAL_KEY_WORDS"] = {"Id","BOUNTYLASER2"},
-	["VALUE_CHANGE_TABLE"] = {	
-		{"Damage", 40}}}, --default 30
+	-- {["SPECIAL_KEY_WORDS"] = {"Id","BOUNTYLASER2"},
+	-- ["VALUE_CHANGE_TABLE"] = {	
+		-- {"Damage", 40}}}, --default 30
 		
 	{["SPECIAL_KEY_WORDS"] = {"Id","BOUNTYLASER3"},
+	["SECTION_ACTIVE"] = {1,2},
 	["VALUE_CHANGE_TABLE"] = {	
 		{"Damage", 60}}}, --default 50
 		
@@ -161,6 +162,10 @@ NMS_MOD_DEFINITION_CONTAINER = {
 	["VALUE_CHANGE_TABLE"] = {
 		{"Damage", 400}}},
 
+	{["SPECIAL_KEY_WORDS"] = {"Id","IMPACTSHIP"},
+	["VALUE_CHANGE_TABLE"] = {
+		{"Damage", 400}}},
+
 	{["SPECIAL_KEY_WORDS"] = {"Id","IMPACTGROUND"},
 	["VALUE_CHANGE_TABLE"] = {
 		{"Damage", 800}}},
@@ -179,7 +184,7 @@ NMS_MOD_DEFINITION_CONTAINER = {
 
 	{["SPECIAL_KEY_WORDS"] = {"Id","GASPLANT"},
 	["VALUE_CHANGE_TABLE"] = {	
-		{"Damage", 100}}}, --default 18
+		{"Damage", 75}}}, --default 18
 
 	{["SPECIAL_KEY_WORDS"] = {"Id","VENT_HEAT"},
 	["VALUE_CHANGE_TABLE"] = {	
@@ -211,11 +216,11 @@ NMS_MOD_DEFINITION_CONTAINER = {
 		
 	{["SPECIAL_KEY_WORDS"] = {"Id","CLAM_DMG"},
 	["VALUE_CHANGE_TABLE"] = {	
-		{"Damage", 100}}}, --default 35
+		{"Damage", 75}}}, --default 35
 		
 	{["SPECIAL_KEY_WORDS"] = {"Id","VENUSFLY_DMG"},
 	["VALUE_CHANGE_TABLE"] = {	
-		{"Damage", 100}}}, --default 20
+		{"Damage", 75}}}, --default 20
 		
 	{["SPECIAL_KEY_WORDS"] = {"Id","SCUTTLERSPITDMG"},
 	["VALUE_CHANGE_TABLE"] = {	
@@ -240,5 +245,9 @@ NMS_MOD_DEFINITION_CONTAINER = {
 	{["SPECIAL_KEY_WORDS"] = {"Id","MINIDRONE_DMG"},
 	["VALUE_CHANGE_TABLE"] = {	
 		{"Damage", 15}}}, --default 6
+
+	{["SPECIAL_KEY_WORDS"] = {"Id","PIRATERAID"},
+	["VALUE_CHANGE_TABLE"] = {	
+		{"Damage", 15}}}, --default 4
 
 }}}}}}

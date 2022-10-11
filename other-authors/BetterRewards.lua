@@ -33,8 +33,11 @@ NEXUS_UNITS_MULTI		= 5		-- Default value is 1 | Multiplys the amount of units yo
 NEXUS_NANITES_MULTI		= 5		-- Default value is 1 | Multiplys the amount of nanites you get from Nexus Missions
 NEXUS_PROD_MULTI		= 1		-- Default value is 1 | Multiplys the amount of products you get from Nexus Missions
 
+BOUNTY_UNITS_MULTI		= 5		-- Default value is 1 | Multiplys the amount of units you get from Bounty Board Missions (Pirate or outlaw run Space Stations)
+BOUNTY_NANITES_MULTI	= 5		-- Default value is 1 | Multiplys the amount of nanites you get from Bounty Board Missions (Pirate or outlaw run Space Stations)
+
 -- When learning words, you can choose to have a PERCENTAGE(%) chance at learning an Atlas word along with them (default value is 15%)
--- If you wish to learn Atlas words change the value to a number ranging from 1-100 in the following line (line 42): <Property name="PercentageChance" value="15" />
+-- If you wish to learn Atlas words change the value to a number ranging from 1-100 in the following line (line 45): <Property name="PercentageChance" value="15" />
 -- Edit the value in the double bracket -> [[ ]] <- section below!! ----> <Property name="PercentageChance" value="15" /> <---- edit this "15", the " " must stay!!
 
 ATLAS_WORD = [[
@@ -45,8 +48,8 @@ ATLAS_WORD = [[
                 <Property name="AlienRace" value="Atlas" />
               </Property>
               <Property name="UseCategory" value="False" />
-              <Property name="Category" value="GcWordCategoryTableEnum.xml">
-                <Property name="gcwordcategorytableEnum" value="MISC" />
+              <Property name="Category" value="WordCategoryTableEnum.xml">
+                <Property name="wordcategorytableEnum" value="MISC" />
               </Property>
               <Property name="AmountMin" value="1" />
               <Property name="AmountMax" value="1" />
@@ -68,8 +71,8 @@ MISC_WORD =
                 <Property name="AlienRace" value="None" />
               </Property>
               <Property name="UseCategory" value="False" />
-              <Property name="Category" value="GcWordCategoryTableEnum.xml">
-                <Property name="gcwordcategorytableEnum" value="MISC" />
+              <Property name="Category" value="WordCategoryTableEnum.xml">
+                <Property name="wordcategorytableEnum" value="MISC" />
               </Property>
               <Property name="AmountMin" value="1" />
               <Property name="AmountMax" value="1" />
@@ -87,8 +90,8 @@ ATLAS_WORD_FULL =
                 <Property name="AlienRace" value="Atlas" />
               </Property>
               <Property name="UseCategory" value="False" />
-              <Property name="Category" value="GcWordCategoryTableEnum.xml">
-                <Property name="gcwordcategorytableEnum" value="MISC" />
+              <Property name="Category" value="WordCategoryTableEnum.xml">
+                <Property name="wordcategorytableEnum" value="MISC" />
               </Property>
               <Property name="AmountMin" value="1" />
               <Property name="AmountMax" value="1" />
@@ -105,7 +108,7 @@ NMS_MOD_DEFINITION_CONTAINER =
 {
 ["MOD_FILENAME"] 	= "BetterRewards.pak",
 ["MOD_AUTHOR"]		= "MrTrack",
-["NMS_VERSION"]		= "3.84",
+["NMS_VERSION"]		= "3.98",
 ["MODIFICATIONS"] 	=
 	{
 		{
@@ -362,7 +365,31 @@ NMS_MOD_DEFINITION_CONTAINER =
 								{"AmountMax",	NANITES_MULTI}
 							}
 						},
-
+						
+						{
+							["SPECIAL_KEY_WORDS"]	= {"Id", "R_PIRATEBOARD_B", "Currency", "Units"},
+							["SECTION_UP"]			= 1,
+							["MATH_OPERATION"] 		= "/",
+							["REPLACE_TYPE"] 		= "ALL",
+							["VALUE_CHANGE_TABLE"] 	=
+							{
+								{"AmountMin",	UNITS_MULTI},
+								{"AmountMax",	UNITS_MULTI}
+							}
+						},
+						
+						{
+							["SPECIAL_KEY_WORDS"]	= {"Id", "R_PIRATEBOARD_B", "Currency", "Nanites"},
+							["SECTION_UP"]			= 1,
+							["MATH_OPERATION"] 		= "/",
+							["REPLACE_TYPE"] 		= "ALL",
+							["VALUE_CHANGE_TABLE"] 	=
+							{
+								{"AmountMin",	NANITES_MULTI},
+								{"AmountMax",	NANITES_MULTI}
+							}
+						},
+						
 -----------------------------------------------------------------------------------------------------
 --------------------------------------------- RESOURCES ---------------------------------------------
 -----------------------------------------------------------------------------------------------------
@@ -600,6 +627,30 @@ NMS_MOD_DEFINITION_CONTAINER =
 							{
 								{"AmountMin",	NEXUS_NANITES_MULTI},
 								{"AmountMax",	NEXUS_NANITES_MULTI}
+							}
+						},
+						
+						{
+							["SPECIAL_KEY_WORDS"]	= {"Id", "R_PIRATEBOARD_B", "Currency", "Units"},
+							["SECTION_UP"]			= 1,
+							["MATH_OPERATION"] 		= "*",
+							["REPLACE_TYPE"] 		= "ALL",
+							["VALUE_CHANGE_TABLE"] 	=
+							{
+								{"AmountMin",	BOUNTY_UNITS_MULTI},
+								{"AmountMax",	BOUNTY_UNITS_MULTI}
+							}
+						},
+						
+						{
+							["SPECIAL_KEY_WORDS"]	= {"Id", "R_PIRATEBOARD_B", "Currency", "Nanites"},
+							["SECTION_UP"]			= 1,
+							["MATH_OPERATION"] 		= "*",
+							["REPLACE_TYPE"] 		= "ALL",
+							["VALUE_CHANGE_TABLE"] 	=
+							{
+								{"AmountMin",	BOUNTY_NANITES_MULTI},
+								{"AmountMax",	BOUNTY_NANITES_MULTI}
 							}
 						},
 						

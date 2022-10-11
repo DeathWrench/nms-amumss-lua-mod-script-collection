@@ -1,4 +1,3 @@
-GameVersion = "3_84"
 ModName = "FuelEconomy"
 Author = "Jackty89"
 
@@ -74,7 +73,7 @@ NewRecipes =
     },
     {
         -- D + D => 2T
-        "Trit_3D",
+        "Trit_2D",
         SubstanceIds[1],
         {
             {SubstanceIds[2], "1", SubstanceOrProduct[1]},
@@ -179,10 +178,9 @@ end
 
 NMS_MOD_DEFINITION_CONTAINER =
 {
-    ["MOD_FILENAME"]            = ModName..GameVersion..".pak",
+    ["MOD_FILENAME"]            = ModName..".pak",
     ["MOD_DESCRIPTION"]         = ModName,
     ["MOD_AUTHOR"]              = Author,
-    ["NMS_VERSION"]             = GameVersion,
     ["MODIFICATIONS"]           =
     {
         {

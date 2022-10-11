@@ -1,24 +1,24 @@
 NMS_MOD_DEFINITION_CONTAINER = 
 {
-["MOD_FILENAME"] 			= "z-SavegameByHotkey-Org.pak",
-["MOD_AUTHOR"]				= "Mjjstral",
-["MOD_MAINTENANCE"]		= "Babscoole",
-["MOD_DESCRIPTION"]			= "Enable hotkey saving (quick action emote menu)",
-["NMS_VERSION"]				= "3.84",
-["MODIFICATIONS"] 			= 
+["MOD_FILENAME"]    = "z-SavegameByHotkey-Org.pak",
+["MOD_AUTHOR"]      = "Mjjstral",
+["MOD_MAINTENANCE"] = "Babscoole",
+["MOD_DESCRIPTION"] = "Enable hotkey saving (quick action emote menu)",
+["NMS_VERSION"]     = "4.00",
+["MODIFICATIONS"]   = 
 	{
 		{
-			["MBIN_CHANGE_TABLE"] 	= 
+			["MBIN_CHANGE_TABLE"] = 
 			{  
 				{
-					["MBIN_FILE_SOURCE"] 	= "MODELS\COMMON\PLAYER\PLAYERCHARACTER\PLAYERCHARACTER\ENTITIES\PLAYERCHARACTER.ENTITY.MBIN",
-					["EXML_CHANGE_TABLE"] 	= 
+					["MBIN_FILE_SOURCE"]  = "MODELS\COMMON\PLAYER\PLAYERCHARACTER\PLAYERCHARACTER\ENTITIES\PLAYERCHARACTER.ENTITY.MBIN",
+					["EXML_CHANGE_TABLE"] = 
 					{
 						{
-							["SPECIAL_KEY_WORDS"]   = {"Anim","JETPACK_CLOSE",},						
-							["LINE_OFFSET"] 		= "+0",
-							["REPLACE_TYPE"]        = "ADDAFTERSECTION",
-							["ADD"] 				= 
+							["SPECIAL_KEY_WORDS"] = {"Anim","0H_GREET_MOB_04"}, 
+							["SECTION_ACTIVE"]    = {2,},
+							["ADD_OPTION"]        = "ADDafterSECTION",
+							["ADD"] = 
 [[
         <Property value="TkAnimationData.xml">
           <Property name="Anim" value="SAVEGAME" />
@@ -47,13 +47,12 @@ NMS_MOD_DEFINITION_CONTAINER =
             <Property name="BlockPlayerWeapon" value="Unblocked" />
           </Property>
         </Property>
-]]
-							
+]]				
 						},
 						{
-							["PRECEDING_KEY_WORDS"] = {"LodDistances"}, 
-							["LINE_OFFSET"] 		= "-2",
-							["ADD"] 				= 
+							["PRECEDING_KEY_WORDS"] = {"GcPlayerEffectsComponentData.xml"}, 
+							["ADD_OPTION"]        = "ADDafterSECTION",
+							["ADD"] = 
 [[
     <Property value="GcSimpleInteractionComponentData.xml">
       <Property name="SimpleInteractionType" value="Save" />
@@ -85,9 +84,10 @@ NMS_MOD_DEFINITION_CONTAINER =
         <Property name="Cost" value="0" />
         <Property name="Repeat" value="False" />
         <Property name="RequiredTech" value="" />
+        <Property name="OnlyChargeDuringSeasons" />
       </Property>
       <Property name="StatToTrack" value="GcStatsEnum.xml">
-        <Property name="GcStatEnum" value="None" />
+        <Property name="StatEnum" value="None" />
       </Property>
       <Property name="StartsBuried" value="False" />
       <Property name="MustBeVisibleToInteract" value="False" />
@@ -130,6 +130,7 @@ NMS_MOD_DEFINITION_CONTAINER =
               <Property name="Event" value="GcStateTimeEvent.xml">
                 <Property name="Seconds" value="0" />
                 <Property name="RandomSeconds" value="0" />
+                <Property name="UseMissionClock" value="False" />				
               </Property>		  
               <Property name="Action">
                 <Property value="GcGoToStateAction.xml">
@@ -148,6 +149,7 @@ NMS_MOD_DEFINITION_CONTAINER =
               <Property name="Event" value="GcStateTimeEvent.xml">
                 <Property name="Seconds" value="0" />
                 <Property name="RandomSeconds" value="0" />
+                <Property name="UseMissionClock" value="False" />				
               </Property>
               <Property name="Action">
                 <Property value="GcPlayAudioAction.xml">
@@ -195,13 +197,13 @@ NMS_MOD_DEFINITION_CONTAINER =
 					}
 				},
 				{
-					["MBIN_FILE_SOURCE"] 	= "METADATA\UI\EMOTEMENU.MBIN",
-					["EXML_CHANGE_TABLE"] 	= 
+					["MBIN_FILE_SOURCE"]  = "METADATA\UI\EMOTEMENU.MBIN",
+					["EXML_CHANGE_TABLE"] = 
 					{
 						{
 							["PRECEDING_KEY_WORDS"] = {"Emotes"}, 
-							["LINE_OFFSET"] 		= "+0",
-							["ADD"] 				= 
+							["LINE_OFFSET"]         = "+0",
+							["ADD"] = 
 [[
     <Property value="GcPlayerEmote.xml">
       <Property name="Title" value="Save" />

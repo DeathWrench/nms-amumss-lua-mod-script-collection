@@ -2,11 +2,12 @@ NMS_MOD_DEFINITION_CONTAINER =
 {
 ["MOD_FILENAME"] 			= "_MOD_NoRandomSentinels_NoPirates_Ultimate.pak",
 ["MOD_AUTHOR"]				= "Mjjstral",
+["LUA_AUTHOR"]			= "Babscoole",
+["MOD_UPLOADER"]			= "NooBzPoWaH",
 ["NMS_VERSION"]				= "3.+",
 ["MODIFICATIONS"] 			= 
 	{
 		{
-			["PAK_FILE_SOURCE"] 	= "NMSARC.86055253.pak",
 			["MBIN_CHANGE_TABLE"] 	= 
 			{ 
 				{
@@ -31,7 +32,7 @@ NMS_MOD_DEFINITION_CONTAINER =
           <Property name="StateID" value="BOOT" />
           <Property name="Triggers">
             <Property value="GcActionTrigger.xml">
-              <Property name="Trigger" value="GcStateTimeEvent.xml">
+              <Property name="Event" value="GcStateTimeEvent.xml">
                 <Property name="Seconds" value="0" />
                 <Property name="RandomSeconds" value="0" />
               </Property>
@@ -101,7 +102,6 @@ NMS_MOD_DEFINITION_CONTAINER =
 			}
 		},
 		{
-			["PAK_FILE_SOURCE"] 	= "NMSARC.59B126E2.pak",
 			["MBIN_CHANGE_TABLE"] 	= 
 			{ 
 				{
@@ -121,7 +121,6 @@ NMS_MOD_DEFINITION_CONTAINER =
 			}
 		},
 		{
-			["PAK_FILE_SOURCE"] 	= "NMSARC.515F1D3.pak",
 			["MBIN_CHANGE_TABLE"] 	= 
 			{ 
 				{
@@ -149,7 +148,6 @@ NMS_MOD_DEFINITION_CONTAINER =
 			}
 		},
 		{
-			["PAK_FILE_SOURCE"] 	= "NMSARC.4C482859.pak",
 			["MBIN_CHANGE_TABLE"] 	= 
 			{
 				{
@@ -159,22 +157,22 @@ NMS_MOD_DEFINITION_CONTAINER =
 						{
 							["PRECEDING_KEY_WORDS"] = {"Pirate"},
 							["VALUE_MATCH"]			= "MODELS/COMMON/SPACECRAFT/FIGHTERS/FIGHTER_PROC.SCENE.MBIN",
-							["VALUE_CHANGE_TABLE"] 	= {{"File", ""}}
+							["VALUE_CHANGE_TABLE"] 	= {{"Filename", ""}}
 						},
 						{
 							["PRECEDING_KEY_WORDS"] = {"Pirate"},
 							["VALUE_MATCH"]			= "MODELS/COMMON/SPACECRAFT/DROPSHIPS/DROPSHIP_PROC.SCENE.MBIN",
-							["VALUE_CHANGE_TABLE"] 	= {{"File", ""}}
+							["VALUE_CHANGE_TABLE"] 	= {{"Filename", ""}}
 						},
 						{
 							["PRECEDING_KEY_WORDS"] = {"Pirate"},
 							["VALUE_MATCH"]			= "MODELS/COMMON/SPACECRAFT/SCIENTIFIC/SCIENTIFIC_PROC.SCENE.MBIN",
-							["VALUE_CHANGE_TABLE"] 	= {{"File", ""}}
+							["VALUE_CHANGE_TABLE"] 	= {{"Filename", ""}}
 						},
 						{
 							["PRECEDING_KEY_WORDS"] = {"Pirate"},
 							["VALUE_MATCH"]			= "MODELS/COMMON/SPACECRAFT/SHUTTLE/SHUTTLE_PROC.SCENE.MBIN",
-							["VALUE_CHANGE_TABLE"] 	= {{"File", ""}}
+							["VALUE_CHANGE_TABLE"] 	= {{"Filename", ""}}
 						}
 					}
 				}

@@ -6,46 +6,46 @@ local desc = [[
 ]]----------------------------------------------------------
 
 NMS_MOD_DEFINITION_CONTAINER = {
-	MOD_FILENAME 		= '__GC VEHICLE.pak',
-	MOD_AUTHOR			= 'lMonk',
-	NMS_VERSION			= 3.75,
-	MOD_BATCHNAME		= '_GLOBALS ~@~collection.pak',
-	MOD_DESCRIPTION		= desc,
-	MODIFICATIONS 		= {{
-	MBIN_CHANGE_TABLE	= {
+	MOD_FILENAME 			= '__GC VEHICLE.pak',
+	MOD_AUTHOR				= 'lMonk',
+	NMS_VERSION				= 3.99,
+	MOD_DESCRIPTION			= desc,
+	GLOBAL_INTEGER_TO_FLOAT = 'Force',
+	MODIFICATIONS 			= {{
+	MBIN_CHANGE_TABLE		= {
 	{
 		MBIN_FILE_SOURCE	= 'GCVEHICLEGLOBALS.GLOBAL.MBIN',
 		EXML_CHANGE_TABLE	= {
 			{
 				MATH_OPERATION 		= '+',
-				INTEGER_TO_FLOAT	= 'FORCE',
 				VALUE_CHANGE_TABLE 	= {
-					{'MechLandBrake',				1},		-- 4
-					{'MechJetpackLandTime',			-0.2},	-- 0.6
-					{'MechTurnSpeed',				-0.8},	-- 1.5
-					{'MechJetpackTurnSpeed',		-1.8},	-- 3
-					{'MechJetpackStrafeStrength',	1.6},	-- 0.5
-					{'MechJetpackForce',			8},		-- 70
-					{'MechJetpackMaxSpeed',			20},	-- 20
-					{'MechJetpackMaxUpSpeed',		8},		-- 20
-					{'MechJetpackFallForce',		-24},	-- 80
-					{'MechTitanFallCameraShakeDist',-34},	-- 80
-					{'MechLandCameraShakeDist',		-16},	-- 40
-					{'ExitStopTime',				1.5},	-- 0.5
-					{'ExitStopForce',				-40},	-- 50
-					{'SubmarineEjectRadius',		-1.8},	-- 1.8 -- stand on top
-					{'SubmarineEjectDownOffset',	3},		-- -2
-					{'MiningLaserRadius', 			-0.5},	-- 1.3
-					{'VehicleMaxSummonDistance',	4000},	-- 50
-					{'SpawnRotation',				-40},	-- 10
-					{'MechSpawnRotation',			-40},	-- 190
-
+					-- {'MechAIResummonTriggerDistance',	105},	-- 100
+					-- {'MechAIResummonMinSpawnDistance',	10},	-- 10
+					{'MechJetpackTurnSpeed',			-1.2},	-- 3
+					{'MechLandBrake',					1},		-- 4
+					{'MechJetpackStrafeStrength',		1.4},	-- 0.5
+					{'MechJetpackLandTime',				-0.2},	-- 0.6
+					{'MechJetpackForce',				8},		-- 70
+					{'MechJetpackMaxSpeed',				20},	-- 20
+					{'MechJetpackMaxUpSpeed',			8},		-- 20
+					{'MechJetpackFallForce',			-22},	-- 80
+					{'MechPlayerGroundTurnSpeed',		0.2},	-- 0.5
+					{'MechTitanFallCameraShakeDist',	-34},	-- 80
+					{'MechLandCameraShakeDist',			-16},	-- 40
+					{'ExitStopTime',					1.5},	-- 0.5
+					{'ExitStopForce',					-40},	-- 50
+					{'SubmarineEjectRadius',			-1.8},	-- 1.8 -- stand on top
+					{'SubmarineEjectDownOffset',		3},		-- -2
+					{'UnderwaterFlattenMinDepth',		-2},	-- 1
+					{'MiningLaserRadius', 				-0.5},	-- 1.3
+					-- {'VehicleMaxSummonDistance',		4000},	-- 50
+					{'SpawnRotation',					-40},	-- 10
+					{'MechSpawnRotation',				-40},	-- 190
 				}
 			},
 			{
-				REPLACE_TYPE 		= 'ALL',
+				REPLACE_TYPE 		= 'All',
 				MATH_OPERATION 		= '*',
-				INTEGER_TO_FLOAT	= 'FORCE',
 				VALUE_CHANGE_TABLE 	= {
 					{'VehicleBoostMaxSpeed', 		1.24},
 					{'VehicleBoostTime', 			1.6},
@@ -56,7 +56,6 @@ NMS_MOD_DEFINITION_CONTAINER = {
 			},
 			{
 				MATH_OPERATION 		= '+',
-				INTEGER_TO_FLOAT	= 'FORCE',
 				SPECIAL_KEY_WORDS	= {'Name', 'BIKE'},
 				VALUE_CHANGE_TABLE 	= {
 					{'VehicleGravity',				0.5},	-- 17.5
@@ -68,7 +67,6 @@ NMS_MOD_DEFINITION_CONTAINER = {
 			},
 			{
 				MATH_OPERATION 		= '+',
-				INTEGER_TO_FLOAT	= 'FORCE',
 				SPECIAL_KEY_WORDS	= {'Name', 'MED_BUGGY'},
 				VALUE_CHANGE_TABLE 	= {
 					{'TopSpeedForward', 			1},		-- 16
@@ -79,7 +77,6 @@ NMS_MOD_DEFINITION_CONTAINER = {
 			},
 			{
 				MATH_OPERATION 		= '+',
-				INTEGER_TO_FLOAT	= 'FORCE',
 				SPECIAL_KEY_WORDS	= {'Name', 'TRUCK'},
 				VALUE_CHANGE_TABLE 	= {
 					{'TopSpeedForward', 			2},		-- 12
@@ -92,7 +89,6 @@ NMS_MOD_DEFINITION_CONTAINER = {
 			},
 			{
 				MATH_OPERATION 		= '+',
-				INTEGER_TO_FLOAT	= 'FORCE',
 				SPECIAL_KEY_WORDS	= {'Name', 'WHEELEDBIKE'},
 				VALUE_CHANGE_TABLE 	= {
 					{'VehicleGravity',				2},		-- 20
@@ -117,10 +113,9 @@ NMS_MOD_DEFINITION_CONTAINER = {
 			},
 			{
 				MATH_OPERATION 		= '+',
-				INTEGER_TO_FLOAT	= 'FORCE',
 				SPECIAL_KEY_WORDS	= {'Name', 'MECH'},
 				VALUE_CHANGE_TABLE 	= {
-					{'TopSpeedForward', 			2.5}	-- 2
+					{'TopSpeedForward', 			1.6}	-- 2
 				}
 			}
 		}

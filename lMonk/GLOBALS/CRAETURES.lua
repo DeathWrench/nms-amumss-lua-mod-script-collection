@@ -10,8 +10,7 @@ local desc = [[
 NMS_MOD_DEFINITION_CONTAINER = {
 	MOD_FILENAME 		= '__GC CRAETURES.pak',
 	MOD_AUTHOR			= 'lMonk',
-	NMS_VERSION			= 3.75,
-	MOD_BATCHNAME		= '_GLOBALS ~@~collection.pak',
+	NMS_VERSION			= 3.99,
 	MOD_DESCRIPTION		= desc,
 	MODIFICATIONS 		= {{
 	MBIN_CHANGE_TABLE	= {
@@ -19,7 +18,7 @@ NMS_MOD_DEFINITION_CONTAINER = {
 		MBIN_FILE_SOURCE	= 'GCCREATUREGLOBALS.MBIN',
 		EXML_CHANGE_TABLE	= {
 			{
-				INTEGER_TO_FLOAT	= 'FORCE',
+				INTEGER_TO_FLOAT	= 'Force',
 				VALUE_CHANGE_TABLE 	= {
 					{'SandWormJumpHeight',				700},	-- 120 --> 700
 					{'SandWormSubmergeDepth',			-500},	-- 100 --> 400
@@ -27,7 +26,7 @@ NMS_MOD_DEFINITION_CONTAINER = {
 			},
 			{
 				MATH_OPERATION 		= '+',
-				INTEGER_TO_FLOAT	= 'FORCE',
+				INTEGER_TO_FLOAT	= 'Force',
 				VALUE_CHANGE_TABLE 	= {
 					{'RepelRange',						-3},	-- 5
 					{'WeaponRepelRange',				-16},	-- 18
@@ -45,22 +44,26 @@ NMS_MOD_DEFINITION_CONTAINER = {
 					{'SandWormSpawnChanceMin',			0.07},	-- 0.01
 					{'SandWormSpawnChanceMax',			0.05},	-- 0.2
 					{'SpawnOnscreenDist',				20},	-- 100
-					{'RidingTurnRadiusMultiplier',		-0.4},	-- 1
+					-- {'RidingTurnRadiusMultiplier',		-0.4},	-- 1
 					{'FadeDistance',					20},	-- 10
 					{'MinFade',							25},	-- 30
-					-- {'CreatureRidingMedMinSize',		-2},	-- 5
-					-- {'CreatureRidingLargeMinSize',		-4},	-- 12
-					-- {'CreatureRidingHugeMinSize',		-8},	-- 20
 					{'RideSpeedSlow', 					0.7},	-- 0.5
 					{'RideSpeedFast',					1},		-- 2
-					-- {'TurnRadiusMultiplier',			-0.2},	-- 1
-					-- {'PetMaxTurnRad',					-0.3},	-- 1
 					{'PetMaxSizeOffPlanet',				3},		-- 1
-					{'PetTeleportDistOnPlanet',			-30},	-- 150
+					{'PetTeleportDistOnPlanet',			10},	-- 150
+					{'PetWalkAtHeelChanceDevoted',		-0.4},	-- 0.9
+					{'PetWalkAtHeelChanceIndependent',	-0.05},	-- 0.1
+					{'PetWalkAtHeelDistMin',			4},		-- 0
+					{'PetWalkAtHeelDistMax',			6},		-- 4
+					{'PetRunAtHeelDistMin', 			5},		-- 11
+					{'PetRunAtHeelDistMax',				6},		-- 20
+					{'PetFollowRunPlayerDistance',		12},	-- 4
+					{'PetFollowRange',					8},		-- 2
+					{'PetAnimSpeedMax',					-0.5},	-- 1.5
 				}
 			},
 			{
-				INTEGER_TO_FLOAT	= 'FORCE',
+				INTEGER_TO_FLOAT	= 'Force',
 				PRECEDING_KEY_WORDS = 'PetOffPlanetEffect',
 				VALUE_CHANGE_TABLE 	= {
 					{'R',			0.2},
@@ -71,7 +74,7 @@ NMS_MOD_DEFINITION_CONTAINER = {
 			},
 			{
 				MATH_OPERATION 		= '*',
-				INTEGER_TO_FLOAT	= 'PRESERVE',
+				INTEGER_TO_FLOAT	= 'Preserve',
 				VALUE_CHANGE_TABLE 	= {
 					{'CreatureHarvestAmountSmall',		2}, 	-- 1
 					{'CreatureHarvestAmountMed',		2}, 	-- 1

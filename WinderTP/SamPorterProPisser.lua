@@ -110,7 +110,7 @@ MATERIAL_PATH["MBIN"] = ROOT_PATH .. MATERIAL_PATH["EXML"] .. ".MBIN"
 MATERIAL_PATH["EXML"] = ROOT_PATH .. MATERIAL_PATH["EXML"] .. ".EXML"
 for i=1, #PARTICLE_PATH, 1 do
 PARTICLE_PATH[i]["MBIN"] = ROOT_PATH .. PARTICLE_PATH[i]["EXML"] .. ".MBIN"
-PARTICLE_PATH[i]["MXML"] = ROOT_PATH .. PARTICLE_PATH[i]["EXML"] .. ".MXML"
+PARTICLE_PATH[i]["MXML"] = ROOT_PATH .. PARTICLE_PATH[i]["EXML"] .. ".MBIN"
 PARTICLE_PATH[i]["EXML"] = ROOT_PATH .. PARTICLE_PATH[i]["EXML"] .. ".EXML"
 end
 
@@ -235,10 +235,47 @@ function GetParticleFile(E_RATE, E_LIFE, E_MID, E_SPREAD, E_SPREAD_MIN, E_D_X, E
 return [[
 <?xml version="1.0" encoding="utf-8"?>
 <Data template="TkParticleData">
+  <Property name="AudioEvent" value="0" />
   <Property name="StartEnabled" value="True" />
   <Property name="Oneshot" value="False" />
   <Property name="MaxCount" value="]] .. P_MAX .. [[" />
-  <Property name="Burst" value="0" />
+  <Property name="BurstData" value="TkParticleBurstData.xml">
+    <Property name="BurstAmount" value="TkEmitterFloatProperty.xml">
+      <Property name="Authoring" value="FixedValue" />
+      <Property name="FixedValue" value="0" />
+      <Property name="MinRandomValue" value="0.1" />
+      <Property name="MaxRandomValue" value="1" />
+      <Property name="CurveVariation" value="0" />
+      <Property name="CurveStartValue" value="1" />
+      <Property name="CurveMidValue" value="1" />
+      <Property name="CurveEndValue" value="1" />
+      <Property name="CurveBlendMidpoint" value="0.5" />
+      <Property name="Curve1Shape" value="TkCurveType.xml">
+        <Property name="Curve" value="Linear" />
+      </Property>
+      <Property name="Curve2Shape" value="TkCurveType.xml">
+        <Property name="Curve" value="Linear" />
+      </Property>
+    </Property>
+    <Property name="BurstInterval" value="TkEmitterFloatProperty.xml">
+      <Property name="Authoring" value="FixedValue" />
+      <Property name="FixedValue" value="1" />
+      <Property name="MinRandomValue" value="0.1" />
+      <Property name="MaxRandomValue" value="1" />
+      <Property name="CurveVariation" value="0" />
+      <Property name="CurveStartValue" value="1" />
+      <Property name="CurveMidValue" value="1" />
+      <Property name="CurveEndValue" value="1" />
+      <Property name="CurveBlendMidpoint" value="0.5" />
+      <Property name="Curve1Shape" value="TkCurveType.xml">
+        <Property name="Curve" value="Linear" />
+      </Property>
+      <Property name="Curve2Shape" value="TkCurveType.xml">
+        <Property name="Curve" value="Linear" />
+      </Property>
+    </Property>
+    <Property name="LoopCount" value="0" />
+  </Property>
   <Property name="EmissionRate" value="TkEmitterFloatProperty.xml">
     <Property name="Authoring" value="FixedValue" />
     <Property name="FixedValue" value="]] .. E_RATE .. [[" />
@@ -499,6 +536,8 @@ return [[
       <Property name="Curve" value="Linear" />
     </Property>
   </Property>
+  <Property name="OnRefractionsDisabled" value="Hide" />
+  <Property name="FadeRefractionsAtScreenEdge" value="False" />
   <Property name="UserColour" value="" />
   <Property name="MaxRenderDistance" value="0" />
   <Property name="MaxSpawnDistance" value="0" />

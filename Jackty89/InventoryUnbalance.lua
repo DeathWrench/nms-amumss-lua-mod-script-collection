@@ -1,5 +1,5 @@
 ModName = "InventoryUnbalance"
-GameVersion = "3_80"
+FilePath = {"METADATA\\GAMESTATE\\DEFAULTINVENTORYBALANCE.MBIN", "METADATA\\GAMESTATE\\DEFAULTINVENTORYBALANCESURVIVAL.MBIN"}
 
 --NORMAL
 SubstanceDefaultStackSizeNormal = "50000"	-- Stacksize of substances (Original 9999)
@@ -10,30 +10,29 @@ StackMultiPlierFreighterAndCargoNormal = "2" -- 100 000 and 5000 after multiplie
 
 RefundNormal = "1"  -- Refund from base Deconstruct (Original 0.5). This will give you a 100% refund
 
--- ExoSuit Tech Slot 8 x 6 = 48
-TechWidthNormal = "8" -- Tech slots increase 
+--ExoSuit Tech Slot 8 x 6 = 48
+TechWidthNormal = "8" -- Tech slots increase
 TechHeightNormal = "6" -- Tech slots increase
 
 SubstanceAndProcductStackSizeLimit = "9999999" -- (Original 9999)
 
-NMS_MOD_DEFINITION_CONTAINER = 
+NMS_MOD_DEFINITION_CONTAINER =
 {
-  ["MOD_FILENAME"] 			= ModName..GameVersion..".pak",
-  ["MOD_DESCRIPTION"]		= "Unbalance of InvetorySize and Deconstruction cost",         
-  ["MOD_AUTHOR"]			= "Jackty89",         
-  ["NMS_VERSION"]			= GameVersion,     
-  ["MODIFICATIONS"] 		= 
+  ["MOD_FILENAME"] 			= ModName..".pak",
+  ["MOD_DESCRIPTION"]		= "Unbalance of InvetorySize and Deconstruction cost",
+  ["MOD_AUTHOR"]			= "Jackty89",
+  ["MODIFICATIONS"] 		=
     {
 	    {
-			["MBIN_CHANGE_TABLE"] 	= 
-			{ 
+			["MBIN_CHANGE_TABLE"] 	=
+			{
 				{
-					["MBIN_FILE_SOURCE"] 	= {"METADATA\GAMESTATE\DEFAULTINVENTORYBALANCE.MBIN", "METADATA\GAMESTATE\DEFAULTINVENTORYBALANCESURVIVAL.MBIN"},
-					["EXML_CHANGE_TABLE"] 	= 
+					["MBIN_FILE_SOURCE"] 	= FilePath,
+					["EXML_CHANGE_TABLE"] 	=
 					{
 						{
 							["PRECEDING_KEY_WORDS"] = "",
-							["VALUE_CHANGE_TABLE"] 	= 
+							["VALUE_CHANGE_TABLE"] 	=
 							{
 								{"DefaultSubstanceMaxAmount",			        SubstanceDefaultStackSizeNormal},
 								{"DefaultProductMaxAmount",                     ProductDefaultStackSizeNormal},
@@ -58,7 +57,7 @@ NMS_MOD_DEFINITION_CONTAINER =
 								{"SubstanceMaxAmountLimit",                     SubstanceAndProcductStackSizeLimit},
 								{"ProductMaxAmountLimit",                       SubstanceAndProcductStackSizeLimit},
 								{"PlayerPersonalInventoryTechWidth",            TechWidthNormal},
-                                {"PlayerPersonalInventoryTechHeight",           TechHeightNormal},	
+                                {"PlayerPersonalInventoryTechHeight",           TechHeightNormal},
 								{"DeconstructRefundPercentage",                 RefundNormal}
 							}
 						}

@@ -2,7 +2,7 @@ Author = "Gumsk"
 ModName = "gCreatures Sandworms"
 ModNameSub = "More"
 BaseDescription = "More Sandworms"
-GameVersion = "382"
+GameVersion = "401"
 ModVersion = "a"
 FileSource1 = "METADATA\SIMULATION\ECOSYSTEM\CREATUREGENERATIONDATA.MBIN"
 FileSource2 = "GCCREATUREGLOBALS.MBIN"
@@ -23,7 +23,7 @@ MaxWorms = 2			--1
 FaceDir = "Random"		--"TowardsPlayer"
 MinDist = 300			--500
 MaxDist = 600			--600
-Scale = 80				--80
+--Scale = 80				--80
 
 NMS_MOD_DEFINITION_CONTAINER = {
 ["MOD_FILENAME"]	= ModName.." "..ModNameSub.." "..GameVersion..ModVersion..".pak",
@@ -92,108 +92,30 @@ NMS_MOD_DEFINITION_CONTAINER = {
 				},
 				{
 					["SPECIAL_KEY_WORDS"] = {"Event","SANDWORM"},
-					["LINE_OFFSET"] = "+15",
+					["PRECEDING_KEY_WORDS"] = {"MinNum"},
 					["VALUE_CHANGE_TABLE"] = {
-						{"IGNORE",MinWorms},
+						{"Unspecified",MinWorms},
+						{"Normal",MinWorms},
+						{"Creative",MinWorms},
+						{"Survival",MinWorms},
+						{"Ambient",MinWorms},
+						{"Permadeath",MinWorms},
+						{"Seasonal",MinWorms},
 					},
 				},
 				{
 					["SPECIAL_KEY_WORDS"] = {"Event","SANDWORM"},
-					["LINE_OFFSET"] = "+16",
+					["PRECEDING_KEY_WORDS"] = {"MaxNum"},
 					["VALUE_CHANGE_TABLE"] = {
-						{"IGNORE",MinWorms},
+						{"Unspecified",MaxWorms},
+						{"Normal",MaxWorms},
+						{"Creative",MaxWorms},
+						{"Survival",MaxWorms},
+						{"Ambient",MaxWorms},
+						{"Permadeath",MaxWorms},
+						{"Seasonal",MaxWorms},
 					},
 				},
-				{
-					["SPECIAL_KEY_WORDS"] = {"Event","SANDWORM"},
-					["LINE_OFFSET"] = "+17",
-					["VALUE_CHANGE_TABLE"] = {
-						{"IGNORE",MinWorms},
-					},
-				},
-				{
-					["SPECIAL_KEY_WORDS"] = {"Event","SANDWORM"},
-					["LINE_OFFSET"] = "+18",
-					["VALUE_CHANGE_TABLE"] = {
-						{"IGNORE",MinWorms},
-					},
-				},
-				{
-					["SPECIAL_KEY_WORDS"] = {"Event","SANDWORM"},
-					["LINE_OFFSET"] = "+19",
-					["VALUE_CHANGE_TABLE"] = {
-						{"IGNORE",MinWorms},
-					},
-				},
-				{
-					["SPECIAL_KEY_WORDS"] = {"Event","SANDWORM"},
-					["LINE_OFFSET"] = "+20",
-					["VALUE_CHANGE_TABLE"] = {
-						{"IGNORE",MinWorms},
-					},
-				},
-				{
-					["SPECIAL_KEY_WORDS"] = {"Event","SANDWORM"},
-					["LINE_OFFSET"] = "+21",
-					["VALUE_CHANGE_TABLE"] = {
-						{"IGNORE",MinWorms},
-					},
-				},
-				{
-					["SPECIAL_KEY_WORDS"] = {"Event","SANDWORM"},
-					["LINE_OFFSET"] = "+24",
-					["VALUE_CHANGE_TABLE"] = {
-						{"IGNORE",MaxWorms},
-					},
-				},
-				{
-					["SPECIAL_KEY_WORDS"] = {"Event","SANDWORM"},
-					["LINE_OFFSET"] = "+25",
-					["VALUE_CHANGE_TABLE"] = {
-						{"IGNORE",MaxWorms},
-					},
-				},
-				{
-					["SPECIAL_KEY_WORDS"] = {"Event","SANDWORM"},
-					["LINE_OFFSET"] = "+26",
-					["VALUE_CHANGE_TABLE"] = {
-						{"IGNORE",MaxWorms},
-					},
-				},
-				{
-					["SPECIAL_KEY_WORDS"] = {"Event","SANDWORM"},
-					["LINE_OFFSET"] = "+27",
-					["VALUE_CHANGE_TABLE"] = {
-						{"IGNORE",MaxWorms},
-					},
-				},
-				{
-					["SPECIAL_KEY_WORDS"] = {"Event","SANDWORM"},
-					["LINE_OFFSET"] = "+28",
-					["VALUE_CHANGE_TABLE"] = {
-						{"IGNORE",MaxWorms},
-					},
-				},
-				{
-					["SPECIAL_KEY_WORDS"] = {"Event","SANDWORM"},
-					["LINE_OFFSET"] = "+29",
-					["VALUE_CHANGE_TABLE"] = {
-						{"IGNORE",MaxWorms},
-					},
-				},
-				{
-					["SPECIAL_KEY_WORDS"] = {"Event","SANDWORM"},
-					["LINE_OFFSET"] = "+30",
-					["VALUE_CHANGE_TABLE"] = {
-						{"IGNORE",MaxWorms},
-					},
-				},
-				{
-					["SPECIAL_KEY_WORDS"] = {"Id","SANDWORM"},
-					["VALUE_CHANGE_TABLE"] = {
-						{"Scale",Scale},
-					},
-				},	
 			}
 		},
 	}

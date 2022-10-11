@@ -1,4 +1,3 @@
-GameVersion = "3_80"
 ModeName = "UninstallCoreWeapons"
 Author = "Jackty89"
 
@@ -6,16 +5,15 @@ GCTechnologyTablePath = "METADATA\\REALITY\\TABLES\\NMS_REALITY_GCTECHNOLOGYTABL
 
 NMS_MOD_DEFINITION_CONTAINER =
 {
-["MOD_FILENAME"] 			= ModeName..GameVersion..".pak",
+["MOD_FILENAME"] 			= ModeName..".pak",
 ["MOD_DESCRIPTION"]			= ModeName,
 ["MOD_AUTHOR"]				= Author,
-["NMS_VERSION"]				= GameVersion,
 ["MODIFICATIONS"] 			=
 	{
 		{
 			["MBIN_CHANGE_TABLE"] 	=
 			{
-                {
+				{
 					["MBIN_FILE_SOURCE"] 	= GCTechnologyTablePath,
 					["EXML_CHANGE_TABLE"] 	=
 					{
@@ -26,16 +24,16 @@ NMS_MOD_DEFINITION_CONTAINER =
 								{"Core",	"False"}
 							}
 						},
-                        {
+						{
 							["SPECIAL_KEY_WORDS"] = {"ID","LASER"},
 							["VALUE_CHANGE_TABLE"] 	=
 							{
 								{"Core",	"False"}
 							}
 						}
-                    }
+					}
 				}
-            }
-        }
-    }
+			}
+		}
+	}
 }

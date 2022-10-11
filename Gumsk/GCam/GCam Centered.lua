@@ -2,7 +2,7 @@ Author = "Gumsk+Azzinoth"
 ModName = "gCam"
 ModNameSub = "Centered"
 BaseDescription = "Camera modifications"
-GameVersion = "382"
+GameVersion = "401"
 ModVersion = "a"
 FileSource = "GCCAMERAGLOBALS.GLOBAL.MBIN"
 
@@ -11,10 +11,10 @@ FileSource = "GCCAMERAGLOBALS.GLOBAL.MBIN"
 	DistanceForFleetInteraction = 6000							--3900 ; 
 	DistanceForFrigateInteraction = 2000						--650 ; 
 	DistanceForFrigatePurchaseInteraction = 2000				--500 ;
-	PhotoModeVelocitySmoothTime = 1.5							--0.5
+	PhotoModeVelocitySmoothTime = 3.0							--0.5
 	PhotoModeMoveSpeed = 17										--11 ; 
-	PhotoModeTurnSpeed = 60										--60 ; 
-	PhotoModeMaxDistance = 99999									--100 ; 
+	PhotoModeTurnSpeed = 40										--60 ; 
+	PhotoModeMaxDistance = 99999								--100 ; 
 	PhotoModeMaxDistanceSpace = 99999							--200 ; 
 	BuildingModeMaxDistance = 99999								--60 ; 
 --Flashes
@@ -210,6 +210,7 @@ NMS_MOD_DEFINITION_CONTAINER = {
 						{"OffsetX", "0.1"},
 						{"OffsetY", "-0.3"},
 						{"BackMinDistance", 3.5},
+						{"BackMaxDistance", "10"},
 						{"VertRotationMin", "-85"},
 						{"VertRotationMax", "85"},
 						{"VertRotationSpeed", "20"},
@@ -232,6 +233,23 @@ NMS_MOD_DEFINITION_CONTAINER = {
 						{"AvoidCollisionLRSpeed", -1},
 						{"AvoidCollisionUDSpeed", 1},
 						{"AvoidCollisionPushSpeed", "0.01"}
+					}
+				},
+				{
+					["PRECEDING_KEY_WORDS"] = "CharacterMiningCam",
+					["INTEGER_TO_FLOAT"] = "FORCE",
+					["VALUE_CHANGE_TABLE"] = {
+						{"OffsetX", "0"},
+						{"OffsetY", "-0.3"},
+						{"BackMinDistance", 6.3},
+						{"BackMaxDistance", 10},
+						{"PanNear", "0"},
+						{"PanFar", "0"},
+						{"VertRotationMin", "-85"},
+						{"VertRotationMax", "85"},
+						{"VertRotationSpeed", "20"},
+						{"SpringSpeed", "0.01"},
+						{"UseSpeedBasedSpring", "False"},
 					}
 				},
 				{

@@ -1,5 +1,5 @@
 Author = "Step Modifications"
-ModName = "ZZZZStepNoMansSky"
+ModName = "___StepNoMansSky"
 ModDescription = "These changes alter various settings dealing with water."
 FileSource01 = "GCWATERGLOBALS.GLOBAL.MBIN"
 
@@ -9,7 +9,6 @@ FileSource01 = "GCWATERGLOBALS.GLOBAL.MBIN"
 --##### Variables #####
 --## Step ##
 WaveHeight = 0.1				--  | vanilla=1.5 // FineLOD=-0.2 // Abyss=0.25 | 6
--- WaveFrequency = 0.01
 NightWtrFoamColorR = 0.333		--  | vanilla=1 // Exo=0 | 150
 NightWtrFoamColorG = 0.333		--  | vanilla=1 // Exo=0 | 151
 NightWtrFoamColorB = 0.333		--  | vanilla=1 // Exo=0 | 152
@@ -62,6 +61,7 @@ NMS_MOD_DEFINITION_CONTAINER =
 --##### Everything after here is from Exo Aybss #####
 --
 				{["PRECEDING_KEY_WORDS"] = {"WaterDataDay",}, 
+					["INTEGER_TO_FLOAT"] = "FORCE",
 					["VALUE_CHANGE_TABLE"] = {
 						{"WaterStrength", DayWaterStrength}, 
 						{"WaterColourStrength", DayWaterColourStrength}, 
@@ -74,21 +74,25 @@ NMS_MOD_DEFINITION_CONTAINER =
 					}
 				},
 				{["PRECEDING_KEY_WORDS"] = {"WaterColourNight", "WaterFogColourNear",},
+					["INTEGER_TO_FLOAT"] = "FORCE",
 					["VALUE_CHANGE_TABLE"] = {
 						{"R", NightWtrFogColorNearR}, {"G", NightWtrFogColorNearG}, {"B", NightWtrFogColorNearB}, 
 					}
 				},
 				{["PRECEDING_KEY_WORDS"] = {"WaterColourNight", "WaterFogColourFar",},
+					["INTEGER_TO_FLOAT"] = "FORCE",
 					["VALUE_CHANGE_TABLE"] = {
 						{"R", NightWtrFogColorFarR}, {"G", NightWtrFogColorFarG}, {"B", NightWtrFogColorFarB}, 
 					}
 				},
 				{["PRECEDING_KEY_WORDS"] = {"WaterColourNight", "WaterColourBase",},
+					["INTEGER_TO_FLOAT"] = "FORCE",
 					["VALUE_CHANGE_TABLE"] = {
 						{"R", NightWtrFogColorBaseR}, {"G", NightWtrFogColorBaseG}, {"B", NightWtrFogColorBaseB}, 
 					}
 				},
 				{["PRECEDING_KEY_WORDS"] = {"WaterColourNight", "WaterColourAdd",},
+					["INTEGER_TO_FLOAT"] = "FORCE",
 					["VALUE_CHANGE_TABLE"] = {
 						{"R", NightWtrFogColorAddR}, {"G", NightWtrFogColorAddG}, {"B", NightWtrFogColorAddB}, 
 					}
@@ -97,6 +101,7 @@ NMS_MOD_DEFINITION_CONTAINER =
 --##### Everything after here is from Step #####
 --
 				{["PRECEDING_KEY_WORDS"] = {"WaterColourNight", "FoamColour",},
+					["INTEGER_TO_FLOAT"] = "FORCE",
 					["VALUE_CHANGE_TABLE"] = {
 						{"R", NightWtrFoamColorR}, {"G", NightWtrFoamColorG}, {"B", NightWtrFoamColorB}, 
 					}

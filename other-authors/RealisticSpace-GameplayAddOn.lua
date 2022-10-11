@@ -2,7 +2,7 @@ NMS_MOD_DEFINITION_CONTAINER = {
 ["MOD_FILENAME"]		= "___ChristianWidjaya_RealisticSpace_GameplayGlobal_Addon.pak",
 ["MOD_DESCRIPTION"]		= "Edit spawns and a few quality changes",
 ["MOD_AUTHOR"]			= "ChristianWidjaya",
-["NMS_VERSION"]			= "261",
+["NMS_VERSION"]			= "3.87+",
 ["MODIFICATIONS"]		= {{
 ["MBIN_CHANGE_TABLE"]	= {
 
@@ -77,7 +77,7 @@ NMS_MOD_DEFINITION_CONTAINER = {
 		["VALUE_CHANGE_TABLE"] = {
 			{"DeathMoneyPenalty","0"},
 			{"DeathMoneyPenalty","0"},
-			{"ShipInteractRadius","150"},
+			{"ShipInteractRadius","250"},
 			{"MissileMaxTurnAngle","90"}}},
 	}},
 }}}}

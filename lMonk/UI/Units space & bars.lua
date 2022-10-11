@@ -7,8 +7,7 @@ local desc = [[
 NMS_MOD_DEFINITION_CONTAINER = {
 	MOD_FILENAME 		= '__UI more units & less bars.pak',
 	MOD_AUTHOR			= 'lMonk',
-	NMS_VERSION			= 3.75,
-	MOD_BATCHNAME		= '_UI ~@~collection.pak',
+	NMS_VERSION			= 3.99,
 	MOD_DESCRIPTION		= desc,
 	MODIFICATIONS 		= {{
 	MBIN_CHANGE_TABLE	= {
@@ -45,11 +44,12 @@ NMS_MOD_DEFINITION_CONTAINER = {
 	},
 	{
 		MBIN_FILE_SOURCE	= {
-			'UI/HUD/HUDBARS.MBIN', 'UI/COMPONENTS/INTERACTION/CINEMATICBARS.MBIN'
+			'UI/HUD/HUDBARS.MBIN',
+			'UI/COMPONENTS/INTERACTION/CINEMATICBARS.MBIN'
 		},
 		EXML_CHANGE_TABLE	= {
 			{
-				REPLACE_TYPE 		= 'ALL',
+				REPLACE_TYPE 		= 'All',
 				VALUE_CHANGE_TABLE 	= {
 					{'IsHidden',	true}
 				}

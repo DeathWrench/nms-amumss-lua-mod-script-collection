@@ -4,23 +4,71 @@ local desc = [[
   Higher roll angle; milder auto leveling
 ]]-----------------------------------------------------------------
 
+local engine_settings = {
+	{'keys',				'SpaceEngine',	'CombatEngine','PlanetEngine',	'AtmosCombatEngine'},
+	{'MinSpeed',			0.001,			0.0005,			0.0001,			0.0005},
+	{'MaxSpeed',			1.3,			1.3,			1.3,			1.3},
+	{'Falloff',				0.25,			0.4,			0.7,			0.45},
+	{'BoostThrustForce',	1.2,			1.2,			1.2,			1.2},
+	{'BoostMaxSpeed',		1.3,			1.5,			1.3,			1.5},
+	{'BoostFalloff',		0.4,			0.45,			0.75,			0.45},
+	{'DirectionBrakeMin',	0.4,			0.5,			0.75,			0.75},
+	{'DirectionBrake',		0.6,			0.7,			0.85,			0.85},
+	{'LowSpeedTurnDamper',	0.18,			0.24,			0.6,			0.8},
+	{'TurnStrength',		1.08,			1.2,			1.02,			1.24},
+	-- {'RollAmount',			1.16,			1.16,			1.12,			1.16},
+	-- {'RollForce',			1.3,			1.32,			1.2,			1.32},
+	{'RollAutoTime',		1,				1,				8,				8},
+	{'BalanceTimeMin',		1,				1,				10,				4},
+	{'BalanceTimeMax',		1,				1,				10,				4},
+}
+function engine_settings:Get(x)
+	return {
+		REPLACE_TYPE 		= 'All',
+		MATH_OPERATION 		= '*',
+		SPECIAL_KEY_WORDS	= {self[1][x], 'GcPlayerSpaceshipEngineData.xml'},
+		VALUE_CHANGE_TABLE 	= (
+			function()
+				T = {}
+				for i=2, #self do
+					table.insert(T, {self[i][1] ,self[i][x]})
+				end
+				return T
+			end
+		)()
+	}
+end
+
+local function BuildExmlChangeTable(tbl)
+	local T = {}
+	for i=2, #tbl[1] do table.insert(T, tbl:Get(i)) end
+	return T
+end
+
 NMS_MOD_DEFINITION_CONTAINER = {
-	MOD_FILENAME 		= '__GC SPACESHIP.pak',
-	MOD_AUTHOR			= 'lMonk',
-	NMS_VERSION			= 3.75,
-	MOD_BATCHNAME		= '_GLOBALS ~@~collection.pak',
-	MOD_DESCRIPTION		= desc,
-	MODIFICATIONS 		= {{
-	MBIN_CHANGE_TABLE	= {
+	MOD_FILENAME 			= '__GC SPACESHIP.pak',
+	MOD_AUTHOR				= 'lMonk',
+	NMS_VERSION				= 3.99,
+	MOD_DESCRIPTION			= desc,
+	AMUMSS_SUPPRESS_MSG		= 'MULTIPLE_STATEMENTS',
+	GLOBAL_INTEGER_TO_FLOAT = 'Force',
+	MODIFICATIONS 			= {{
+	MBIN_CHANGE_TABLE		= {
+	{
+		MBIN_FILE_SOURCE	= 'GCSPACESHIPGLOBALS.GLOBAL.MBIN',
+		EXML_CHANGE_TABLE	= BuildExmlChangeTable(engine_settings)
+	},
 	{
 		MBIN_FILE_SOURCE	= 'GCSPACESHIPGLOBALS.GLOBAL.MBIN',
 		EXML_CHANGE_TABLE	= {
 			{
 				MATH_OPERATION 		= '+',
-				INTEGER_TO_FLOAT	= 'FORCE',
 				VALUE_CHANGE_TABLE 	= {
 					{'LandingMargin',					0.8},	-- 1.4
 					{'LandingObstacleMinHeight',		1.2},	-- 2
+					{'LowAltitudeAnimationHeight',		1100},	-- 1200 -- solar sail trigger
+					{'LowAltitudeAnimationHysteresisTime',-1},	-- 4
+					{'LowAltitudeAnimationTime',		-2},	-- 6
 					{'_3rdPersonRollAngle',				3},		-- 75
 					{'_3rdPersonRollAngleScience',		8},		-- 62
 					{'_3rdPersonRollAngleDropship',		20},	-- 45
@@ -30,21 +78,18 @@ NMS_MOD_DEFINITION_CONTAINER = {
 					{'_3rdPersonWarpXWander',			-2.8},	-- 6
 					{'_3rdPersonWarpYWander',			-0.5},	-- 1.5
 					{'_3rdPersonWarpZWander',			-3.5},	-- 5.5
-					{'_3rdPersonWarpWanderStartTime',	-2},	-- 6.5
+					{'_3rdPersonWarpWanderStartTime',	1},		-- 6.5
 					{'AvoidancePower',					4},		-- 3
 					{'MiniWarpHUDArrowAttractAngle',	-7},	-- 10
 					{'HoverTakeoffHeight',				-22},	-- 90
 					{'HoverLandReachedDistance',		-2},	-- 10
 					{'LandingButtonMinTime',			-0.2},	-- 0.5
-					{'LandingPushNoseUpFactor',			-0.17},	-- 0.15
+					{'LandingPushNoseUpFactor',			-0.18},	-- 0.15
 					{'PulseDrivePlanetApproachHeight',	2000},	-- 6000
-					{'ShieldRechargeMinHitTime',		2},		-- 3
-					{'ShieldRechargeRate',				-2},	-- 6
+					{'ShieldRechargeMinHitTime',		-40},	-- 60
 					{'SurvivalTakeOffCostMultiplier',	-0.8},	-- 2
-					{'WarpInTimeFreighter',				1.6},	-- 1
-					{'WarpInFlashTimeFreighter',		1.6},	-- 0.98
-					{'WarpInTimeNexus',					1.6},	-- 1
-					{'WarpInFlashTimeNexus',			1.6},	-- 0.98
+					{'WarpInTimeFreighter',				1.2},	-- 1
+					{'WarpInTimeNexus',					1.2},	-- 1
 					{'PlayerFreighterClearSpaceRadius',	-800},	-- 3000
 					{"MiniWarpLinesNum",				-4},	-- 4
 					{'HitAsteroidDamage',				30000},	-- 10000
@@ -52,53 +97,7 @@ NMS_MOD_DEFINITION_CONTAINER = {
 					{'LootCollectDistance',				32},	-- 20
 					{'DockingRotateSpeed',				-0.3},	-- 1
 					{'MiniWarpShakeStrength',			-1},	-- 2
-					{'MiniWarpSpeed',					6000},	-- 30000
 					{'MiniWarpStoppingMarginPlanet',	1000},	-- 5000
-				}
-			},
-			{
-				REPLACE_TYPE 		= 'ALL',
-				MATH_OPERATION 		= '*',
-				INTEGER_TO_FLOAT	= 'FORCE',
-				SPECIAL_KEY_WORDS	= {'SpaceEngine', 'GcPlayerSpaceshipEngineData.xml'},
-				VALUE_CHANGE_TABLE 	= {
-					{'MinSpeed',			0.001},	-- 1
-					{'Falloff',				0.4},	-- 0.7
-					{'LowSpeedTurnDamper',	0.7},
-					{'TurnStrength',		1.16},
-					{'RollAmount',			1.16},
-					{'RollForce', 			1.3},
-					{'RollAutoTime',		8}
-				}
-			},
-			{
-				REPLACE_TYPE 		= 'ALL',
-				MATH_OPERATION 		= '*',
-				INTEGER_TO_FLOAT	= 'FORCE',
-				SPECIAL_KEY_WORDS	= {'PlanetEngine', 'GcPlayerSpaceshipEngineData.xml'},
-				VALUE_CHANGE_TABLE 	= {
-					{'MinSpeed',			0.0001},
-					{'Falloff',				0.2},
-					{'LowSpeedTurnDamper',	0.7},
-					{'TurnStrength',		1.12},
-					{'RollAmount',			1.12},
-					{'RollForce', 			1.2},
-					{'RollAutoTime',		8}
-				}
-			},
-			{
-				REPLACE_TYPE 		= 'ALL',
-				MATH_OPERATION 		= '*',
-				INTEGER_TO_FLOAT	= 'FORCE',
-				SPECIAL_KEY_WORDS	= {'CombatEngine', 'GcPlayerSpaceshipEngineData.xml'},
-				VALUE_CHANGE_TABLE 	= {
-					{'MinSpeed',			0.0005},
-					{'Falloff',				0.4},
-					{'LowSpeedTurnDamper',	0.06},
-					{'TurnStrength',		1.44},
-					{'RollAmount',			1.16},
-					{'RollForce', 			1.32},
-					{'RollAutoTime',		8}
 				}
 			}
 		}

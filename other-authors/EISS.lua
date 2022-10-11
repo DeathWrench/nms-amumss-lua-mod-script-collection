@@ -425,6 +425,30 @@ Products =
 			<Property name="Value" value="FARMPROD9" />
 		</Property>
 		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="ILLEGAL_PROD1" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="ILLEGAL_PROD2" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="ILLEGAL_PROD3" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="ILLEGAL_PROD4" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="ILLEGAL_PROD5" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="ILLEGAL_PROD6" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="ILLEGAL_PROD7" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="ILLEGAL_PROD8" />
+		</Property>
+		<Property value="NMSString0x10.xml">
 			<Property name="Value" value="REACTION1" />
 		</Property>
 		<Property value="NMSString0x10.xml">
@@ -536,7 +560,13 @@ Products =
 			<Property name="Value" value="SHIP_INV_TOKEN" />
 		</Property>
 		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="ALIEN_INV_TOKEN" />
+		</Property>
+		<Property value="NMSString0x10.xml">
 			<Property name="Value" value="FREI_INV_TOKEN" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="ALIEN_TECHBOX" />
 		</Property>
 		<Property value="NMSString0x10.xml">
 			<Property name="Value" value="POLICE_TOKEN" />
@@ -1397,6 +1427,9 @@ Products =
 			<Property name="Value" value="STATION_KEY" />
 		</Property>
 		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="REP_TOKEN" />
+		</Property>
+		<Property value="NMSString0x10.xml">
 			<Property name="Value" value="ACCESS1" />
 		</Property>
 		<Property value="NMSString0x10.xml">
@@ -1418,10 +1451,82 @@ Products =
 			<Property name="Value" value="SCRAP_WEAP" />
 		</Property>
 		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="SENTINEL_LOOT" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="ROGUE_TECHBOX" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="ROGUE_INVBOX" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="ROGUE_CLASSBOX" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="ROGUE_GUNBOX" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="ROGUE_SGUNBOX" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="ROGUE_SMARTBOX" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="ROGUE_HAZBOX" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="ROGUE_STARTBOX" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="ROGUE_CARBOX" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="ROGUE_KEY" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="ROGUE_CRAFTBOX" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="ROGUE_G_STONE1" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="ROGUE_G_STONE2" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="ROGUE_G_STONE3" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="ROGUE_G_STONE4" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="ROGUE_G_STONE5" />
+		</Property>
+		<Property value="NMSString0x10.xml">
 			<Property name="Value" value="POI_LOCATOR" />
 		</Property>
 		<Property value="NMSString0x10.xml">
 			<Property name="Value" value="ABAND_LOCATOR" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="S8_BEACON" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="ROGUE_BEACON" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="ROGUE_FINDER" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="PIRATE_MAPWHOLE" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="PIRATE_BEACON" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="PIRATE_INVITE" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="WHALE_BEACON" />
 		</Property>
 		<Property value="NMSString0x10.xml">
 			<Property name="Value" value="EXOTIC_BIOPROD" />
@@ -1476,6 +1581,9 @@ Products =
 		</Property>
 		<Property value="NMSString0x10.xml">
 			<Property name="Value" value="CHART_SETTLE" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="CHART_HIVE" />
 		</Property>
 ]]
 Substances = 
@@ -1786,6 +1894,24 @@ WeapTechSpecialist =
 		<Property value="NMSString0x10.xml">
 			<Property name="Value" value="U_SMGX" />
 		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="U_CANNON1" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="U_CANNON2" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="U_CANNON3" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="U_CANNON4" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="U_CANNONX" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="U_SENTGUN" />
+		</Property>
 ]]
 SuitTechSpecialist = 
 [[
@@ -1878,6 +2004,9 @@ SuitTechSpecialist =
 		</Property>
 		<Property value="NMSString0x10.xml">
 			<Property name="Value" value="U_HAZARDX" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="U_SENTSUIT" />
 		</Property>
 ]]
 ShipTechSpecialist = 
@@ -2089,6 +2218,90 @@ ShipTechSpecialist =
 		<Property value="NMSString0x10.xml">
 			<Property name="Value" value="AP_SHIPLAS4" />
 		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="U_FR_HYP1" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="U_FR_HYP2" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="U_FR_HYP3" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="U_FR_HYP4" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="U_FR_SPE1" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="U_FR_SPE2" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="U_FR_SPE3" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="U_FR_SPE4" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="U_FR_FUEL1" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="U_FR_FUEL2" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="U_FR_FUEL3" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="U_FR_FUEL4" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="U_FR_COM1" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="U_FR_COM2" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="U_FR_COM3" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="U_FR_COM4" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="U_FR_TRA1" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="U_FR_TRA2" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="U_FR_TRA3" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="U_FR_TRA4" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="U_FR_EXP1" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="U_FR_EXP2" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="U_FR_EXP3" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="U_FR_EXP4" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="U_FR_MINE1" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="U_FR_MINE2" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="U_FR_MINE3" />
+		</Property>
+		<Property value="NMSString0x10.xml">
+			<Property name="Value" value="U_FR_MINE4" />
+		</Property>
 ]]
 VehicleTechSpecialist = 
 [[
@@ -2198,7 +2411,7 @@ NMS_MOD_DEFINITION_CONTAINER =
 {
   ["MOD_FILENAME"] = "EISS.pak",
   ["MOD_AUTHOR"] = "musty123",
-  ["NMS_VERSION"] = "3.53",
+  ["NMS_VERSION"] = "3.82",
   ["MOD_DESCRIPTION"] = "This mod adds the most of the items in game to the space station trade terminal.",
   ["MODIFICATIONS"] =
   {

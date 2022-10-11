@@ -2,7 +2,7 @@ NMS_MOD_DEFINITION_CONTAINER = {
 ["MOD_FILENAME"]		= "___ChristianWidjaya_CruiseModeStandalone.pak",
 ["MOD_DESCRIPTION"]		= "Standalone CruiseMode,taken from https://www.nexusmods.com/nomanssky/mods/1608 , DIY: Do It Yourself. Compile with AMUMSS, and merge conflicts yourself.",
 ["MOD_AUTHOR"]			= "ChristianWidjaya",
-["NMS_VERSION"]			= "261",
+["NMS_VERSION"]			= "3.87+",
 ["MODIFICATIONS"]		= {{
 ["MBIN_CHANGE_TABLE"]	= {
 
@@ -42,7 +42,7 @@ NMS_MOD_DEFINITION_CONTAINER = {
 			["VALUE_CHANGE_TABLE"] = {
 				{"MinSpeed","10"},
 				{"MinSpeedForce","0"},
-				{"MaxSpeed","250"},
+				{"MaxSpeed","150"},
 				{"BoostMaxSpeed","250"},
 				{"OverspeedBrake","0"},
 				{"ReverseBrake","1"},
@@ -52,7 +52,7 @@ NMS_MOD_DEFINITION_CONTAINER = {
 			["VALUE_CHANGE_TABLE"] = {
 				{"MinSpeed","10"},
 				{"MinSpeedForce","0"},
-				{"MaxSpeed","250"},
+				{"MaxSpeed","150"},
 				{"BoostMaxSpeed","250"},
 				{"OverspeedBrake","0"},
 				{"ReverseBrake","1"},
@@ -62,7 +62,37 @@ NMS_MOD_DEFINITION_CONTAINER = {
 			["VALUE_CHANGE_TABLE"] = {
 				{"MinSpeed","10"},
 				{"MinSpeedForce","0"},
-				{"MaxSpeed","250"},
+				{"MaxSpeed","150"},
+				{"BoostMaxSpeed","250"},
+				{"OverspeedBrake","0"},
+				{"ReverseBrake","1"},
+				{"Falloff","0"}}},
+		{
+		["PRECEDING_KEY_WORDS"] = {"ControlHeavy","AtmosCombatEngine"},
+			["VALUE_CHANGE_TABLE"] = {
+				{"MinSpeed","10"},
+				{"MinSpeedForce","0"},
+				{"MaxSpeed","150"},
+				{"BoostMaxSpeed","250"},
+				{"OverspeedBrake","0"},
+				{"ReverseBrake","1"},
+				{"Falloff","0"}}},
+		{
+		["PRECEDING_KEY_WORDS"] = {"Control","AtmosCombatEngine"},
+			["VALUE_CHANGE_TABLE"] = {
+				{"MinSpeed","10"},
+				{"MinSpeedForce","0"},
+				{"MaxSpeed","150"},
+				{"BoostMaxSpeed","250"},
+				{"OverspeedBrake","0"},
+				{"ReverseBrake","1"},
+				{"Falloff","0"}}},
+		{
+		["PRECEDING_KEY_WORDS"] = {"ControlLight","AtmosCombatEngine"},
+			["VALUE_CHANGE_TABLE"] = {
+				{"MinSpeed","10"},
+				{"MinSpeedForce","0"},
+				{"MaxSpeed","150"},
 				{"BoostMaxSpeed","250"},
 				{"OverspeedBrake","0"},
 				{"ReverseBrake","1"},
@@ -70,7 +100,7 @@ NMS_MOD_DEFINITION_CONTAINER = {
 		{ --Buff Player Ship's Non Combat Max Speed, cruise mode, add brake force for reverse
 		["PRECEDING_KEY_WORDS"] = {"ControlHeavy","SpaceEngine"},
 			["VALUE_CHANGE_TABLE"] = {
-				{"MaxSpeed","250"},
+				{"MaxSpeed","150"},
 				{"BoostMaxSpeed","250"},
 				{"OverspeedBrake","0"},
 				{"ReverseBrake","1"},
@@ -80,12 +110,12 @@ NMS_MOD_DEFINITION_CONTAINER = {
 			["VALUE_CHANGE_TABLE"] = {
 				{"MinSpeed","0.01"},
 				{"MinSpeedForce","0"},
-				{"MaxSpeed","250"},
+				{"MaxSpeed","150"},
 				{"BoostMaxSpeed","250"}}},
 		{
 		["PRECEDING_KEY_WORDS"] = {"Control","SpaceEngine"},
 			["VALUE_CHANGE_TABLE"] = {
-				{"MaxSpeed","250"},
+				{"MaxSpeed","150"},
 				{"BoostMaxSpeed","250"},
 				{"OverspeedBrake","0"},
 				{"ReverseBrake","1"},
@@ -95,12 +125,12 @@ NMS_MOD_DEFINITION_CONTAINER = {
 			["VALUE_CHANGE_TABLE"] = {
 				{"MinSpeed","0.01"},
 				{"MinSpeedForce","0"},
-				{"MaxSpeed","250"},
+				{"MaxSpeed","150"},
 				{"BoostMaxSpeed","250"}}},
 		{
 		["PRECEDING_KEY_WORDS"] = {"ControlLight","SpaceEngine"},
 			["VALUE_CHANGE_TABLE"] = {
-				{"MaxSpeed","250"},
+				{"MaxSpeed","150"},
 				{"BoostMaxSpeed","250"},
 				{"OverspeedBrake","0"},
 				{"ReverseBrake","1"},

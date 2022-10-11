@@ -21,38 +21,18 @@ end
 
 NMS_MOD_DEFINITION_CONTAINER = 
 {
-["MOD_FILENAME"] 			= "PoliceShipOnStart.pak", 
-["MOD_AUTHOR"]				= "Mjjstral",
-["MOD_MAINTENANCE"]			= "Babscoole",
-["NMS_VERSION"]				= "3.84",
-["MODIFICATIONS"] 			= 
+["MOD_FILENAME"]    = "PoliceShipOnStart.pak", 
+["MOD_AUTHOR"]      = "Mjjstral",
+["MOD_MAINTENANCE"] = "Babscoole",
+["NMS_VERSION"]     = "4.00",
+["MODIFICATIONS"]   = 
 	{
 		{
-			["MBIN_CHANGE_TABLE"] 	= 
-			{ 
+			["MBIN_CHANGE_TABLE"] = 
+			{
 				{
-					["MBIN_FILE_SOURCE"] 	= "METADATA\GAMESTATE\DEFAULTSAVEDATACREATIVE.MBIN",
-					["EXML_CHANGE_TABLE"] 	= 
-					{
-						{
-							["PRECEDING_KEY_WORDS"] = {"CurrentShip"},
-							["VALUE_CHANGE_TABLE"] 	= 
-							{
-								{"Filename", PROC_SCENE_PATH[SHIP_TYPE]},
-							}
-						},
-						{
-							["PRECEDING_KEY_WORDS"] = {"CurrentShip","Seed"},
-							["VALUE_CHANGE_TABLE"] 	= 
-							{
-								{"Seed", HexToDec(SHIP_SEED)},
-							}
-						}
-					}
-				},
-				{
-					["MBIN_FILE_SOURCE"] 	= "METADATA\GAMESTATE\DEFAULTSAVEDATA.MBIN",
-					["EXML_CHANGE_TABLE"] 	= 
+					["MBIN_FILE_SOURCE"]  = "METADATA\GAMESTATE\DEFAULTSAVEDATA.MBIN",
+					["EXML_CHANGE_TABLE"] = 
 					{
 						{
 							["PRECEDING_KEY_WORDS"] = {"CurrentShip"},
@@ -73,21 +53,21 @@ NMS_MOD_DEFINITION_CONTAINER =
 			}
 		},
 		{
-			["MBIN_CHANGE_TABLE"] 	= 
+			["MBIN_CHANGE_TABLE"] = 
 			{
 				{
-					["MBIN_FILE_SOURCE"]     = 
+					["MBIN_FILE_SOURCE"] = 
 					{ 
 						{ 
 							[[MODELS/COMMON/SPACECRAFT/POLICE/POLICESHIP.SCENE.MBIN]], 
 							[[MODELS/COMMON/SPACECRAFT/POLICE/POLICESHIPBACKUP.SCENE.MBIN]] 
 						}, 
 					},
-					["EXML_CHANGE_TABLE"] 	= 
+					["EXML_CHANGE_TABLE"] = 
 					{
 						{
-							["REPLACE_TYPE"] 		= "RAW",
-							["VALUE_CHANGE_TABLE"] 	= 
+							["REPLACE_TYPE"]       = "RAW",
+							["VALUE_CHANGE_TABLE"] = 
 							{
 								{
 									[[value="MODELS\COMMON\SPACECRAFT\POLICE\POLICESHIP" />]],
@@ -98,14 +78,14 @@ NMS_MOD_DEFINITION_CONTAINER =
 					}
 				},			
 				{
-					["MBIN_FILE_SOURCE"] 	= 
+					["MBIN_FILE_SOURCE"] = 
 					{
 						"MODELS\COMMON\SPACECRAFT\POLICE\POLICESHIP.SCENE.MBIN"
 					},
-					["EXML_CHANGE_TABLE"] 	= 
+					["EXML_CHANGE_TABLE"] = 
 					{
 						{
-							["REPLACE_TYPE"] 		= "RAW",
+							["REPLACE_TYPE"]        = "RAW",
 							["VALUE_CHANGE_TABLE"] 	= 
 							{
 								{
@@ -115,9 +95,9 @@ NMS_MOD_DEFINITION_CONTAINER =
 							}
 						},
 						{
-							["SPECIAL_KEY_WORDS"] = {"Name","PoliceShip",},
-							["INTEGER_TO_FLOAT"] = "FORCE",		
-							["VALUE_CHANGE_TABLE"] 	= 
+							["SPECIAL_KEY_WORDS"]  = {"Name","PoliceShip",},
+							["INTEGER_TO_FLOAT"]   = "FORCE",		
+							["VALUE_CHANGE_TABLE"] = 
 							{
 								{"TransY", "0.6"},
 							}							
@@ -125,15 +105,15 @@ NMS_MOD_DEFINITION_CONTAINER =
 					}
 				},
 				{
-					["MBIN_FILE_SOURCE"] 	= 
+					["MBIN_FILE_SOURCE"] = 
 					{
 						"METADATA\SIMULATION\SPACE\AISPACESHIPMANAGER.MBIN"
 					},
-					["EXML_CHANGE_TABLE"] 	= 
+					["EXML_CHANGE_TABLE"] = 
 					{
 						{
-							["REPLACE_TYPE"] 		= "RAW",
-							["VALUE_CHANGE_TABLE"] 	= 
+							["REPLACE_TYPE"]       = "RAW",
+							["VALUE_CHANGE_TABLE"] = 
 							{
 								{
 									[[MODELS/COMMON/SPACECRAFT/POLICE/POLICESHIP.SCENE.MBIN]], 

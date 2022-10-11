@@ -3,23 +3,23 @@ SHIP_SCALE = "1.0"
 
 NMS_MOD_DEFINITION_CONTAINER = 
 {
-["MOD_FILENAME"] 			= "DroneShip.pak",
-["MOD_AUTHOR"]				= "Mjstral",
-["MOD_MAINTENANCE"]			= "Babscoole",
-["NMS_VERSION"]				= "3.84",
-["DESCRIPTION"]				= "Cockpitable drone ship (unused nms pre release ship) you can get via quick action emote menu action",
-["MODIFICATIONS"] 			= 
+["MOD_FILENAME"]    = "DroneShip.pak",
+["MOD_AUTHOR"]      = "Mjstral",
+["MOD_MAINTENANCE"] = "Babscoole",
+["NMS_VERSION"]     = "4.00",
+["DESCRIPTION"]     = "Cockpitable drone ship (unused nms pre release ship) you can get via quick action emote menu action",
+["MODIFICATIONS"]   = 
 	{
 		{
-			["MBIN_CHANGE_TABLE"] 	= 
+			["MBIN_CHANGE_TABLE"] = 
 			{		
 				{
-					["MBIN_FILE_SOURCE"] 	= { SHIP_SCENE },
-					["EXML_CHANGE_TABLE"] 	= 
+					["MBIN_FILE_SOURCE"]  = { SHIP_SCENE },
+					["EXML_CHANGE_TABLE"] = 
 					{
 						{
-							["REPLACE_TYPE"] 		= "RAW",
-							["VALUE_CHANGE_TABLE"] 	= 
+							["REPLACE_TYPE"]       = "RAW",
+							["VALUE_CHANGE_TABLE"] = 
 							{
 								{
 									[[MODELS\COMMON\SPACECRAFT\DRONE\DRONESHIP\ENTITIES\SHIP.ENTITY.MBIN]], 
@@ -28,9 +28,9 @@ NMS_MOD_DEFINITION_CONTAINER =
 							}
 						},
 						{
-							["SPECIAL_KEY_WORDS"] = {"Name","Ship",},
-							["INTEGER_TO_FLOAT"] = "FORCE",							
-							["VALUE_CHANGE_TABLE"] 	= 
+							["SPECIAL_KEY_WORDS"]  = {"Name","Ship",},
+							["INTEGER_TO_FLOAT"]   = "FORCE",							
+							["VALUE_CHANGE_TABLE"] = 
 							{
 								{"TransY", "0.6"},
 								{"ScaleX", SHIP_SCALE},
@@ -40,8 +40,8 @@ NMS_MOD_DEFINITION_CONTAINER =
 						},
 						{
 							["PRECEDING_KEY_WORDS"] = {"Children","Children"}, 
-							["LINE_OFFSET"] 		= "+0",
-							["ADD"] 				= 
+							["LINE_OFFSET"]          = "+0",
+							["ADD"] = 
 [[
         <Property value="TkSceneNodeData.xml">
           <Property name="Name" value="CockpitPos" />
@@ -68,17 +68,17 @@ NMS_MOD_DEFINITION_CONTAINER =
 			}
 		},
 		{
-			["MBIN_CHANGE_TABLE"] 	= 
+			["MBIN_CHANGE_TABLE"] = 
 			{  
 				{
-					["MBIN_FILE_SOURCE"] 	= "MODELS\COMMON\PLAYER\PLAYERCHARACTER\PLAYERCHARACTER\ENTITIES\PLAYERCHARACTER.ENTITY.MBIN",
-					["EXML_CHANGE_TABLE"] 	= 
+					["MBIN_FILE_SOURCE"]  = "MODELS\COMMON\PLAYER\PLAYERCHARACTER\PLAYERCHARACTER\ENTITIES\PLAYERCHARACTER.ENTITY.MBIN",
+					["EXML_CHANGE_TABLE"] = 
 					{
 						{
-							["SPECIAL_KEY_WORDS"]   = {"Anim","JETPACK_CLOSE"}, 
-							["LINE_OFFSET"] 		= "+0",
-							["REPLACE_TYPE"]        = "ADDAFTERSECTION",
-							["ADD"] 				= 
+							["SPECIAL_KEY_WORDS"] = {"Anim","0H_GREET_MOB_04"}, 
+							["SECTION_ACTIVE"]    = {2,},
+							["ADD_OPTION"]        = "ADDafterSECTION",
+							["ADD"] = 
 [[
         <Property value="TkAnimationData.xml">
           <Property name="Anim" value="TRIGGERANIM" />
@@ -111,9 +111,9 @@ NMS_MOD_DEFINITION_CONTAINER =
 							
 						},
 						{
-							["PRECEDING_KEY_WORDS"] = {"LodDistances"}, 
-							["LINE_OFFSET"] 		= "-2",
-							["ADD"] 				= 
+							["PRECEDING_KEY_WORDS"] = {"GcPlayerEffectsComponentData.xml"}, 
+							["ADD_OPTION"]        = "ADDafterSECTION",
+							["ADD"] = 
 [[
     <Property value="GcTriggerActionComponentData.xml">
       <Property name="HideModel" value="False" />
@@ -126,6 +126,7 @@ NMS_MOD_DEFINITION_CONTAINER =
               <Property name="Event" value="GcStateTimeEvent.xml">
                 <Property name="Seconds" value="0" />
                 <Property name="RandomSeconds" value="0" />
+                <Property name="UseMissionClock" value="False" />				
               </Property>		  
               <Property name="Action">
                 <Property value="GcGoToStateAction.xml">
@@ -144,6 +145,7 @@ NMS_MOD_DEFINITION_CONTAINER =
               <Property name="Event" value="GcStateTimeEvent.xml">
                 <Property name="Seconds" value="1" />
                 <Property name="RandomSeconds" value="0" />
+                <Property name="UseMissionClock" value="False" />				
               </Property>
               <Property name="Action">
                 <Property value="GcRewardAction.xml">
@@ -188,13 +190,13 @@ NMS_MOD_DEFINITION_CONTAINER =
 					}
 				},
 				{
-					["MBIN_FILE_SOURCE"] 	= "METADATA\UI\EMOTEMENU.MBIN",
-					["EXML_CHANGE_TABLE"] 	= 
+					["MBIN_FILE_SOURCE"]  = "METADATA\UI\EMOTEMENU.MBIN",
+					["EXML_CHANGE_TABLE"] = 
 					{
 						{
 							["PRECEDING_KEY_WORDS"] = {"Emotes"}, 
-							["LINE_OFFSET"] 		= "+0",
-							["ADD"] 				= 
+							["LINE_OFFSET"]         = "+0",
+							["ADD"] = 
 [[
     <Property value="GcPlayerEmote.xml">
       <Property name="Title" value="Custom Ship" />
@@ -247,25 +249,29 @@ NMS_MOD_DEFINITION_CONTAINER =
 					}
 				},
 				{
-					["MBIN_FILE_SOURCE"] 	= "METADATA\REALITY\TABLES\REWARDTABLE.MBIN",
-					["EXML_CHANGE_TABLE"] 	= 
+					["MBIN_FILE_SOURCE"]  = "METADATA\REALITY\TABLES\REWARDTABLE.MBIN",
+					["EXML_CHANGE_TABLE"] = 
 					{
 						{
 							["PRECEDING_KEY_WORDS"] = {"GenericTable"}, 
-							["LINE_OFFSET"] 		= "+0",
-							["ADD"] 				= 
+							["LINE_OFFSET"]         = "+0",
+							["ADD"] = 
 [[
     <Property value="GcGenericRewardTableEntry.xml">
       <Property name="Id" value="CUSTOMSHIP" />
       <Property name="List" value="GcRewardTableItemList.xml">
         <Property name="RewardChoice" value="GiveAll" />
         <Property name="OverrideZeroSeed" value="False" />
+		<Property name="UseInventoryChoiceOverride" value="False"/>
         <Property name="List">
           <Property value="GcRewardTableItem.xml">
             <Property name="PercentageChance" value="100" />
 			  <Property name="Reward" value="GcRewardSpecificShip.xml">
 				<Property name="ShipResource" value="GcResourceElement.xml">
 				  <Property name="Filename" value="]] .. SHIP_SCENE .. [[" />
+				  <Property name="ResHandle" value="GcResource.xml">
+					<Property name="ResourceID" value="0" />
+				  </Property>
 				  <Property name="Seed" value="GcSeed.xml">
 					<Property name="Seed" value="]] .. 0 .. [[" />
 					<Property name="UseSeedValue" value="True" />
@@ -374,8 +380,9 @@ NMS_MOD_DEFINITION_CONTAINER =
 				  <Property name="Class" value="GcInventoryClass.xml">
 					<Property name="InventoryClass" value="S" />
 				  </Property>
-				  <Property name="SubstanceMaxStorageMultiplier" value="0" />
-				  <Property name="ProductMaxStorageMultiplier" value="0" />
+                <Property name="StackSizeGroup" value="GcInventoryStackSizeGroup.xml">
+                  <Property name="InventoryStackSizeGroup" value="Default" />
+                </Property>
 				  <Property name="BaseStatValues" />
 				  <Property name="SpecialSlots" />
 				  <Property name="Width" value="0" />

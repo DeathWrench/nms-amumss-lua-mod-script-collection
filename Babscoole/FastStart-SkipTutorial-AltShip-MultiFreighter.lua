@@ -473,61 +473,58 @@ SKIPTUT =
 
 NMS_MOD_DEFINITION_CONTAINER = 
 {
-["MOD_FILENAME"] 			= "FastStart-SkipTutorial-AltShip-MultiFreighter.pak",
-["MOD_DESCRIPTION"]		    = "Skip Intro and Tutorial and Multiple Freighters and Alt Ship",
-["MOD_AUTHOR"]				= "HauntedKobra",
-["LUA Fix and Update"]		= "Babscoole",
-["NMS_VERSION"]				= "3.53",
-["MODIFICATIONS"] 			= 
+["MOD_FILENAME"]       = "FastStart-SkipTutorial-AltShip-MultiFreighter.pak",
+["MOD_DESCRIPTION"]    = "Skip Intro and Tutorial and Multiple Freighters and Alt Ship",
+["MOD_AUTHOR"]         = "HauntedKobra",
+["LUA Fix and Update"] = "Babscoole",
+["NMS_VERSION"]        = "3.53",
+["MODIFICATIONS"]      = 
 	{
 		{
-			["MBIN_CHANGE_TABLE"] 	= 
+			["MBIN_CHANGE_TABLE"] = 
 			{ 
 				{
-					["MBIN_FILE_SOURCE"] 	= "METADATA\UI\BOOTLOGOPC.MBIN",
-					["EXML_CHANGE_TABLE"] 	= 
+					["MBIN_FILE_SOURCE"]  = "METADATA\UI\BOOTLOGOPC.MBIN",
+					["EXML_CHANGE_TABLE"] = 
 					{
 						{													
 							["PRECEDING_KEY_WORDS"] = "Textures",
-							["VALUE_CHANGE_TABLE"] = "",
 							["REMOVE"] = "SECTION",
 						}
 					},
 					{
 						{
 							["PRECEDING_KEY_WORDS"] = "DisplayTime",
-							["VALUE_CHANGE_TABLE"] = "",
 							["REMOVE"] = "SECTION",
 						},
 					},					
 				},
 				{
-					["MBIN_FILE_SOURCE"] 	= "GCDEBUGOPTIONS.GLOBAL.MBIN",
-					["EXML_CHANGE_TABLE"] 	= 
+					["MBIN_FILE_SOURCE"]  = "GCDEBUGOPTIONS.GLOBAL.MBIN",
+					["EXML_CHANGE_TABLE"] = 
 					{
 						{
-						  	["PRECEDING_KEY_WORDS"] = "",
-						  	["VALUE_CHANGE_TABLE"] 	= 
+						  	["VALUE_CHANGE_TABLE"] = 
 							{
-								{"SkipIntro",                 "True"},      -- Original "False"
-								{"BootMusic",                 "False"},     -- Original "True"
-								{"DisableSaveSlotSorting",    "True"}, 	    -- Original "False"
-								{"ForceInitialShip",          "False"},     -- Original "True"
-								{"ForceInitialWeapon",        "False"},     -- Original "True"
-								{"ForceLoadAllWeather",       "True"},      -- Original "False"
-								{"MultiplePlayerFreightersInASystem","True"}, -- Original "False"
+								{"SkipIntro",                         "True"},  -- Original "False"
+								{"BootMusic",                         "False"}, -- Original "True"
+								{"DisableSaveSlotSorting",            "True"},  -- Original "False"
+								{"ForceInitialShip",                  "False"}, -- Original "True"
+								{"ForceInitialWeapon",                "False"}, -- Original "True"
+								{"ForceLoadAllWeather",               "True"},  -- Original "False"
+								{"MultiplePlayerFreightersInASystem", "True"},  -- Original "False"
 							}	
 						},
 					}
 				},
 				{
-				  	["MBIN_FILE_SOURCE"] 	= "METADATA\SIMULATION\MISSIONS\TUTORIALMISSIONTABLE.MBIN",
-					["EXML_CHANGE_TABLE"] 	= 
+				  	["MBIN_FILE_SOURCE"]  = "METADATA\SIMULATION\MISSIONS\TUTORIALMISSIONTABLE.MBIN",
+					["EXML_CHANGE_TABLE"] = 
 					{
 						{
 							["PRECEDING_KEY_WORDS"] = {"Missions",},
-							["LINE_OFFSET"] 		= "+0",
-							["ADD"] 				= SKIPTUT	
+							["LINE_OFFSET"] = "+0",
+							["ADD"] = SKIPTUT	
 						},
 					}
 				},				
@@ -535,6 +532,3 @@ NMS_MOD_DEFINITION_CONTAINER =
 		},
 	}	
 }
---NOTE: ANYTHING NOT in table NMS_MOD_DEFINITION_CONTAINER IS IGNORED AFTER THE SCRIPT IS LOADED
---IT IS BETTER TO ADD THINGS AT THE TOP IF YOU NEED TO
---DON'T ADD ANYTHING PASS THIS POINT HERE

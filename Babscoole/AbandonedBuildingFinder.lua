@@ -1,10 +1,10 @@
 NMS_MOD_DEFINITION_CONTAINER = 
 {
-  ["MOD_FILENAME"] 			= "AbandonedBuildingFinder.pak",
-  ["MOD_DESCRIPTION"]		= "Planetary Chart B (Emergency Cartographic Data) will only show abandoned buildings", 
-  ["MOD_AUTHOR"]			= "Babscoole", 
-  ["NMS_VERSION"]			= "3.84",
-  ["MODIFICATIONS"] 		= 
+["MOD_FILENAME"]    = "AbandonedBuildingFinder.pak",
+["MOD_DESCRIPTION"] = "Planetary Chart B (Emergency Cartographic Data) will only show abandoned buildings", 
+["MOD_AUTHOR"]      = "Babscoole", 
+["NMS_VERSION"]     = "4.00",
+["MODIFICATIONS"]   = 
 	{
 		{
 			["MBIN_CHANGE_TABLE"] = 
@@ -18,7 +18,7 @@ NMS_MOD_DEFINITION_CONTAINER =
 							["PRECEDING_KEY_WORDS"] = {"List","GcRewardTableItem.xml",},
 							["VALUE_CHANGE_TABLE"] 	= 
 							{
-								{"PercentageChance",	"100"},
+								{"PercentageChance", "100"},
 							},
 						},											
 						{
@@ -26,7 +26,7 @@ NMS_MOD_DEFINITION_CONTAINER =
 							["PRECEDING_KEY_WORDS"] = {"List","GcRewardTableItem.xml","GcRewardTableItem.xml",},
 							["VALUE_CHANGE_TABLE"] 	= 
 							{
-								{"PercentageChance",	"0"},
+								{"PercentageChance", "0"},
 							},
 						},
 						{
@@ -34,7 +34,7 @@ NMS_MOD_DEFINITION_CONTAINER =
 							["PRECEDING_KEY_WORDS"] = {"List","GcRewardTableItem.xml","GcRewardTableItem.xml","GcRewardTableItem.xml",},	
 							["VALUE_CHANGE_TABLE"] 	= 
 							{
-								{"PercentageChance",	"0"},
+								{"PercentageChance", "0"},
 							},
 						},
 						{
@@ -42,7 +42,7 @@ NMS_MOD_DEFINITION_CONTAINER =
 							["PRECEDING_KEY_WORDS"] = {"List","GcRewardTableItem.xml","GcRewardTableItem.xml","GcRewardTableItem.xml","GcRewardTableItem.xml",},
 							["VALUE_CHANGE_TABLE"] 	= 
 							{
-								{"PercentageChance",	"0"},
+								{"PercentageChance", "0"},
 							},
 						},						
 						{
@@ -50,7 +50,7 @@ NMS_MOD_DEFINITION_CONTAINER =
 							["PRECEDING_KEY_WORDS"] = {"List","GcRewardTableItem.xml","GcRewardTableItem.xml","GcRewardTableItem.xml","GcRewardTableItem.xml","GcRewardTableItem.xml",},
 							["VALUE_CHANGE_TABLE"] 	= 
 							{
-								{"PercentageChance",	"0"},
+								{"PercentageChance", "0"},
 							},
 						},						
 					},

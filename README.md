@@ -16,6 +16,11 @@ Mod script authors:
 - [CodenameAwesome aka Ignacio](https://www.nexusmods.com/nomanssky/users/5842786?tab=user+files)
 - [TheLich](https://www.nexusmods.com/nomanssky/users/943197?tab=user+files)
 - [Jackty89/GameMaster-BE](https://www.nexusmods.com/nomanssky/users/1932252?tab=user+files)
+- [Xen0nex](https://www.nexusmods.com/nomanssky/users/8462873?tab=user+files)
+- [Lasagna](https://www.nexusmods.com/nomanssky/users/126633893?tab=user+files)
+- [JustRuthless](https://www.nexusmods.com/nomanssky/users/21587394?tab=user+files)
+- [Silent369](https://www.nexusmods.com/nomanssky/users/122177308?tab=user+files)
+- [PyronoxOmega](https://www.nexusmods.com/nomanssky/users/26756114?tab=user+files)
 
 Additional mod script repos:
 - [Ignacio](https://www.nexusmods.com/nomanssky/users/5842786?tab=user+files) -> [Mod scripts](https://github.com/ignamiranda/NMS-ModScripts) / [Open Biome Extender scripts](https://github.com/ignamiranda/OpenBiomeExtender)
@@ -27,6 +32,18 @@ More:
 - [Wyzoom](https://github.com/Wyzoom/OmmmNoms)
 - [csakypeter](https://github.com/csakypeter/NMS-BetterRewards)
 
+NMS LUA Mod Tools:
+- [AMUMSS](https://github.com/HolterPhylo/AMUMSS)
+
+Other NMS Mod Tools:
+- [NMSMB](https://github.com/cmkushnir/NMSModBuilder)
+- [NMSMB cs Script Repository](https://github.com/cmkushnir/NMSModBuilderContrib)
+
 Any in the form of a .zip file have additional files that need to be added by placing into ModExtraFilesToInclude in AMUMSS when the LUA is run.
+
+The purpose of this repository is to provide the definitive repository of NMS LUA scripts for use as templates and examples for other script authors, so scripts are arranged and categorized by script author.
+  If a script is written for anothers mod by other than the original mod author, the original author must be credited within the script in the MOD_AUTHOR field.
+
+A separate folder and link in the Mod script authors list will be provided for prolific script authors who have made over a dozen scripts that demonstrate some expertise.
 
 

@@ -1,9 +1,8 @@
-GameVersion = "3_84"
 ModeName = "UniqueSpaceShips"
 Author = "Jackty89"
 
 SpaceShipGlobalsPath = "GCSPACESHIPGLOBALS.GLOBAL.MBIN"
-InventoryTablePath = "METADATA\\REALITY\\TABLES\\INVENTORYTABLE.MBIN"
+InventoryTablePath = "METADATA/REALITY/TABLES/INVENTORYTABLE.MBIN"
 
 ShuttleTakeOffReductionMultiplier = "0.75" -- Reduction of 25% for the base-value
 
@@ -39,6 +38,7 @@ Shipchanges =
 			{"Fighter", MedVale, MedHighValue, HighValue, HighExtrValue},
 			{"Shuttle", NormalValue, LowValue, LowMedValue, MedVale},
 			{"Royal", LowMedValue, MedVale, MedHighValue, HighValue},
+			{"Sail", MedVale, MedHighValue, HighValue, HighExtrValue},
 			{"Alien", "", "", "", HighValue}
 		}
 	},
@@ -52,6 +52,7 @@ Shipchanges =
 			{"Fighter", MedHighValue,HighValue,HighExtrValue,ExtremeValue},
 			{"Shuttle", NormalValue, LowValue, LowMedValue, MedVale},
 			{"Royal", LowMedValue, MedVale, MedHighValue, HighValue},
+			{"Sail", MedVale, MedHighValue, HighValue, HighExtrValue},
 			{"Alien", "", "", "", HighValue}
 		}
 	},
@@ -65,6 +66,7 @@ Shipchanges =
 			{"Fighter", LowValue, LowMedValue, MedVale, MedHighValue},
 			{"Shuttle", NormalValue, LowValue, LowMedValue, MedVale},
 			{"Royal", LowMedValue, MedVale, MedHighValue, HighValue},
+			{"Sail", MedVale, MedHighValue, HighValue, HighExtrValue},
 			{"Alien", "", "", "", HighValue}
 		}
 	},
@@ -80,10 +82,9 @@ Shipchanges =
 
 NMS_MOD_DEFINITION_CONTAINER =
 {
-	["MOD_FILENAME"] 			= ModeName..GameVersion..".pak",
+	["MOD_FILENAME"] 			= ModeName..".pak",
 	["MOD_DESCRIPTION"]			= "Rework of all Spaceships and their bonuses and price",
 	["MOD_AUTHOR"]				= Author,
-	["NMS_VERSION"]				= GameVersion,
 	["MODIFICATIONS"] 			=
 	{
 		{
