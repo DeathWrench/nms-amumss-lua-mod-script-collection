@@ -1,89 +1,56 @@
 ------------------------------------------------------
-local desc = [[
-  Increase exocraft inventory size
+dofile('LIB/lua_2_exml.lua')
+------------------------------------------------------
+local mod_desc = [[
   Vykeen monolith accepts Effigy instead of dagger
-  cheaper pet slots
+  cheaper slots
 ]]----------------------------------------------------
-
-local function AddConsumableItem(id, reward, hovt)
-	return [[
-	<Property value="GcConsumableItem.xml">
-		<Property name="ID" value="]]..id..[["/>
-		<Property name="RewardID" value="]]..reward..[["/>
-		<Property name="ButtonLocID" value="UI_CONSUME"/>
-		<Property name="ButtonSubLocID" value="]]..(hovt or '')..[["/>
-		<Property name="CloseInventoryWhenUsed" value="False"/>
-		<Property name="AudioEventOnOpen" value="GcAudioWwiseEvents.xml">
-			<Property name="AkEvent" value="INVALID_EVENT"/>
-		</Property>
-		<Property name="RewardFailedLocID" value="INTRCT_NOROOM_L"/>
-		<Property name="DestroyItemWhenConsumed" value="True"/>
-	</Property>]]
-end
 
 NMS_MOD_DEFINITION_CONTAINER = {
 	MOD_FILENAME 		= '__TABLE various.pak',
 	MOD_AUTHOR			= 'lMonk',
-	NMS_VERSION			= 3.99,
-	MOD_DESCRIPTION		= desc,
-	AMUMSS_SUPPRESS_MSG	= 'MULTIPLE_STATEMENTS',
+	NMS_VERSION			= '4.52',
+	MOD_BATCHNAME		= '_TABLES ~@~collection.pak',
+	MOD_DESCRIPTION		= mod_desc,
 	MODIFICATIONS 		= {{
 	MBIN_CHANGE_TABLE	= {
-	{
-	---	|INVENTORY higher vehicle inventory|
-		MBIN_FILE_SOURCE	= 'METADATA/REALITY/TABLES/INVENTORYTABLE.MBIN',
-		EXML_CHANGE_TABLE	= {
-			{
-				PRECEDING_KEY_WORDS = 'VehicleSmall',
-				VALUE_CHANGE_TABLE 	= {
-					{'MinSlots',	26},
-					{'MaxSlots',	26}
+	{--	|SUBSTANCES|
+		MBIN_FILE_SOURCE	= 'METADATA/REALITY/TABLES/NMS_REALITY_GCSUBSTANCETABLE.MBIN',
+		EXML_CHANGE_TABLE	= (
+			function()
+				local T = {}
+				for _,sym in ipairs({
+					{'EX_YELLOW',	'UI_CU_EX_SYM'},
+					{'EX_RED',		'UI_CD_EX_SYM'},
+					{'EX_GREEN',	'UI_EM_EX_SYM'},
+					{'EX_BLUE',		'UI_IN_EX_SYM'},
+					{'SPACEGUNK1',	'UI_SGUNK1_SYM'},
+					{'SPACEGUNK2',	'UI_SGUNK2_SYM'},
+					{'SPACEGUNK3',	'UI_SGUNK3_SYM'},
+					{'SPACEGUNK4',	'UI_SGUNK4_SYM'},
+					{'SPACEGUNK5',	'UI_SGUNK5_SYM'},
+					{'TIMEDUST',	'UI_TIMEDUST_SYM'},
+					{'TIMEMILK',	'UI_TIMEMILK_SYM'},
+					{'ROBOT2',		'UI_ROBOT2_SYM'}
+				}) do
+					T[#T+1] = {
+						SPECIAL_KEY_WORDS	= {'ID', sym[1]},
+						VALUE_CHANGE_TABLE 	= {
+							{'Symbol',		sym[2]}
+						}
+					}
+				end
+				T[#T+1] = {
+					SPECIAL_KEY_WORDS	= {'ID', 'AF_METAL'},
+					PRECEDING_KEY_WORDS = 'Colour',
+					INTEGER_TO_FLOAT	= 'Force',
+					VALUE_CHANGE_TABLE 	= ColorFromHex('FF8A7F72')
 				}
-			},
-			{
-				PRECEDING_KEY_WORDS = 'VehicleMedium',
-				VALUE_CHANGE_TABLE 	= {
-					{'MinSlots',	42},
-					{'MaxSlots',	42}
-				}
-			},
-			{
-				PRECEDING_KEY_WORDS = 'VehicleLarge',
-				VALUE_CHANGE_TABLE 	= {
-					{'MinSlots',	48},
-					{'MaxSlots',	48}
-				}
-			}
-		}
+				return T
+			end
+		)()
 	},
-	{
-	---	|CONSUMABLEs replace rewards|
-		MBIN_FILE_SOURCE	= 'METADATA/REALITY/TABLES/CONSUMABLEITEMTABLE.MBIN',
-		EXML_CHANGE_TABLE	= {
-			{
-			--	chewy wires
-				SPECIAL_KEY_WORDS	= {'ID', 'FOOD_V_ROBOT'},
-				VALUE_CHANGE_TABLE 	= {
-					{'RewardID',				'HEALTH_MAJOR'},
-					{'CloseInventoryWhenUsed',	true}
-				}
-			},
-			{
-			--	wheat testing
-				SPECIAL_KEY_WORDS	= {'ID', 'FOOD_P_ALL1'},
-				VALUE_CHANGE_TABLE 	= {
-					{'RewardID',				'TEST_REWARD_09'},
-					{'CloseInventoryWhenUsed',	true}
-				}
-			},
-			{
-				PRECEDING_KEY_WORDS = 'Table',
-				ADD 				= AddConsumableItem('HEXCORE', 'RS_QUICKSILV_T')
-			}
-		}
-	},
-	{
-	---	|COSTTABLE cheaper slots_Effigy for monolith|
+	{--	|COSTTABLE|
 		MBIN_FILE_SOURCE	= 'METADATA/REALITY/TABLES/COSTTABLE.MBIN',
 		EXML_CHANGE_TABLE	= {
 			{
@@ -93,48 +60,21 @@ NMS_MOD_DEFINITION_CONTAINER = {
 				}
 			},
 			{
+				SPECIAL_KEY_WORDS 	= {
+					{'Id', 'C_PILOT_UPGRADE'},
+					{'Id', 'C_PILOT_SLOT'},
+					{'Id', 'C_PET_SLOT'},
+					{'Id', 'C_WEAP_UPGRADE'},
+					{'Id', 'C_INV_WEAP_CR'},
+					{'Id', 'C_INV_WEAP_C'},
+					{'Id', 'C_INV_SAL_CASH'},
+					{'Id', 'C_INV_SAL_CASHR'}
+				},
 				REPLACE_TYPE 		= 'All',
 				MATH_OPERATION 		= '*',
-				SPECIAL_KEY_WORDS	= {'Id', 'C_INV_WEAP_C'},
 				PRECEDING_KEY_WORDS = 'Costs',
 				VALUE_CHANGE_TABLE 	= {
-					{'IGNORE',		0.2}
-				}
-			},
-			{
-				REPLACE_TYPE 		= 'All',
-				MATH_OPERATION 		= '*',
-				SPECIAL_KEY_WORDS	= {'Id', 'C_INV_WEAP_CR'},
-				PRECEDING_KEY_WORDS = 'Costs',
-				VALUE_CHANGE_TABLE 	= {
-					{'IGNORE',		0.2}
-				}
-			},
-			{
-				REPLACE_TYPE 		= 'All',
-				MATH_OPERATION 		= '*',
-				SPECIAL_KEY_WORDS	= {'Id', 'C_INV_SAL_CASH'},
-				PRECEDING_KEY_WORDS = 'Costs',
-				VALUE_CHANGE_TABLE 	= {
-					{'IGNORE',		0.2}
-				}
-			},
-			{
-				REPLACE_TYPE 		= 'All',
-				MATH_OPERATION 		= '*',
-				SPECIAL_KEY_WORDS	= {'Id', 'C_INV_SAL_CASHR'},
-				PRECEDING_KEY_WORDS = 'Costs',
-				VALUE_CHANGE_TABLE 	= {
-					{'IGNORE',		0.2}
-				}
-			},
-			{
-				REPLACE_TYPE 		= 'All',
-				MATH_OPERATION 		= '*',
-				SPECIAL_KEY_WORDS	= {'Id', 'C_PET_SLOT'},
-				PRECEDING_KEY_WORDS = 'Costs',
-				VALUE_CHANGE_TABLE 	= {
-					{'IGNORE',		0.1}
+					{'Ignore',		0.2}
 				}
 			}
 		}

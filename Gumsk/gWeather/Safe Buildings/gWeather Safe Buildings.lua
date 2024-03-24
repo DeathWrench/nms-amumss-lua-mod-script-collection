@@ -1,13 +1,13 @@
-Author = "Gumsk+Kibbles"
+Author = "Gumsk"
 ModName = "gWeather"
 ModNameSub = "Safe Buildings"
 BaseDescription = "Basic floor pieces have hazard protection"
-GameVersion = "397"
+GameVersion = "450"
 ModVersion = "a"
 
 HeaterAdd = [[		<Property value="TkSceneNodeData.xml">
           <Property name="Name" value="Heater" />
-          <Property name="NameHash" value="0" />
+          <Property name="NameHash" value="]]..GNH("Heater")..[[" />
           <Property name="Type" value="LOCATOR" />
           <Property name="Transform" value="TkTransformData.xml">
             <Property name="TransX" value="0" />
@@ -24,13 +24,13 @@ HeaterAdd = [[		<Property value="TkSceneNodeData.xml">
             <Property value="TkSceneNodeAttributeData.xml">
               <Property name="Name" value="ATTACHMENT" />
               <Property name="AltID" value="" />
-              <Property name="Value" value="GUMSK\GUMSKHEATER.ENTITY.MBIN" />
+              <Property name="Value" value="GUMSK/GUMSKHEATER.ENTITY.MBIN" />
             </Property>
           </Property>
           <Property name="Children">
             <Property value="TkSceneNodeData.xml">
               <Property name="Name" value="HeaterCollision" />
-              <Property name="NameHash" value="0" />
+              <Property name="NameHash" value="]]..GNH("HeaterCollision")..[[" />
               <Property name="Type" value="COLLISION" />
               <Property name="Transform" value="TkTransformData.xml">
                 <Property name="TransX" value="0" />
@@ -68,7 +68,46 @@ NMS_MOD_DEFINITION_CONTAINER = {
 	["ADD_FILES"] 		= {
 		{
 			["FILE_DESTINATION"] 		= [[GUMSK/GUMSKHEATER.ENTITY.EXML]],
-			["EXTERNAL_FILE_SOURCE"] 	= "GUMSKHEATER.ENTITY.EXML",
+			["FILE_CONTENT"] 	= [[<?xml version="1.0" encoding="utf-8"?>
+<Data template="TkAttachmentData">
+  <Property name="Components">
+    <Property value="TkPhysicsComponentData.xml">
+      <Property name="Data" value="TkPhysicsData.xml">
+        <Property name="Mass" value="0" />
+        <Property name="Friction" value="0.5" />
+        <Property name="RollingFriction" value="0.2" />
+        <Property name="AngularDamping" value="0.2" />
+        <Property name="LinearDamping" value="0.1" />
+        <Property name="Gravity" value="20" />
+      </Property>
+      <Property name="TriggerVolumeType" value="TkVolumeTriggerType.xml">
+        <Property name="VolumeTriggerType" value="GenericInterior" />
+      </Property>
+      <Property name="SurfaceProperties" value="None" />
+      <Property name="TriggerVolume" value="True" />
+      <Property name="Climbable" value="False" />
+      <Property name="Floor" value="False" />
+      <Property name="IgnoreModelOwner" value="False" />
+      <Property name="NoVehicleCollide" value="False" />
+      <Property name="NoPlayerCollide" value="False" />
+      <Property name="CameraInvisible" value="False" />
+      <Property name="InvisibleForInteraction" value="False" />
+      <Property name="AllowTeleporter" value="True" />
+      <Property name="BlockTeleporter" value="False" />
+      <Property name="DisableGravity" value="False" />
+      <Property name="SpinOnCreate" value="0" />
+	  <Property name="UseBasePartOptimisation" value="False" />
+	  <Property name="IsTransporter" value="False" />
+    </Property>
+  </Property>
+  <Property name="LodDistances">
+    <Property value="0" />
+    <Property value="50" />
+    <Property value="80" />
+    <Property value="150" />
+    <Property value="500" />
+  </Property>
+</Data>]],
 		}
 	},
 	["MODIFICATIONS"]	= {

@@ -2,27 +2,29 @@ REWARD_TABLE_TEXT =
   [[
           <Property value="GcRewardTableItem.xml">
             <Property name="PercentageChance" value="10" />
+            <Property name="LabelID" value="Base" />
             <Property name="Reward" value="GcRewardScanEvent.xml">
               <Property name="Event" value="BASE" />
               <Property name="ScanEventTable" value="Planet" />
               <Property name="DoAerialScan" value="True" />
-			  <Property name="UseMissionSeedForEvent" value="False" />
+              <Property name="UseMissionSeedForEvent" value="False" />
               <Property name="StartDelay" value="6" />
               <Property name="UseStartDelayWhenNoAerialScan" value="False" />
+              <Property name="ForceSilentFailure" value="False" />
+              <Property name="FailureOSD" value="" />
             </Property>
-            <Property name="LabelID" value="Base" />
           </Property>
 ]]
 
 SCANEVENT_TEXT =
   [[
-	<Property value="GcScanEventData.xml">
+    <Property value="GcScanEventData.xml">
       <Property name="Name" value="BASE" />
       <Property name="ForceInteraction" value="" />
       <Property name="ForceInteractionType" value="GcInteractionType.xml">
         <Property name="InteractionType" value="None" />
       </Property>
-	  <Property name="RequireInteractionRace" value="GcAlienRace.xml">
+      <Property name="RequireInteractionRace" value="GcAlienRace.xml">
         <Property name="AlienRace" value="None" />
       </Property>
       <Property name="ForceBroken" value="False" />
@@ -32,8 +34,10 @@ SCANEVENT_TEXT =
       <Property name="IsCommunityPortalOverride" value="False" />
       <Property name="ClearForcedInteractionOnCompletion" value="False" />
       <Property name="BuildingPreventionRadius" value="0" />
+      <Property name="UseMissionTradingDataOverride" value="False" />
       <Property name="AlwaysShow" value="False" />
       <Property name="NeverShow" value="False" />
+      <Property name="ShowOnlyIfSequenceTarget" value="False" />
       <Property name="PlanetLabelText" value="" />
       <Property name="SurveyDistance" value="0" />
       <Property name="SurveyDiscoveryOSDMessage" value="UI_MISSIONMARKER_DISC_OSD" />
@@ -83,6 +87,8 @@ SCANEVENT_TEXT =
         <Property name="RequireUndiscovered" value="False" />
         <Property name="NeedsWaterPlanet" value="False" />
         <Property name="NeedsPrimePlanet" value="False" />
+        <Property name="NeedsSentinels" value="False" />
+        <Property name="NeedsCorruptSentinelPlanet" value="False" />
         <Property name="NeedsExtremeSentinelPlanet" value="False" />
         <Property name="NeverAllowExtremeSentinelPlanet" value="False" />
         <Property name="NeedsExtremeWeatherPlanet" value="False" />
@@ -103,6 +109,7 @@ SCANEVENT_TEXT =
         <Property name="SuitableForCreatureDiscovery" value="False" />
         <Property name="SuitableForCreatureTaming" value="False" />
         <Property name="SamePlanetAsEvent" value="" />
+        <Property name="SamePlanetAsSeasonParty" value="0" />
       </Property>
       <Property name="SolarSystemAttributesFallback" value="GcScanEventSolarSystemLookup.xml">
         <Property name="UseStarType" value="False" />
@@ -134,6 +141,8 @@ SCANEVENT_TEXT =
         <Property name="RequireUndiscovered" value="False" />
         <Property name="NeedsWaterPlanet" value="False" />
         <Property name="NeedsPrimePlanet" value="False" />
+        <Property name="NeedsSentinels" value="False" />
+        <Property name="NeedsCorruptSentinelPlanet" value="False" />
         <Property name="NeedsExtremeSentinelPlanet" value="False" />
         <Property name="NeverAllowExtremeSentinelPlanet" value="False" />
         <Property name="NeedsExtremeWeatherPlanet" value="False" />
@@ -154,6 +163,7 @@ SCANEVENT_TEXT =
         <Property name="SuitableForCreatureDiscovery" value="False" />
         <Property name="SuitableForCreatureTaming" value="False" />
         <Property name="SamePlanetAsEvent" value="" />
+        <Property name="SamePlanetAsSeasonParty" value="0" />
       </Property>
       <Property name="ForceRestartInteraction" value="True" />
       <Property name="HasReward" value="" />
@@ -172,6 +182,9 @@ SCANEVENT_TEXT =
       <Property name="MarkerLabel" value="" />
       <Property name="MarkerIcon" value="TkTextureResource.xml">
         <Property name="Filename" value="" />
+        <Property name="ResHandle" value="GcResource.xml">
+          <Property name="ResourceID" value="0" />
+        </Property>
       </Property>
       <Property name="MissionMarkerHighlightStyleOverride" value="GcScannerIconHighlightTypes.xml">
         <Property name="ScannerIconHighlightType" value="Diamond" />
@@ -189,6 +202,9 @@ SCANEVENT_TEXT =
       <Property name="TooltipMessage" value="TIP_BASE" />
       <Property name="ResourceOverride" value="GcResourceElement.xml">
         <Property name="Filename" value="" />
+        <Property name="ResHandle" value="GcResource.xml">
+          <Property name="ResourceID" value="0" />
+        </Property>
         <Property name="Seed" value="GcSeed.xml">
           <Property name="Seed" value="0" />
           <Property name="UseSeedValue" value="False" />
@@ -210,7 +226,7 @@ NMS_MOD_DEFINITION_CONTAINER = {
     https://nomansskymods.com/mods/easy-base-building/.
 ]],
   ["MOD_AUTHOR"] = "Bladehawke",
-  ["NMS_VERSION"] = "3.98", -- Changes in files made this change necessary
+  ["NMS_VERSION"] = "4.33", -- Changes in files made this change necessary
   ["UPDATE_LINK"] = "https://pastebin.com/raw/UkVFmagZ",
   
   ["MODIFICATIONS"] = {
@@ -220,15 +236,63 @@ NMS_MOD_DEFINITION_CONTAINER = {
           ["MBIN_FILE_SOURCE"] = "METADATA/REALITY/TABLES/REWARDTABLE.MBIN",
           ["EXML_CHANGE_TABLE"] = {
             {
-              ["SPECIAL_KEY_WORDS"] = {"Id", "RANDOM_SCAN_A", "LabelID", "Factory"},
+              ["SPECIAL_KEY_WORDS"] = {"Id", "RANDOM_SCAN_A", "LabelID", "Harvester"},
               ["REPLACE_TYPE"] = "ADDAFTERSECTION",
               ["ADD"] = REWARD_TABLE_TEXT
             },
             {
-              ["SPECIAL_KEY_WORDS"] = {"Id", "R_STARCHART_A", "LabelID", "Factory"},
+              ["SPECIAL_KEY_WORDS"] = {"Id", "R_STARCHART_A", "LabelID", "Harvester"},
               ["REPLACE_TYPE"] = "ADDAFTERSECTION",
               ["ADD"] = REWARD_TABLE_TEXT
-            }
+            },
+            {
+              ["SPECIAL_KEY_WORDS"] = {"Id","RANDOM_SCAN_A","List","GcRewardTableItemList.xml",},
+              ["PRECEDING_KEY_WORDS"] = {"List","GcRewardTableItem.xml",},
+              ["VALUE_CHANGE_TABLE"] 	= 
+              {
+				{"PercentageChance",	"20"},
+              },
+            },
+            {
+              ["SPECIAL_KEY_WORDS"] = {"Id","RANDOM_SCAN_A","List","GcRewardTableItemList.xml",},
+              ["PRECEDING_KEY_WORDS"] = {"List","GcRewardTableItem.xml","GcRewardTableItem.xml",},
+              ["VALUE_CHANGE_TABLE"] 	= 
+              {
+				{"PercentageChance",	"40"},
+              },
+            },
+            {
+              ["SPECIAL_KEY_WORDS"] = {"Id","RANDOM_SCAN_A","List","GcRewardTableItemList.xml",},
+              ["PRECEDING_KEY_WORDS"] = {"List","GcRewardTableItem.xml","GcRewardTableItem.xml","GcRewardTableItem.xml",},
+              ["VALUE_CHANGE_TABLE"] 	= 
+              {
+				{"PercentageChance",	"20"},
+              },
+            },
+            {
+              ["SPECIAL_KEY_WORDS"] = {"Id","R_STARCHART_A","List","GcRewardTableItemList.xml",},
+              ["PRECEDING_KEY_WORDS"] = {"List","GcRewardTableItem.xml",},
+              ["VALUE_CHANGE_TABLE"] 	= 
+              {
+				{"PercentageChance",	"20"},
+              },
+            },
+            {
+              ["SPECIAL_KEY_WORDS"] = {"Id","R_STARCHART_A","List","GcRewardTableItemList.xml",},
+              ["PRECEDING_KEY_WORDS"] = {"List","GcRewardTableItem.xml","GcRewardTableItem.xml",},
+              ["VALUE_CHANGE_TABLE"] 	= 
+              {
+				{"PercentageChance",	"40"},
+              },
+            },
+            {
+              ["SPECIAL_KEY_WORDS"] = {"Id","R_STARCHART_A","List","GcRewardTableItemList.xml",},
+              ["PRECEDING_KEY_WORDS"] = {"List","GcRewardTableItem.xml","GcRewardTableItem.xml","GcRewardTableItem.xml",},
+              ["VALUE_CHANGE_TABLE"] 	= 
+              {
+				{"PercentageChance",	"20"},
+              },
+            },			
           }
         },
         
@@ -260,13 +324,20 @@ NMS_MOD_DEFINITION_CONTAINER = {
 				},
 
         {
-          ["MBIN_FILE_SOURCE"] = {
-            "METADATA/SIMULATION/SCANNING/SCANEVENTTABLEPLANET.MBIN",
-            "METADATA/SIMULATION/SCANNING/SCANEVENTTABLESPACE.MBIN"
-          },
+          ["MBIN_FILE_SOURCE"] = "METADATA/SIMULATION/SCANNING/SCANEVENTTABLEPLANET.MBIN",
           ["EXML_CHANGE_TABLE"] = {
             {
-              ["SPECIAL_KEY_WORDS"] = {"Name", "RADIOTOWER", "TooltipMessage", "TIP_RADIOTOWER"},
+              ["SPECIAL_KEY_WORDS"] = {"Name", "ROBOT_CAMP",},
+              ["REPLACE_TYPE"] = "ADDAFTERSECTION",
+              ["ADD"] = SCANEVENT_TEXT
+            }
+          }
+        },
+        {
+          ["MBIN_FILE_SOURCE"] = "METADATA/SIMULATION/SCANNING/SCANEVENTTABLEVEHICLE.MBIN",
+          ["EXML_CHANGE_TABLE"] = {
+            {
+              ["SPECIAL_KEY_WORDS"] = {"Name", "UW_RUIN",},
               ["REPLACE_TYPE"] = "ADDAFTERSECTION",
               ["ADD"] = SCANEVENT_TEXT
             }
@@ -274,14 +345,12 @@ NMS_MOD_DEFINITION_CONTAINER = {
         },
 
         {
-          ["MBIN_FILE_SOURCE"] = "METADATA/SIMULATION/SCANNING/SCANEVENTTABLESPACE.MBIN",
+          ["MBIN_FILE_SOURCE"] = "METADATA/SIMULATION/SCANNING/SCANEVENTTABLEVEHICLE.MBIN",
           ["EXML_CHANGE_TABLE"] = {
             {
               ["SPECIAL_KEY_WORDS"] = {"Name", "BASE"},
               ["VALUE_CHANGE_TABLE"] = {
-                {"EventStartType", "Timer"},
-                {"EventEndType", "Interact"},
-                {"TooltipRepeats", "True"}
+                {"ForceWideRandom", "False"},
               }
             }
           }

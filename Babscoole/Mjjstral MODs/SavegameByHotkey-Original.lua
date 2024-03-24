@@ -1,58 +1,41 @@
-NMS_MOD_DEFINITION_CONTAINER = 
+NMS_MOD_DEFINITION_CONTAINER =
 {
 ["MOD_FILENAME"]    = "z-SavegameByHotkey-Org.pak",
 ["MOD_AUTHOR"]      = "Mjjstral",
 ["MOD_MAINTENANCE"] = "Babscoole",
 ["MOD_DESCRIPTION"] = "Enable hotkey saving (quick action emote menu)",
-["NMS_VERSION"]     = "4.00",
-["MODIFICATIONS"]   = 
-	{
-		{
-			["MBIN_CHANGE_TABLE"] = 
-			{  
-				{
-					["MBIN_FILE_SOURCE"]  = "MODELS\COMMON\PLAYER\PLAYERCHARACTER\PLAYERCHARACTER\ENTITIES\PLAYERCHARACTER.ENTITY.MBIN",
-					["EXML_CHANGE_TABLE"] = 
-					{
-						{
-							["SPECIAL_KEY_WORDS"] = {"Anim","0H_GREET_MOB_04"}, 
-							["SECTION_ACTIVE"]    = {2,},
-							["ADD_OPTION"]        = "ADDafterSECTION",
-							["ADD"] = 
-[[
-        <Property value="TkAnimationData.xml">
-          <Property name="Anim" value="SAVEGAME" />
-          <Property name="Filename" value="MODELS/COMMON/PLAYER/PLAYERCHARACTER/ANIMS/EMOTES/NULL.ANIM.MBIN" />
-          <Property name="AnimType" value="OneShot" />
-          <Property name="FrameStart" value="0" />
-          <Property name="FrameEnd" value="0" />
-          <Property name="StartNode" value="" />
-          <Property name="ExtraStartNodes" />
-          <Property name="Priority" value="0" />
-          <Property name="OffsetMin" value="0" />
-          <Property name="OffsetMax" value="0" />
-          <Property name="Delay" value="0" />
-          <Property name="Speed" value="1" />
-          <Property name="ActionStartFrame" value="0" />
-          <Property name="ActionFrame" value="-1" />
-          <Property name="CreatureSize" value="AllSizes" />
-          <Property name="Additive" value="False" />
-          <Property name="Mirrored" value="False" />
-          <Property name="Active" value="True" />
-          <Property name="AdditiveBaseAnim" value="" />
-          <Property name="AdditiveBaseFrame" value="0" />
-          <Property name="GameData" value="TkAnimationGameData.xml">
-            <Property name="RootMotionEnabled" value="False" />
-            <Property name="BlockPlayerMovement" value="False" />
-            <Property name="BlockPlayerWeapon" value="Unblocked" />
-          </Property>
-        </Property>
-]]				
-						},
-						{
-							["PRECEDING_KEY_WORDS"] = {"GcPlayerEffectsComponentData.xml"}, 
-							["ADD_OPTION"]        = "ADDafterSECTION",
-							["ADD"] = 
+["NMS_VERSION"]     = "4.52",
+["MODIFICATIONS"]   =
+    {
+        {
+            ["MBIN_CHANGE_TABLE"] =
+            {
+                {
+                    ["MBIN_FILE_SOURCE"] = "MODELS\COMMON\PLAYER\PLAYERCHARACTER\PLAYERCHARACTER\ENTITIES\PLAYERCHARACTER.ENTITY.MBIN",
+                    ["EXML_CHANGE_TABLE"] =
+                    {
+                        {
+                            ["SPECIAL_KEY_WORDS"] = {"Anim", "0H_TURN_L"},
+                            ["SEC_SAVE_TO"] = "ADD_ANIM",
+                        },
+                        {
+                            ["SEC_EDIT"] = "ADD_ANIM",
+                            ["VALUE_CHANGE_TABLE"] =
+                            {
+                                {"Anim",     "SAVEGAME"},
+                                {"Filename", "MODELS/TESTS/EFFECTTEST.ANIM.MBIN"},
+                            }
+                        },
+                        {
+                            ["SPECIAL_KEY_WORDS"] = {"Anim", "0H_GREET_MOB_04"},
+                            ["SECTION_ACTIVE"] = {2},
+                            ["ADD_OPTION"] = "ADDafterSECTION",
+                            ["SEC_ADD_NAMED"] = "ADD_ANIM",
+                        },
+                        {
+                            ["PRECEDING_KEY_WORDS"] = {"GcPlayerEffectsComponentData.xml"},
+                            ["ADD_OPTION"] = "ADDafterSECTION",
+                            ["ADD"] =
 [[
     <Property value="GcSimpleInteractionComponentData.xml">
       <Property name="SimpleInteractionType" value="Save" />
@@ -75,8 +58,9 @@ NMS_MOD_DEFINITION_CONTAINER =
       <Property name="InteractFiendCrimeType" value="GcFiendCrime.xml">
         <Property name="FiendCrime" value="None" />
       </Property>
-      <Property name="InteractFiendCrimeChance" value="1" />	  
+      <Property name="InteractFiendCrimeChance" value="1" />
       <Property name="InteractCrimeLevel" value="0" />
+      <Property name="IncreaseCorruptSentinelWanted" value="0" />
       <Property name="NotifyEncounter" value="False" />
       <Property name="ActivationCost" value="GcInteractionActivationCost.xml">
         <Property name="SubstanceId" value="" />
@@ -84,6 +68,8 @@ NMS_MOD_DEFINITION_CONTAINER =
         <Property name="Cost" value="0" />
         <Property name="Repeat" value="False" />
         <Property name="RequiredTech" value="" />
+        <Property name="UseCostID" value="" />
+        <Property name="StartMissionOnCantAfford" value="" />
         <Property name="OnlyChargeDuringSeasons" />
       </Property>
       <Property name="StatToTrack" value="GcStatsEnum.xml">
@@ -94,6 +80,7 @@ NMS_MOD_DEFINITION_CONTAINER =
       <Property name="NeedsStorm" value="False" />
       <Property name="Name" value="" />
       <Property name="VRInteractMessage" value="" />
+      <Property name="TerminalHeading" value="" />
       <Property name="TerminalMessage" value="" />
       <Property name="ScanType" value="" />
       <Property name="ScanData" value="" />
@@ -130,14 +117,16 @@ NMS_MOD_DEFINITION_CONTAINER =
               <Property name="Event" value="GcStateTimeEvent.xml">
                 <Property name="Seconds" value="0" />
                 <Property name="RandomSeconds" value="0" />
-                <Property name="UseMissionClock" value="False" />				
-              </Property>		  
+                <Property name="UseMissionClock" value="False" />
+              </Property>
               <Property name="Action">
                 <Property value="GcGoToStateAction.xml">
                   <Property name="State" value="WAIT_FOR_SAVE" />
                   <Property name="Broadcast" value="False" />
-                  <Property name="BroadcastLevel" value="Local" />
-                </Property>			
+                  <Property name="BroadcastLevel" value="GcBroadcastLevel.xml">
+                    <Property name="BroadcastLevel" value="Local" />
+                  </Property>
+                </Property>
               </Property>
             </Property>
           </Property>
@@ -149,7 +138,7 @@ NMS_MOD_DEFINITION_CONTAINER =
               <Property name="Event" value="GcStateTimeEvent.xml">
                 <Property name="Seconds" value="0" />
                 <Property name="RandomSeconds" value="0" />
-                <Property name="UseMissionClock" value="False" />				
+                <Property name="UseMissionClock" value="False" />
               </Property>
               <Property name="Action">
                 <Property value="GcPlayAudioAction.xml">
@@ -161,8 +150,10 @@ NMS_MOD_DEFINITION_CONTAINER =
                 <Property value="GcGoToStateAction.xml">
                   <Property name="State" value="WAIT_FOR_SAVE" />
                   <Property name="Broadcast" value="False" />
-                  <Property name="BroadcastLevel" value="Local" />
-                </Property>				
+                  <Property name="BroadcastLevel" value="GcBroadcastLevel.xml">
+                    <Property name="BroadcastLevel" value="Local" />
+                  </Property>
+                </Property>
               </Property>
             </Property>
           </Property>
@@ -175,15 +166,17 @@ NMS_MOD_DEFINITION_CONTAINER =
                 <Property name="Anim" value="SAVEGAME" />
                 <Property name="FrameStart" value="0" />
                 <Property name="StartFromEnd" value="False" />
-              </Property>			  
+              </Property>
               <Property name="Action">
                 <Property value="GcGoToStateAction.xml">
                   <Property name="State" value="SAVE" />
                   <Property name="Broadcast" value="False" />
-                  <Property name="BroadcastLevel" value="Local" />
-                </Property>			
+                  <Property name="BroadcastLevel" value="GcBroadcastLevel.xml">
+                    <Property name="BroadcastLevel" value="Local" />
+                  </Property>
+                </Property>
               </Property>
-            </Property>	
+            </Property>
           </Property>
         </Property>
       </Property>
@@ -191,99 +184,66 @@ NMS_MOD_DEFINITION_CONTAINER =
       <Property name="PersistentState" value="" />
       <Property name="ResetShotTimeOnStateChange" value="False" />
       <Property name="LinkStateToBaseGrid" value="False" />
-    </Property>	
-]]							
-						}
-					}
-				},
-				{
-					["MBIN_FILE_SOURCE"]  = "METADATA\UI\EMOTEMENU.MBIN",
-					["EXML_CHANGE_TABLE"] = 
-					{
-						{
-							["PRECEDING_KEY_WORDS"] = {"Emotes"}, 
-							["LINE_OFFSET"]         = "+0",
-							["ADD"] = 
-[[
-    <Property value="GcPlayerEmote.xml">
-      <Property name="Title" value="Save" />
-      <Property name="ChatText" value="" />
-      <Property name="ChatUsesPrefix" value="False" />
-      <Property name="AnimationName" value="SAVEGAME" />
-      <Property name="Icon" value="TkTextureResource.xml">
-        <Property name="Filename" value="TEXTURES/UI/HUD/ICONS/PLAYER/SAVE.DDS" />
-      </Property>
-      <Property name="LinkedSpecialID" value="" />
-      <Property name="NeverShowInMenu" value="False" />
-      <Property name="LoopAnimUntilMove" value="" />
-      <Property name="CloseMenuOnSelect" value="False" />
-      <Property name="MoveToCancel" value="False" />
-      <Property name="GekAnimationName" value="" />
-      <Property name="GekLoopAnimUntilMove" value="" />
-      <Property name="AvailableUnderwater" value="False" />
-      <Property name="RidingAnimationName" value="SAVEGAME" />
-      <Property name="IsPetCommand" value="False" />
-      <Property name="PetCommandTitle" value="" />
-      <Property name="PetCommandIcon" value="TkTextureResource.xml">
-        <Property name="Filename" value="" />
-      </Property>
     </Property>
-    <Property value="GcPlayerEmote.xml">
-      <Property name="Title" value="Save" />
-      <Property name="ChatText" value="" />
-      <Property name="ChatUsesPrefix" value="False" />
-      <Property name="AnimationName" value="SAVEGAME" />
-      <Property name="Icon" value="TkTextureResource.xml">
-        <Property name="Filename" value="TEXTURES/UI/HUD/ICONS/PLAYER/SAVE.DDS" />
-      </Property>
-      <Property name="LinkedSpecialID" value="" />
-      <Property name="NeverShowInMenu" value="False" />
-      <Property name="LoopAnimUntilMove" value="" />
-      <Property name="CloseMenuOnSelect" value="False" />
-      <Property name="MoveToCancel" value="False" />
-      <Property name="GekAnimationName" value="" />
-      <Property name="GekLoopAnimUntilMove" value="" />
-      <Property name="AvailableUnderwater" value="True" />
-      <Property name="RidingAnimationName" value="SAVEGAME" />
-      <Property name="IsPetCommand" value="False" />
-      <Property name="PetCommandTitle" value="" />
-      <Property name="PetCommandIcon" value="TkTextureResource.xml">
-        <Property name="Filename" value="" />
-      </Property>
-    </Property>
-]]							
-						}
-					}
-				}
-			}
-		}		
-	},
-["ADD_FILES"] = 
-	{
-		{
-			["FILE_DESTINATION"] = [[MODELS\COMMON\PLAYER\PLAYERCHARACTER\ANIMS\EMOTES\NULL.ANIM.EXML]],
-			["FILE_CONTENT"] 	 = 
-[[
-<?xml version="1.0" encoding="utf-8"?>
-<Data template="TkAnimMetadata">
-  <Property name="FrameCount" value="10" />
-  <Property name="NodeCount" value="0" />
-  <Property name="NodeData" /> 
-  <Property name="AnimFrameData">
-    <Property value="TkAnimNodeFrameData.xml">
-    <Property name="Rotations" />  
-	<Property name="Translations" /> 
-	<Property name="Scales" />
-    </Property>  
-  </Property>	
-  <Property name="StillFrameData" value="TkAnimNodeFrameData.xml">
-    <Property name="Rotations" />  
-	<Property name="Translations" /> 
-	<Property name="Scales" />	  
- </Property>
-</Data>	
-]]			
-		}
-	}
+]]
+                        }
+                    }
+                },
+                {
+                    ["MBIN_FILE_SOURCE"] = "METADATA\UI\EMOTEMENU.MBIN",
+                    ["EXML_CHANGE_TABLE"] =
+                    {
+                        {
+                            ["SPECIAL_KEY_WORDS"] = {"Title", "EMOTE_WAVE"},
+                            ["SEC_SAVE_TO"] = "ADD_EMOTE",
+                        },
+                        {
+                            ["SEC_EDIT"] = "ADD_EMOTE",
+                            ["VALUE_CHANGE_TABLE"] =
+                            {
+                                {"Title",               "Save"},
+                                {"ChatText",            ""},
+                                {"ChatUsesPrefix",      "False"},
+                                {"EmoteID",             "SAVEGAME"},
+                                {"AnimationName",       "SAVEGAME"},
+                                {"Filename",            "TEXTURES/UI/HUD/ICONS/PLAYER/SAVE.DDS"},
+                                {"MoveToCancel",        "True"},
+                                {"RidingAnimationName", "SAVEGAME"},
+                            }
+                        },
+                        {
+                            ["PRECEDING_KEY_WORDS"] = {"Emotes"},
+                            ["ADD_OPTION"] = "ADDafterLINE",
+                            ["SEC_ADD_NAMED"] = "ADD_EMOTE",
+                        },
+                        {
+                            ["SEC_EDIT"] = "ADD_EMOTE",
+                            ["VALUE_CHANGE_TABLE"] =
+                            {
+                                {"AvailableUnderwater", "True"},
+                            }
+                        },
+                        {
+                            ["PRECEDING_KEY_WORDS"] = {"Emotes"},
+                            ["ADD_OPTION"] = "ADDafterLINE",
+                            ["SEC_ADD_NAMED"] = "ADD_EMOTE",
+                        },
+                    }
+                },
+                {
+                    ["MBIN_FILE_SOURCE"] = "MODELS\TESTS\EFFECTTEST.ANIM.MBIN",
+                    ["EXML_CHANGE_TABLE"] =
+                    {
+                        {
+                            ["VALUE_CHANGE_TABLE"] =
+                            {
+                                {"FrameCount", "10"},
+                                {"NodeCount",  "0"},
+                            }
+                        },
+                    }
+                },
+            }
+        }
+    }
 }
-

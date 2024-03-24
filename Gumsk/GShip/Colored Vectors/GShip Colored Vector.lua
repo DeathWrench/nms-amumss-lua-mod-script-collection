@@ -2,7 +2,7 @@ Author = "Gumsk"
 ModName = "GShip"
 ModNameSub = "Colored Vector"
 BaseDescription = "Recolors the Golden Vector"
-GameVersion = "398"
+GameVersion = "407"
 ModVersion = "a"
 
 NMS_MOD_DEFINITION_CONTAINER = {

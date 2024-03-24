@@ -1,12 +1,12 @@
 Author = "Exosolar"			--Edited by Xen0nex	
-ModName = "gExos Challenge"
+--ModName = "gExos Challenge"
 ModNameSub = "Infinite Storms AltX"
 BaseDescription = "Makes storms permanent on extreme planets; edited to just make them more frequent and longer"
-GameVersion = "393"
+GameVersion = "446"
 ModVersion = "a"
 
 NMS_MOD_DEFINITION_CONTAINER = {
-["MOD_FILENAME"]	= ModName.." "..ModNameSub.." "..GameVersion..ModVersion..".pak",
+["MOD_FILENAME"]	= ModNameSub.." "..GameVersion..ModVersion..".pak",
 ["MOD_DESCRIPTION"]	= BaseDescription,
 ["MOD_AUTHOR"]		= Author,
 ["NMS_VERSION"]		= GameVersion,

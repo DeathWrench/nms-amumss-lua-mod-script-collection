@@ -27,19 +27,19 @@ StatChanges =
 		["Stat"] = "SHIP_DAMAGE",
 		["C"] = {
 					["Min"] = "0",
-					["Max"] = "10",
+					["Max"] = "15",
 				},
 		["B"] = {
 					["Min"] = "5",
-					["Max"] = "30",
+					["Max"] = "45",
 				},
 		["A"] = {
 					["Min"] = "5",
-					["Max"] = "50",
+					["Max"] = "60",
 				},
 		["S"] = {
 					["Min"] = "10",
-					["Max"] = "60",
+					["Max"] = "75",
 				},
 	},
 	{
@@ -60,6 +60,26 @@ StatChanges =
 		["S"] = {
 					["Min"] = "15",
 					["Max"] = "85",
+				},
+	},
+	{
+		["Type"] = "Shuttle",
+		["Stat"] = "SHIP_AGILE",
+		["C"] = {
+					["Min"] = "5",
+					["Max"] = "15",
+				},
+		["B"] = {
+					["Min"] = "10",
+					["Max"] = "20",
+				},
+		["A"] = {
+					["Min"] = "15",
+					["Max"] = "30",
+				},
+		["S"] = {
+					["Min"] = "20",
+					["Max"] = "50",
 				},
 	},
 }
@@ -158,8 +178,8 @@ INVENTORY_CHANGE =
 	}
 }
 
-for i,j in pairs(StatChanges) do
-	for k,l in pairs(Class) do
+for _i,j in pairs(StatChanges) do
+	for _k,l in pairs(Class) do
 		TEMP_TABLE =
 		{
 			["PRECEDING_FIRST"] = "TRUE",
@@ -177,8 +197,9 @@ for i,j in pairs(StatChanges) do
 	end
 end
 
-for i,j in pairs(SpawnInventory) do
-	for k,l in pairs(j["Sizes"]) do
+for _i,j in pairs(SpawnInventory) do
+	for _k,l in pairs(j["Sizes"]) do
+		TEMP_TABLE = {}
 		if j["Type"] == "Shuttle" and l["Size"] == "Small" then
 		TEMP_TABLE =
 		{
@@ -216,8 +237,8 @@ for i,j in pairs(SpawnInventory) do
 	end
 end
 
-for i,j in pairs(MaxUpgradeSize) do
-	for k,l in pairs(j["Data"]) do
+for _i,j in pairs(MaxUpgradeSize) do
+	for _k,l in pairs(j["Data"]) do
 		TEMP_TABLE =
 		{
 			--["MATH_OPERATION"] = "*", -- "*", "+", "-", "/" or leave empty for normal replacement
@@ -256,14 +277,14 @@ NMS_MOD_DEFINITION_CONTAINER =
 								{"Shuttle",		"100"},
 							}
 						},
-						{
-							["INTEGER_TO_FLOAT"]	= "FORCE",
-							["REPLACE_TYPE"]		= "",
-							["VALUE_CHANGE_TABLE"] 	= 
-							{
-								{"CivilianTraderSpaceshipsCacheCount", "48"}
-							}
-						},
+						-- {
+							-- ["INTEGER_TO_FLOAT"]	= "FORCE",
+							-- ["REPLACE_TYPE"]		= "",
+							-- ["VALUE_CHANGE_TABLE"] 	= 
+							-- {
+								-- {"CivilianTraderSpaceshipsCacheCount", "48"}
+							-- }
+						-- },
 						{
 							["PRECEDING_KEY_WORDS"] = {"SpaceshipSpawnFreqMultipliers"},
 							["INTEGER_TO_FLOAT"]	= "FORCE",

@@ -1,36 +1,36 @@
-NMS_MOD_DEFINITION_CONTAINER = 
+NMS_MOD_DEFINITION_CONTAINER =
 {
 ["MOD_FILENAME"]  = "_Deadzone III by Exosolar.pak",
 ["MOD_AUTHOR"]    = "Exosolar",
 ["LUA_AUTHOR"]    = "Babscoole",
-["NMS_VERSION"]   = "4.00",
-["MODIFICATIONS"] = 
-	{
-		{
-			["MBIN_CHANGE_TABLE"] = 
-			{ 
-				{
-					["MBIN_FILE_SOURCE"]  = "METADATA\SIMULATION\SOLARSYSTEM\BIOMES\DEAD\DEADBIOME.MBIN",
-					["EXML_CHANGE_TABLE"] = 
-					{
-						{
-							["PRECEDING_KEY_WORDS"] = {"ExternalObjectLists"},
-							["VALUE_CHANGE_TABLE"] 	= 
-							{
-								{"AllowLimiting", "False"},		
-							}
-						},
-						{
-							["PRECEDING_KEY_WORDS"] = {"Features"},
-							["VALUE_CHANGE_TABLE"] 	= 
-							{
-								{"Crater", "2"},		
-							}
-						},
-						{
-							["SPECIAL_KEY_WORDS"] = {"ScreenFilter", "Weird4",},
-							["LINE_OFFSET"] = "+3",
-							["ADD"] = 
+["NMS_VERSION"]   = "4.52",
+["MODIFICATIONS"] =
+    {
+        {
+            ["MBIN_CHANGE_TABLE"] =
+            {
+                {
+                    ["MBIN_FILE_SOURCE"] = "METADATA\SIMULATION\SOLARSYSTEM\BIOMES\DEAD\DEADBIOME.MBIN",
+                    ["EXML_CHANGE_TABLE"] =
+                    {
+                        {
+                            ["PRECEDING_KEY_WORDS"] = {"ExternalObjectLists"},
+                            ["VALUE_CHANGE_TABLE"]     =
+                            {
+                                {"AllowLimiting", "False"},
+                            }
+                        },
+                        {
+                            ["PRECEDING_KEY_WORDS"] = {"Features"},
+                            ["VALUE_CHANGE_TABLE"]     =
+                            {
+                                {"Crater", "2"},
+                            }
+                        },
+                        {
+                            ["SPECIAL_KEY_WORDS"] = {"ScreenFilter", "Weird4"},
+                            ["LINE_OFFSET"] = "+3",
+                            ["ADD"] =
 [[
     <Property value="GcScreenFilterOption.xml">
       <Property name="Filter" value="GcScreenFilters.xml">
@@ -68,27 +68,19 @@ NMS_MOD_DEFINITION_CONTAINER =
       </Property>
       <Property name="Weight" value="0.02" />
     </Property>
-]],	
-						},						
-					}
-				},			
-			}
-		},
-		{
-			["MBIN_CHANGE_TABLE"] = 
-			{ 
-				{
-					["MBIN_FILE_SOURCE"]  = "METADATA\SIMULATION\SOLARSYSTEM\BIOMES\DEAD\DEADOBJECTSDEAD.MBIN",
-					["EXML_CHANGE_TABLE"] = 
-					{
-						{
-							["REPLACE_TYPE"] = "RAW",
-							["VALUE_CHANGE_TABLE"] = 
-							{
-								{
-									[[    <Property name="DistantObjects" />]], 
+]],
+                        },
+                    }
+                },
+                {
+                    ["MBIN_FILE_SOURCE"] = "METADATA\SIMULATION\SOLARSYSTEM\BIOMES\DEAD\DEADOBJECTSDEAD.MBIN",
+                    ["EXML_CHANGE_TABLE"] =
+                    {
+                        {
+                            ["PRECEDING_KEY_WORDS"] = {"DistantObjects"},
+                            ["CREATE_HOS"] = "TRUE",
+                            ["ADD"] =
 [[
-    <Property name="DistantObjects">
       <Property value="GcObjectSpawnData.xml">
         <Property name="DebugName" value="" />
         <Property name="Type" value="Instanced" />
@@ -168,9 +160,9 @@ NMS_MOD_DEFINITION_CONTAINER =
             <Property name="SlopeMultiplier" value="1" />
             <Property name="MaxRegionRadius" value="9999" />
             <Property name="MaxImposterRadius" value="9999" />
-          <Property name="FadeOutStartDistance" value="9999" />
-          <Property name="FadeOutEndDistance" value="9999" />
-          <Property name="FadeOutOffsetDistance" value="0" />
+            <Property name="FadeOutStartDistance" value="9999" />
+            <Property name="FadeOutEndDistance" value="9999" />
+            <Property name="FadeOutOffsetDistance" value="0" />
             <Property name="LodDistances">
               <Property value="0" />
               <Property value="300" />
@@ -260,9 +252,9 @@ NMS_MOD_DEFINITION_CONTAINER =
             <Property name="SlopeMultiplier" value="1" />
             <Property name="MaxRegionRadius" value="6" />
             <Property name="MaxImposterRadius" value="9999" />
-          <Property name="FadeOutStartDistance" value="9999" />
-          <Property name="FadeOutEndDistance" value="9999" />
-          <Property name="FadeOutOffsetDistance" value="0" />
+            <Property name="FadeOutStartDistance" value="9999" />
+            <Property name="FadeOutEndDistance" value="9999" />
+            <Property name="FadeOutOffsetDistance" value="0" />
             <Property name="LodDistances">
               <Property value="0" />
               <Property value="300" />
@@ -273,16 +265,13 @@ NMS_MOD_DEFINITION_CONTAINER =
           </Property>
         </Property>
       </Property>
-    </Property>
-]] 
-								},
-							}
-						},									
-						{
-							["PRECEDING_FIRST"] = "True",							
-							["PRECEDING_KEY_WORDS"] = {"Objects","Objects",},							
-							["ADD_OPTION"] = "ADDafterLINE",
-							["ADD"] = 
+]]
+                        },
+                        {
+                            ["PRECEDING_FIRST"] = "True",
+                            ["PRECEDING_KEY_WORDS"] = {"Objects", "Objects"},
+                            ["ADD_OPTION"] = "ADDafterLINE",
+                            ["ADD"] =
 [[
       <Property value="GcObjectSpawnData.xml">
         <Property name="DebugName" value="" />
@@ -429,13 +418,13 @@ NMS_MOD_DEFINITION_CONTAINER =
           </Property>
         </Property>
       </Property>
-]],	
-						},
-						{
-							["SPECIAL_KEY_WORDS"] = {"Objects","GcEnvironmentSpawnData.xml",},								
-							["PRECEDING_KEY_WORDS"] = {"DetailObjects",},							
-							["ADD_OPTION"] = "ADDafterLINE",
-							["ADD"] = 
+]],
+                        },
+                        {
+                            ["SPECIAL_KEY_WORDS"] = {"Objects", "GcEnvironmentSpawnData.xml"},
+                            ["PRECEDING_KEY_WORDS"] = {"DetailObjects"},
+                            ["ADD_OPTION"] = "ADDafterLINE",
+                            ["ADD"] =
 [[
       <Property value="GcObjectSpawnData.xml">
         <Property name="DebugName" value="" />
@@ -568,12 +557,12 @@ NMS_MOD_DEFINITION_CONTAINER =
             </Property>
           </Property>
         </Property>
-      </Property> 
-]],	
-						},						
-					}
-				},			
-			}
-		},		
-	}
+      </Property>
+]],
+                        },
+                    }
+                },
+            }
+        },
+    }
 }

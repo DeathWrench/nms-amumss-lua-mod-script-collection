@@ -7,16 +7,17 @@ More reason the stacking mod was added to this mod collection.
 
 NMS_MOD_DEFINITION_CONTAINER = 
 {
-    ["MOD_FILENAME"]    = "Full_Refund.pak", 
+    ["MOD_FILENAME"]    = "B_Full_Refund.pak", 
     ["MOD_AUTHOR"]      = "Lo2k",
-    ["NMS_VERSION"]     = "3.75",
+    ["NMS_VERSION"]     = "4.46",
     ["MODIFICATIONS"]   = 
     {
         {
             ["MBIN_CHANGE_TABLE"] = 
             { 
                 {
-                    ["MBIN_FILE_SOURCE"]    = "METADATA\GAMESTATE\DEFAULTINVENTORYBALANCE.MBIN",
+                    ["MBIN_FILE_SOURCE"]    =  {"METADATA\GAMESTATE\DEFAULTINVENTORYBALANCE.MBIN",
+                                                "METADATA\GAMESTATE\DEFAULTINVENTORYBALANCESURVIVAL.MBIN",},
                     ["EXML_CHANGE_TABLE"]   = 
                     {
                         {

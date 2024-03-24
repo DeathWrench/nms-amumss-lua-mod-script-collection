@@ -20,7 +20,7 @@ NMS_MOD_DEFINITION_CONTAINER = {
 			{"Bonus","5"}}},
 	}},
 
-	{["MBIN_FILE_SOURCE"]	= "METADATA\REALITY\TABLES\DAMAGETABLE.MBIN",
+{["MBIN_FILE_SOURCE"]	= "METADATA\REALITY\TABLES\DAMAGETABLE.MBIN",
 	["EXML_CHANGE_TABLE"]	= {		
 		{ --SHIPLASER
 		["SPECIAL_KEY_WORDS"] = {"Id","SHIPLASER"},
@@ -45,15 +45,15 @@ NMS_MOD_DEFINITION_CONTAINER = {
 		{ --SMALLASTEROID
 		["SPECIAL_KEY_WOR	DS"] = {"Id","SMALLASTEROID"},
 			["VALUE_CHANGE_TABLE"] = {
-			{"Damage","100"}}},
+			{"Damage","50"}}},
 		{ --MEDIUMASTEROID
 		["SPECIAL_KEY_WORDS"] = {"Id","MEDIUMASTEROID"},
 			["VALUE_CHANGE_TABLE"] = {
-			{"Damage","200"}}},
+			{"Damage","100"}}},
 		{ --LARGEASTEROID
 		["SPECIAL_KEY_WORDS"] = {"Id","LARGEASTEROID"},
 			["VALUE_CHANGE_TABLE"] = {
-			{"Damage","300"}}},
+			{"Damage","150"}}},
 		{ --FREIGHTERGUN
 		["SPECIAL_KEY_WORDS"] = {"Id","FREIGHTERGUN"},
 			["VALUE_CHANGE_TABLE"] = {
@@ -65,11 +65,11 @@ NMS_MOD_DEFINITION_CONTAINER = {
 		{ --IMPACTGROUND
 		["SPECIAL_KEY_WORDS"] = {"Id","IMPACTGROUND"},
 			["VALUE_CHANGE_TABLE"] = {
-			{"Damage","300"}}},
+			{"Damage","150"}}},
 		{ --IMPACTINSTANCE
 		["SPECIAL_KEY_WORDS"] = {"Id","IMPACTINSTANCE"},
 			["VALUE_CHANGE_TABLE"] = {
-			{"Damage","300"}}},
+			{"Damage","150"}}},
 		{ --MPSHIPROCKET (rocket from other players, double damage now)
 		["SPECIAL_KEY_WORDS"] = {"Id","MPSHIPROCKET"},
 			["VALUE_CHANGE_TABLE"] = {
@@ -164,20 +164,11 @@ NMS_MOD_DEFINITION_CONTAINER = {
 			{"TurnMax","1.5"},
 			{"FleeRange","800"},
 			{"AttackTargetMinRange","100"}},
-			["REPLACE_TYPE"] = "ALL"},
-		{ --PIRATE_FREIGHT Behaviour
-		["SPECIAL_KEY_WORDS"] = {"Id","PIRATE_FREIGHT"},
-			["VALUE_CHANGE_TABLE"] = {
-			{"RewardCount","10"},
-			{"Health","50000"},
-			{"LevelledExtraHealth","0"},
-			{"Engine","SPACE_HARD"},
-			{"PlanetEngine","PLANET_HARD"},
-			{"Shield","FAST_STRONG"}}},		
+			["REPLACE_TYPE"] = "ALL"},	
 		{ --PIRATE_EASY Behaviour
 		["SPECIAL_KEY_WORDS"] = {"Id","PIRATE_EASY"},
 			["VALUE_CHANGE_TABLE"] = {
-			{"RewardCount","10"},
+			{"RewardCount","3"},
 			{"Health","50000"},
 			{"LevelledExtraHealth","0"},
 			{"Engine","SPACE_HARD"},
@@ -186,7 +177,7 @@ NMS_MOD_DEFINITION_CONTAINER = {
 		{ --PIRATE_MEDIUM Behaviour
 		["SPECIAL_KEY_WORDS"] = {"Id","PIRATE"},
 			["VALUE_CHANGE_TABLE"] = {
-			{"RewardCount","10"},
+			{"RewardCount","3"},
 			{"Health","50000"},
 			{"LevelledExtraHealth","0"},
 			{"Engine","SPACE_HARD"},
@@ -195,7 +186,7 @@ NMS_MOD_DEFINITION_CONTAINER = {
 		{ --PIRATE_HARD Behaviour
 		["SPECIAL_KEY_WORDS"] = {"Id","PIRATE_HARD"},
 			["VALUE_CHANGE_TABLE"] = {
-			{"RewardCount","10"},
+			{"RewardCount","3"},
 			{"Health","50000"},
 			{"LevelledExtraHealth","0"},
 			{"Engine","SPACE_HARD"},
@@ -205,7 +196,7 @@ NMS_MOD_DEFINITION_CONTAINER = {
 		["SPECIAL_KEY_WORDS"] = {"Id","POLICE"},
 			["VALUE_CHANGE_TABLE"] = {
 			{"Reward","TRADER_LOOT"},
-			{"RewardCount","10"},
+			{"RewardCount","3"},
 			{"Health","50000"},
 			{"LevelledExtraHealth","0"},
 			{"Engine","SPACE_HARD"},
@@ -214,7 +205,7 @@ NMS_MOD_DEFINITION_CONTAINER = {
 		{ --TRADER Behaviour
 		["SPECIAL_KEY_WORDS"] = {"Id","TRADER"},
 			["VALUE_CHANGE_TABLE"] = {
-			{"RewardCount","10"},
+			{"RewardCount","3"},
 			{"Health","50000"},
 			{"LevelledExtraHealth","0"},
 			{"Engine","SPACE_HARD"},
@@ -223,7 +214,7 @@ NMS_MOD_DEFINITION_CONTAINER = {
 		{ --TRADER ESCORT Behaviour
 		["SPECIAL_KEY_WORDS"] = {"Id","TRADER_ESCORT"},
 			["VALUE_CHANGE_TABLE"] = {{"Reward","PIRAT_LOOT_HARD"},
-			{"RewardCount","10"},
+			{"RewardCount","3"},
 			{"Health","50000"},
 			{"LevelledExtraHealth","0"},
 			{"Engine","SPACE_HARD"},
@@ -232,7 +223,7 @@ NMS_MOD_DEFINITION_CONTAINER = {
 		{ --RAIDERS(BUILDING) Behaviour
 		["SPECIAL_KEY_WORDS"] = {"Id","RAID_BUILDING"},
 			["VALUE_CHANGE_TABLE"] = {
-			{"RewardCount","10"},
+			{"RewardCount","3"},
 			{"Health","50000"},
 			{"LevelledExtraHealth","0"},
 			{"Engine","SPACE_HARD"},
@@ -241,24 +232,66 @@ NMS_MOD_DEFINITION_CONTAINER = {
 		{ --RAIDERS(DOGFIGHT) Behaviour
 		["SPECIAL_KEY_WORDS"] = {"Id","RAID_DOGFIGHT"},
 			["VALUE_CHANGE_TABLE"] = {
-			{"RewardCount","10"},
+			{"RewardCount","3"},
 			{"Health","50000"},
 			{"LevelledExtraHealth","0"},
 			{"Engine","SPACE_HARD"},
 			{"PlanetEngine","PLANET_HARD"},
 			{"Shield","FAST_STRONG"}}},
-		{ --PLAYER_SQUADRON Behaviour
-		["SPECIAL_KEY_WORDS"] = {"Id","PLAYER_SQUADRON"},
+		 --PLAYER_SQUADRON Behaviour
+		{--C
+		["SPECIAL_KEY_WORDS"] = {"Id","SQUADRON_C"},
 			["VALUE_CHANGE_TABLE"] = {
-			{"RewardCount","10"},
+			{"Behaviour","SQUADRON_STRONG"},
+			{"RewardCount","3"},
 			{"Health","50000"},
 			{"LevelledExtraHealth","0"},
+			{"Engine","SQUADRON_FAST"},
+			{"PlanetEngine","PLANET_HARD"},
+			{"Shield","FAST_STRONG"}}},
+		{--B
+		["SPECIAL_KEY_WORDS"] = {"Id","SQUADRON_B"},
+			["VALUE_CHANGE_TABLE"] = {
+			{"Behaviour","SQUADRON_STRONG"},
+			{"RewardCount","3"},
+			{"Health","50000"},
+			{"LevelledExtraHealth","0"},
+			{"Engine","SQUADRON_FAST"},
+			{"PlanetEngine","PLANET_HARD"},
+			{"Shield","FAST_STRONG"}}},
+		{--A
+		["SPECIAL_KEY_WORDS"] = {"Id","SQUADRON_A"},
+			["VALUE_CHANGE_TABLE"] = {
+			{"Behaviour","SQUADRON_STRONG"},
+			{"RewardCount","3"},
+			{"Health","50000"},
+			{"LevelledExtraHealth","0"},
+			{"Engine","SQUADRON_FAST"},
+			{"PlanetEngine","PLANET_HARD"},
+			{"Shield","FAST_STRONG"}}},
+		{--S
+		["SPECIAL_KEY_WORDS"] = {"Id","SQUADRON_S"},
+			["VALUE_CHANGE_TABLE"] = {
+			{"Behaviour","SQUADRON_STRONG"},
+			{"RewardCount","3"},
+			{"Health","50000"},
+			{"LevelledExtraHealth","0"},
+			{"Engine","SQUADRON_FAST"},
+			{"PlanetEngine","PLANET_HARD"},
+			{"Shield","FAST_STRONG"}}},
+		{--Alien
+		["SPECIAL_KEY_WORDS"] = {"Id","ALIEN_HOSTILE"},
+			["VALUE_CHANGE_TABLE"] = {
+			{"RewardCount","3"},
+			{"Health","50000"},
+			{"LevelledExtraHealth","0"},
+			{"Engine","SPACE_HARD"},
 			{"PlanetEngine","PLANET_HARD"},
 			{"Shield","FAST_STRONG"}}},
 		{ --PLANET_FLYBY Behaviour
 		["SPECIAL_KEY_WORDS"] = {"Id","PLANET_FLYBY"},
 			["VALUE_CHANGE_TABLE"] = {
-			{"RewardCount","10"},
+			{"RewardCount","3"},
 			{"Health","50000"},
 			{"LevelledExtraHealth","0"},
 			{"Engine","SPACE_HARD"},
@@ -343,18 +376,6 @@ NMS_MOD_DEFINITION_CONTAINER = {
 			["VALUE_CHANGE_TABLE"] = {
 				{"x","4"},
 				{"y","4"}}},
-		{ --PoliceSpawn Wave 3
-		["SPECIAL_KEY_WORDS"] = {"MinRange","1400","Count","Vector2f.xml"},
-		["PRECEDING_KEY_WORDS"] = {"Count"},
-			["VALUE_CHANGE_TABLE"] = {
-				{"x","4"},
-				{"y","4"}}},
-		{ --PoliceSpawn Wave 4
-		["SPECIAL_KEY_WORDS"] = {"MinRange","1500"},
-		["PRECEDING_KEY_WORDS"] = {"Count"},
-			["VALUE_CHANGE_TABLE"] = {
-				{"x","6"},
-				{"y","6"}}},
 		{ --PirateSpawns
 		["PRECEDING_KEY_WORDS"] = {"PirateSpawns","Count"},
 			["VALUE_CHANGE_TABLE"] = {

@@ -1,12 +1,12 @@
 Author = "Exosolar"			--Edited by Xen0nex
-ModName = "gExos Challenge"
+--ModName = "gExos Challenge"
 ModNameSub = "Market StabilityX"
 BaseDescription = "Removes market crashing by narrowing the range in which prices can fluctuate, reduces the effect of player selling."
-GameVersion = "393"
+GameVersion = "441"
 ModVersion = "a"
 
 NMS_MOD_DEFINITION_CONTAINER = {
-["MOD_FILENAME"]	= ModName.." "..ModNameSub.." "..GameVersion..ModVersion..".pak",
+["MOD_FILENAME"]	= ModNameSub.." "..GameVersion..ModVersion..".pak",
 ["MOD_DESCRIPTION"]	= BaseDescription,
 ["MOD_AUTHOR"]		= Author,
 ["NMS_VERSION"]		= GameVersion,

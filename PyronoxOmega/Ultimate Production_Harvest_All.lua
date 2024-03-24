@@ -1,7 +1,7 @@
 Author = "PyronoxOmega"
 ModName = "Ultimate_Production_harvest_All"
-GameVersion = "4.0"
-ModVersion = "1.2"
+GameVersion = "4.30"
+ModVersion = "1.5"
 Description = "Freighter Production Enhancement"
 
 
@@ -12,7 +12,7 @@ FileSource3 ="MODELS/PLANETS/BIOMES/COMMON/BUILDINGS/PARTS/BUILDABLEPARTS/FREIGH
 
 
 NMS_MOD_DEFINITION_CONTAINER = {
-["MOD_FILENAME"]	= ModName..""..GameVersion..ModVersion..".pak",
+["MOD_FILENAME"]	= ModName..""..-GameVersion..-ModVersion..".pak",
 ["MOD_DESCRIPTION"]	= Description,
 ["MOD_AUTHOR"]		= Author,
 ["NMS_VERSION"]		= GameVersion,

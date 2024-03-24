@@ -1,6 +1,6 @@
 ModName = "_FreeBuilding.pak"
 Author = "Striker0420"
-Version = "3.97"
+Version = "4.44"
 
 BaseBuildingObjectsTable = "METADATA\REALITY\TABLES\BASEBUILDINGOBJECTSTABLE.MBIN"
 DebugGlobals = "GCDEBUGOPTIONS.GLOBAL.MBIN"

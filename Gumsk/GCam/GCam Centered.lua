@@ -2,7 +2,7 @@ Author = "Gumsk+Azzinoth"
 ModName = "gCam"
 ModNameSub = "Centered"
 BaseDescription = "Camera modifications"
-GameVersion = "401"
+GameVersion = "450"
 ModVersion = "a"
 FileSource = "GCCAMERAGLOBALS.GLOBAL.MBIN"
 
@@ -25,31 +25,6 @@ FileSource = "GCCAMERAGLOBALS.GLOBAL.MBIN"
 	PhotoModeFlashIntensity = 0									--0.5 ; 
 	VehicleExitFlashTime = 0									--0.8 ; 
 	VehicleExitFlashStrength = 0								--0.8 ;
---Transitions
-	BeaconTime = 1												--5 ; 
-	BeaconView = "FaceDownThenOut"								--FaceDownThenOut ; 
-	BeaconTimeBack = 1											--4 ; 
-	BeaconStartTime = 1											--1 ; 
-	BeaconPauseTime = 2.5										--2.5 ; 
-	BeaconDistance = 2000										--2000 ; 
-	SignalTime = 1												--3 ; 
-	SignalView = "FaceOut"										--FaceOut ; 
-	SignalTimeBack = 1											--2 ; 
-	SignalStartTime = 2.5										--2.5 ; 
-	SignalPauseTime = 0.3										--0.3 ; 
-	SignalDistance = 40											--40 ; 
-	WaypointTime = 1											--2 ; 
-	WaypointView = "FaceDown"									--FaceDown ; 
-	WaypointTimeBack = 1										--1.5 ; 
-	WaypointStartTime = 0.4										--0.4 ; 
-	WaypointPauseTime = 0.2										--0.2 ; 
-	WaypointDistance = 3										--3 ; 
-	RadioTime = 1												--5 ; 
-	RadioView = "FaceDown"										--FaceDown ; 
-	RadioTimeBack = 1											--3.5 ; 
-	RadioStartTime = 1											--1 ; 
-	RadioPauseTime = 2											--2 ; 
-	RadioDistance = 8000										--8000 ; 
 --FOV
 	FirstPersonFoV = 75											--75 ; 
 	ThirdPersonFoV = 70											--70 ; 
@@ -69,6 +44,7 @@ NMS_MOD_DEFINITION_CONTAINER = {
 ["MOD_DESCRIPTION"]	= BaseDescription,
 ["MOD_AUTHOR"]		= Author,
 ["NMS_VERSION"]		= GameVersion,
+["GLOBAL_INTEGER_TO_FLOAT"] = "FORCE",
 ["MODIFICATIONS"]	= {
 {
 	["MBIN_CHANGE_TABLE"] = {
@@ -108,54 +84,6 @@ NMS_MOD_DEFINITION_CONTAINER = {
 						{"ShipFoVMax3rdPerson", ShipFoVMax3rdPerson},
 						{"ShipFoVBoost", ShipFoVBoost},
 						{"ShipFoVMiniJump", ShipFoVMiniJump}
-					}
-				},
-				{
-					["PRECEDING_KEY_WORDS"] = "BeaconTransition",
-					["INTEGER_TO_FLOAT"] = "FORCE",
-					["VALUE_CHANGE_TABLE"] = {
-						{"Time",BeaconTime},
-						{"AerialViewMode",BeaconView},
-						{"TimeBack",BeaconTimeBack},
-						{"StartTime",BeaconStartTime},
-						{"PauseTime",BeaconPauseTime},
-						{"Distance",BeaconDistance}
-					}
-				},
-				{
-					["PRECEDING_KEY_WORDS"] = "SignalTransition",
-					["INTEGER_TO_FLOAT"] = "FORCE",
-					["VALUE_CHANGE_TABLE"] = {
-						{"Time",SignalTime},
-						{"AerialViewMode",SignalView},
-						{"TimeBack",SignalTimeBack},
-						{"StartTime",SignalStartTime},
-						{"PauseTime",SignalPauseTime},
-						{"Distance",SignalDistance}
-					}
-				},
-				{
-					["PRECEDING_KEY_WORDS"] = "WaypointTransition",
-					["INTEGER_TO_FLOAT"] = "FORCE",
-					["VALUE_CHANGE_TABLE"] = {
-						{"Time",WaypointTime},
-						{"AerialViewMode",WaypointView},
-						{"TimeBack",WaypointTimeBack},
-						{"StartTime",WaypointStartTime},
-						{"PauseTime",WaypointPauseTime},
-						{"Distance",WaypointDistance}
-					}
-				},
-				{
-					["PRECEDING_KEY_WORDS"] = "RadioTowerTransition",
-					["INTEGER_TO_FLOAT"] = "FORCE",
-					["VALUE_CHANGE_TABLE"] = {
-						{"Time",RadioTime},
-						{"AerialViewMode",RadioView},
-						{"TimeBack",RadioTimeBack},
-						{"StartTime",RadioStartTime},
-						{"PauseTime",RadioPauseTime},
-						{"Distance",RadioDistance}
 					}
 				},
 
@@ -223,7 +151,6 @@ NMS_MOD_DEFINITION_CONTAINER = {
 						{"CenterMaxSpeed", "0.1"},
 						{"VertMaxSpring", 1},
 						{"CenterStartSpeed", "1"},
-						{"CloseSpring", "3"},
 						{"LRProbesRange", "13"},
 						{"LRProbesRadius", "0.3"},
 						{"NumUDProbes", "5"},
@@ -276,8 +203,6 @@ NMS_MOD_DEFINITION_CONTAINER = {
 						{"CenterMaxSpeed", "0.1"},
 						{"VertMaxSpring", 1},
 						{"CenterStartSpeed", "1"},
-						{"MinClose", "0.4"},
-						{"MaxClose", 1},
 						{"ProbeCenterX", "0"},
 						{"ProbeCenterY", "-0.65"}
 					}
@@ -306,8 +231,6 @@ NMS_MOD_DEFINITION_CONTAINER = {
 						{"CenterMaxSpeed", "0.1"},
 						{"VertMaxSpring", 1},
 						{"CenterStartSpeed", "1"},
-						{"MinClose", "0.4"},
-						{"MaxClose", 1},
 						{"ProbeCenterX", "0"},
 						{"ProbeCenterY", "-0.65"},
 						{"UseSpeedBasedSpring", "False"}
@@ -336,7 +259,6 @@ NMS_MOD_DEFINITION_CONTAINER = {
 						{"CenterMaxSpeed", "0.1"},
 						{"VertMaxSpring", 1},
 						{"CenterStartSpeed", "1"},
-						{"CloseSpring", "3"},
 						{"LRProbesRange", "13"},
 						{"UseSpeedBasedSpring", "False"}
 					}
@@ -387,7 +309,6 @@ NMS_MOD_DEFINITION_CONTAINER = {
 						{"CenterMaxSpeed", "0.1"},
 						{"VertMaxSpring", 1},
 						{"CenterStartSpeed", "1"},
-						{"CloseSpring", "3"},
 						{"LRProbesRange", "13"},
 						{"UseSpeedBasedSpring", "False"},
 						{"UseCustomBlendTime", "False"},
@@ -436,7 +357,6 @@ NMS_MOD_DEFINITION_CONTAINER = {
 						{"CenterMaxSpeed", "0.1"},
 						{"VertMaxSpring", 1},
 						{"CenterStartSpeed", "1"},
-						{"CloseSpring", "3"},
 						{"LRProbesRange", "13"},
 						{"UseSpeedBasedSpring", "False"}
 					}
@@ -464,7 +384,6 @@ NMS_MOD_DEFINITION_CONTAINER = {
 						{"CenterMaxSpeed", "0.1"},
 						{"VertMaxSpring", 1},
 						{"CenterStartSpeed", "1"},
-						{"CloseSpring", "3"},
 						{"LRProbesRange", "13"},
 						{"UseSpeedBasedSpring", "False"}
 					}
@@ -493,7 +412,6 @@ NMS_MOD_DEFINITION_CONTAINER = {
 						{"CenterMaxSpeed", "0.1"},
 						{"VertMaxSpring", 1},
 						{"CenterStartSpeed", "1"},
-						{"CloseSpring", "3"},
 						{"LRProbesRange", "13"}
 					}
 				},
@@ -584,7 +502,6 @@ NMS_MOD_DEFINITION_CONTAINER = {
 						{"CenterMaxSpeed", "0.1"},
 						{"VertMaxSpring", 1},
 						{"CenterStartSpeed", "1"},
-						{"CloseSpring", "3"},
 						{"LRProbesRange", "13"},
 						{"UseSpeedBasedSpring", "False"}
 					}

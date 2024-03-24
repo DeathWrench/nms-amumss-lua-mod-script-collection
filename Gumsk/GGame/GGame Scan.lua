@@ -2,7 +2,7 @@ Author = "Gumsk"
 ModName = "gGame"
 ModNameSub = "Scan"
 BaseDescription = "Various modifications to gameplay globals"
-GameVersion = "401"
+GameVersion = "411"
 ModVersion = "a"
 FileSource1 = "GCGAMEPLAYGLOBALS.GLOBAL.MBIN"
 
@@ -70,6 +70,15 @@ NMS_MOD_DEFINITION_CONTAINER = {
 								{"G",0},											--0.539; 
 								{"B",0},											--1; 
 								{"A",1}												--1; 
+							},
+						},
+						{
+							["PRECEDING_KEY_WORDS"] = "ScannerRechargeMultipliers",
+							["VALUE_CHANGE_TABLE"] = {
+								{"VeryFast",10},								--10; 
+								{"Fast",10},									--5; 
+								{"Normal",10},									--1.66; 
+								{"Slow",10}										--1; 
 							},
 						},
 						{

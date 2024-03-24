@@ -1,6 +1,6 @@
 SOUND =
 [[
-  	<Property value="GcAudioAreaTriggerComponentData.xml">
+    <Property value="GcAudioAreaTriggerComponentData.xml">
       <Property name="EventEnter" value="GcAudioWwiseEvents.xml">
         <Property name="AkEvent" value="WARN_DISTRESS_DETECTED" />
       </Property>
@@ -34,11 +34,14 @@ ICON =
       <Property name="TellPlayerIfFreighterObjectUsed" value="False" />
       <Property name="FreighterObjectAlreadyUsedLocID" value="" />
       <Property name="AllowedToMerge" value="False" />
+      <Property name="MarkerActiveWithNodeInactive" value="False" />
       <Property name="MissionSurveyId" value="" />
       <Property name="MinDisplayDistanceOverride" value="-1" />
     </Property>
     <Property value="GcShootableComponentData.xml">
       <Property name="Health" value="2500" />
+      <Property name="LevelledExtraHealth" value="0" />
+      <Property name="UseSpaceLevelForExtraHealth" value="False" />
       <Property name="AutoAimTarget" value="False" />
       <Property name="PlayerOnly" value="False" />
       <Property name="IgnorePlayer" value="False" />
@@ -48,6 +51,7 @@ ICON =
         <Property name="Impact" value="Default" />
       </Property>
       <Property name="IncreaseWanted" value="0" />
+      <Property name="IncreaseCorruptSentinelWanted" value="0" />
       <Property name="IncreaseWantedThresholdTime" value="0.5" />
       <Property name="FiendCrimeType" value="GcFiendCrime.xml">
         <Property name="FiendCrime" value="None" />
@@ -76,23 +80,27 @@ ICON =
       <Property name="VehicleDestroyEffect" value="VEHICLECRASH" />
       <Property name="TriggerAction" value="" />
       <Property name="IncreaseWanted" value="0" />
+      <Property name="IncreaseCorruptSentinelWanted" value="0" />
       <Property name="IncreaseFiendWanted" value="False" />
       <Property name="IncreaseFiendWantedChance" value="1" />
       <Property name="NotifyEncounter" value="False" />
+      <Property name="DamagesParentWhenDestroyed" value="False" />
       <Property name="LootReward" value="" />
       <Property name="LootRewardAmountMin" value="50" />
       <Property name="LootRewardAmountMax" value="50" />
       <Property name="CanDestroyFromStoredInteraction" value="False" />
       <Property name="GivesSubstances" />
       <Property name="StatToTrack" value="GcStatsEnum.xml">
-        <Property name="GcStatEnum" value="None" />
+        <Property name="StatEnum" value="None" />
       </Property>
       <Property name="GivesReward" value="" />
+      <Property name="BlockDestructionIfRewardFails" value="False" />
+      <Property name="OverrideChipAmount" value="-1" />
       <Property name="PirateSystemAltReward" value="" />
       <Property name="RewardIfDestroyedByOther" value="False" />
+      <Property name="NoConsequencesDuringPirateBattle" value="False" />
       <Property name="HideReward" value="False" />
       <Property name="OverrideRewardLoc" value="" />
-      <Property name="HardModeSubstanceMultiplier" value="1" />
       <Property name="RewardOverrideTable" />
       <Property name="ActivateLocatorsFromRarity" value="False" />
       <Property name="RarityLocators">
@@ -111,6 +119,9 @@ ICON =
       <Property name="HideModel" value="False" />
       <Property name="DestroyedModel" value="TkModelResource.xml">
         <Property name="Filename" value="" />
+        <Property name="ResHandle" value="GcResource.xml">
+          <Property name="ResourceID" value="0" />
+        </Property>
       </Property>
       <Property name="DestroyedModelUsesScale" value="True" />
       <Property name="DestroyedModelCollidesWithEverything" value="False" />
@@ -125,6 +136,7 @@ ICON =
       <Property name="ShowInteract" value="True" />
       <Property name="HideInteractWhenAllArmourDestroyed" value="False" />
       <Property name="ShowInteractRange" value="8" />
+      <Property name="HideInteractWhenShielded" value="False" />
       <Property name="GrenadeSingleHit" value="True" />
       <Property name="LootItems" />
     </Property>
@@ -144,7 +156,7 @@ NMS_MOD_DEFINITION_CONTAINER =
 {
   ["MOD_FILENAME"] = "Blackbox.pak",
   ["MOD_AUTHOR"] = "NeuroHunter with huge help from Kiiritsugu and Lowkie",
-  ["LUA_AUTHOR"] = "Updated for 3.93 by Lenni, Babscoole, Lo2k, and Gumsk",
+  ["LUA_AUTHOR"] = "Updated for 4.08 by Babscoole.  Updated for 3.93 by Lenni, Babscoole, Lo2k, and Gumsk",
   ["MOD_DESCRIPTION"] = "Blackbox have an icon",
   [[
   ]],

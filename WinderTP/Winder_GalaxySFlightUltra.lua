@@ -1,10 +1,17 @@
 -- Tweak these options to your liking to remove unwanted functions from the mod
 
 -- SPACE DRIFT
--- disables turning brakes in space when not throttling
--- shoot backward and keep flying forward
+-- disables most turning brakes in space when not throttling
+-- drifts when turning without accelerating
 -- turning while accelerating will enable turning brakes again, resulting in more normal flying
 SPACE_DORIFTO = true
+
+-- SPACE DRIFT ADVANCED
+-- completely disables turning brakes in space when not throttling
+-- shoot backward and keep flying forward
+-- controls will be pretty floaty
+-- acceleration will eventuall straighten out trajectory
+SPACE_DORIFTO_ADVANCED = true
 
 -- DISABLE ORIENTATION LIMITS ON PLANETS
 -- allows the ship to roll 360° on water
@@ -55,17 +62,30 @@ table.insert(FINAL_CHANGES,
 							{
 								{"MiniWarpSpeed",						"150000"},	
 								{"MiniWarpHUDArrowAttractAngle",		"2"},	
-								{"MiniWarpHUDArrowAttractAngleStation",		"1"},	
-								{"MiniWarpHUDArrowAttractAngleDense",		"1"},	
-								{"MiniWarpStoppingMarginPlanet",		"2000"},	
+								{"MiniWarpHUDArrowAttractAngleStation",	"2"},	
+								{"MiniWarpHUDArrowAttractAngleDense",	"1"},	
+								-- {"MiniWarpStoppingMarginPlanet",		"2000"},	
 								{"MiniWarpMinPlanetDistance",			"300"},	
-								{"MiniWarpStoppingMarginStation",		"1000"},	
+								{"MiniWarpStoppingMarginDefault",		"750"},	
 								{"MiniWarpTrackingMargin",				"20"},	
 								{"MiniWarpExitSpeed",					"450"},	
-								{"MiniWarpExitTime",					"0.225"},	
-								{"MiniWarpMarkerApproachSlowdown",		"0.96"},	
+								{"MiniWarpExitTime",					"0.25"},	
+								{"MiniWarpMarkerApproachSlowdown",		"0.1"},	
+								-- {"MiniWarpMarkerAlignSlowdownRange",	"30"},	
+								{"MiniWarpAlignSlerp",	"0.2"},	
+								-- {"PulseDrivePlanetApproachMinAngle",	"60"},	
+								-- {"PulseDrivePlanetApproachMaxAngle",	"90"},	
+								-- {"PulseDrivePlanetApproachHeight",		"50000"},	
 								{"MiniWarpPlanetRadius",				"200"},	
 								{"MiniWarpStationRadius",				"200"},	
+								{"EnablePulseDriveSpaceStationOrient",	"True"},	
+								-- {"PulseDriveStationApproachAngleRange",	"75"},	
+								-- {"PulseDriveStationApproachPerpAngleMin",	"60"},	
+								-- {"PulseDriveStationApproachPerpAngleRange",	"60"},	
+								-- {"PulseDriveStationApproachOffset",		"25000"},	
+								-- {"PulseDriveStationApproachSlowdownRangeMin",	"2500"},	
+								-- {"PulseDriveStationApproachSlowdownRange",	"7500"},	
+								-- {"PulseDriveStationApproachSlowdown",	"0.0001"},	
 							}
 						}	)
 end
@@ -211,6 +231,21 @@ table.insert(FINAL_CHANGES,
 						}	)
 table.insert(FINAL_CHANGES,
 						{
+							["PRECEDING_KEY_WORDS"] = {"ControlHover", "SpaceEngine"},
+							["MATH_OPERATION"] 		= "*",
+							["INTEGER_TO_FLOAT"]	= "FORCE",
+							["VALUE_CHANGE_TABLE"] 	= 
+							{
+								{"MaxSpeed",		"2"},	
+								{"MinSpeed",		"0.05"},
+								-- {"Falloff",			"1.75"},
+								-- {"BoostFalloff",	"1.75"},
+								{"ReverseBrake",	"1.5"},
+								{"TurnBrakeMax",	"1.3"},
+							}
+						}	)
+table.insert(FINAL_CHANGES,
+						{
 							["PRECEDING_KEY_WORDS"] = {"Control", "CombatEngine"},
 							["MATH_OPERATION"] 		= "*",
 							["INTEGER_TO_FLOAT"]	= "FORCE",
@@ -241,6 +276,20 @@ table.insert(FINAL_CHANGES,
 table.insert(FINAL_CHANGES,
 						{
 							["PRECEDING_KEY_WORDS"] = {"ControlHeavy", "CombatEngine"},
+							["MATH_OPERATION"] 		= "*",
+							["INTEGER_TO_FLOAT"]	= "FORCE",
+							["VALUE_CHANGE_TABLE"] 	= 
+							{
+								{"MaxSpeed",		"2"},	
+								{"MinSpeed",		"0.05"},
+								-- {"BoostFalloff",	"1.75"},
+								{"ReverseBrake",	"1.5"},
+								{"TurnBrakeMax",	"1.3"},
+							}
+						}	)
+table.insert(FINAL_CHANGES,
+						{
+							["PRECEDING_KEY_WORDS"] = {"ControlHover", "CombatEngine"},
 							["MATH_OPERATION"] 		= "*",
 							["INTEGER_TO_FLOAT"]	= "FORCE",
 							["VALUE_CHANGE_TABLE"] 	= 
@@ -303,6 +352,23 @@ table.insert(FINAL_CHANGES,
 						}	)
 table.insert(FINAL_CHANGES,
 						{
+							["PRECEDING_KEY_WORDS"] = {"ControlHover", "PlanetEngine"},
+							["MATH_OPERATION"] 		= "*",
+							["INTEGER_TO_FLOAT"]	= "FORCE",
+							["VALUE_CHANGE_TABLE"] 	= 
+							{
+								{"ThrustForce",		"1.75"},	
+								{"MaxSpeed",		"1.6"},	
+								-- {"MinSpeed",		"0.0025"},
+								-- {"Falloff",			"0.7"},
+								{"BoostMaxSpeed",	"1.9"},
+								-- {"BoostFalloff",	"0.5"},
+								{"ReverseBrake",	"1.5"},
+								{"OverspeedBrake",	"1.6"},
+							}
+						}	)
+table.insert(FINAL_CHANGES,
+						{
 							["PRECEDING_KEY_WORDS"] = {"Control", "AtmosCombatEngine"},
 							["MATH_OPERATION"] 		= "*",
 							["INTEGER_TO_FLOAT"]	= "FORCE",
@@ -334,6 +400,22 @@ table.insert(FINAL_CHANGES,
 table.insert(FINAL_CHANGES,
 						{
 							["PRECEDING_KEY_WORDS"] = {"ControlHeavy", "AtmosCombatEngine"},
+							["MATH_OPERATION"] 		= "*",
+							["INTEGER_TO_FLOAT"]	= "FORCE",
+							["VALUE_CHANGE_TABLE"] 	= 
+							{
+								{"ThrustForce",		"1.25"},	
+								{"MaxSpeed",		"1.6"},	
+								-- {"MinSpeed",		"0.0025"},
+								-- {"Falloff",			"0.7"},
+								{"BoostMaxSpeed",	"1.5"},
+								{"ReverseBrake",	"1.5"},
+								-- {"OverspeedBrake",	"0.8"},
+							}
+						}	)
+table.insert(FINAL_CHANGES,
+						{
+							["PRECEDING_KEY_WORDS"] = {"ControlHover", "AtmosCombatEngine"},
 							["MATH_OPERATION"] 		= "*",
 							["INTEGER_TO_FLOAT"]	= "FORCE",
 							["VALUE_CHANGE_TABLE"] 	= 
@@ -394,30 +476,38 @@ table.insert(FINAL_CHANGES,
 						{
 							["INTEGER_TO_FLOAT"]	= "FORCE",
 							["REPLACE_TYPE"] 	= "ALL",
-							["PRECEDING_KEY_WORDS"] = {"SpaceEngine"},
+							["FOREACH_SKW_GROUP"] =
+							{
+								{"SpaceEngine", "GcPlayerSpaceshipEngineData.xml"},
+								{"CombatEngine", "GcPlayerSpaceshipEngineData.xml"},
+							},
 							["MATH_OPERATION"] 		= "*",
 							["VALUE_CHANGE_TABLE"] 	= 
 							{
 								-- SPACE DRIFTO
 								{"DirectionBrakeMin",	"0"},
 								{"DirectionBrake",		"0.95"},
-								-- {"TurnBrakeMin",	"0"},
-								-- {"TurnBrakeMax",	"0"},
 							}
 						}	)
+end
+
+if SPACE_DORIFTO_ADVANCED then
 table.insert(FINAL_CHANGES,
 						{
 							["INTEGER_TO_FLOAT"]	= "FORCE",
 							["REPLACE_TYPE"] 	= "ALL",
-							["PRECEDING_KEY_WORDS"] = {"CombatEngine"},
+							["FOREACH_SKW_GROUP"] =
+							{
+								{"SpaceEngine", "GcPlayerSpaceshipEngineData.xml"},
+								{"CombatEngine", "GcPlayerSpaceshipEngineData.xml"},
+							},
 							["MATH_OPERATION"] 		= "*",
 							["VALUE_CHANGE_TABLE"] 	= 
 							{
 								-- SPACE DRIFTO
-								{"DirectionBrakeMin",	"0"},
-								{"DirectionBrake",		"0.95"},
-								-- {"TurnBrakeMin",	"0"},
-								-- {"TurnBrakeMax",	"0"},
+								{"TurnBrakeMin",	"0"},
+								{"TurnBrakeMax",	"0.95"},
+								-- {"ReverseBrake",	"0.2"},
 							}
 						}	)
 end
@@ -425,18 +515,12 @@ end
 if REVERSE_ON_PLANETS then
 table.insert(FINAL_CHANGES,
 						{
-							["PRECEDING_KEY_WORDS"] = {"PlanetEngine"},
-							["REPLACE_TYPE"] 		= "ALL",
-							["MATH_OPERATION"] 		= "*",
-							["INTEGER_TO_FLOAT"]	= "FORCE",
-							["VALUE_CHANGE_TABLE"] 	= 
+							-- ["PRECEDING_KEY_WORDS"] = {"PlanetEngine"},
+							["FOREACH_SKW_GROUP"] =
 							{
-								{"MinSpeed",		"-1"},
-							}
-						}	)
-table.insert(FINAL_CHANGES,
-						{
-							["PRECEDING_KEY_WORDS"] = {"AtmosCombatEngine"},
+								{"PlanetEngine", "GcPlayerSpaceshipEngineData.xml"},
+								{"AtmosCombatEngine", "GcPlayerSpaceshipEngineData.xml"},
+							},
 							["REPLACE_TYPE"] 		= "ALL",
 							["MATH_OPERATION"] 		= "*",
 							["INTEGER_TO_FLOAT"]	= "FORCE",

@@ -6,13 +6,19 @@ simply by mixing basic Copper with Chromatic material or Cadmium and Chromatic m
 The Ratios is as follows: 1:4
 ]]--
 
+--[[Recipes in order:
+.ACTIVATED COPPER (From: COPPER + CHROMATIC METAL)
+.ACTIVATED EMERIL (From: EMERIL + CHROMATIC METAL)
+.ACTIVATED CADMIUM (From: CADMIUM + CHROMATIC METAL)
+.ACTIVATED INDIUM (From: INDIUM + CHROMATIC METAL)
+.RESIDUAL GOOP (From:  +  +  ) ]]--
 RecipeAdd =
-[[    
+[[
     <Property value="GcRefinerRecipe.xml">
       <Property name="Id" value="REFINERECIPE_GEXO_YELLOW" />
-      <Property name="RecipeType" value="RECIPE_STELLAR_FROM_LAND" />		  
+      <Property name="RecipeType" value="RECIPE_STELLAR_FROM_LAND" />
       <Property name="RecipeName" value="RECIPE_STELLAR_FROM_LAND" />
-      <Property name="TimeToMake" value="10" />
+      <Property name="TimeToMake" value="1" />
       <Property name="Cooking" value="False" />
       <Property name="Result" value="GcRefinerRecipeElement.xml">
         <Property name="Id" value="EX_YELLOW" />
@@ -41,9 +47,9 @@ RecipeAdd =
     
     <Property value="GcRefinerRecipe.xml">
       <Property name="Id" value="REFINERECIPE_GEXO_GREEN" />
-      <Property name="RecipeType" value="RECIPE_STELLAR_FROM_LAND" />		  
+      <Property name="RecipeType" value="RECIPE_STELLAR_FROM_LAND" />
       <Property name="RecipeName" value="RECIPE_STELLAR_FROM_LAND" />
-      <Property name="TimeToMake" value="10" />
+      <Property name="TimeToMake" value="1" />
       <Property name="Cooking" value="False" />
       <Property name="Result" value="GcRefinerRecipeElement.xml">
         <Property name="Id" value="EX_GREEN" />
@@ -68,13 +74,13 @@ RecipeAdd =
           <Property name="Amount" value="1" />
         </Property>
       </Property>
-    </Property>    
+    </Property>
     
     <Property value="GcRefinerRecipe.xml">
       <Property name="Id" value="REFINERECIPE_GEXO_RED" />
-      <Property name="RecipeType" value="RECIPE_STELLAR_FROM_LAND" />	  
+      <Property name="RecipeType" value="RECIPE_STELLAR_FROM_LAND" />
       <Property name="RecipeName" value="RECIPE_STELLAR_FROM_LAND" />
-      <Property name="TimeToMake" value="10" />
+      <Property name="TimeToMake" value="1" />
       <Property name="Cooking" value="False" />
       <Property name="Result" value="GcRefinerRecipeElement.xml">
         <Property name="Id" value="EX_RED" />
@@ -99,13 +105,13 @@ RecipeAdd =
           <Property name="Amount" value="1" />
         </Property>
       </Property>
-    </Property>        
+    </Property>
     
     <Property value="GcRefinerRecipe.xml">
       <Property name="Id" value="REFINERECIPE_GEXO_BLUE" />
-      <Property name="RecipeType" value="RECIPE_STELLAR_FROM_LAND" />		  
+      <Property name="RecipeType" value="RECIPE_STELLAR_FROM_LAND" />
       <Property name="RecipeName" value="RECIPE_STELLAR_FROM_LAND" />
-      <Property name="TimeToMake" value="10" />
+      <Property name="TimeToMake" value="1" />
       <Property name="Cooking" value="False" />
       <Property name="Result" value="GcRefinerRecipeElement.xml">
         <Property name="Id" value="EX_BLUE" />
@@ -133,10 +139,10 @@ RecipeAdd =
     </Property>
     
     <Property value="GcRefinerRecipe.xml">
-      <Property name="Id" value="REFINERECIPE_CB745_RESIDUALGOOP" />
-      <Property name="RecipeType" value="RECIPE_SPACEGUNK1" />		  
+      <Property name="Id" value="REFINERECIPE_GEXO_BLUE" />
+      <Property name="RecipeType" value="RECIPE_SPACEGUNK1" />
       <Property name="RecipeName" value="RECIPE_SPACEGUNK1" />
-      <Property name="TimeToMake" value="10" />
+      <Property name="TimeToMake" value="1" />
       <Property name="Cooking" value="False" />
       <Property name="Result" value="GcRefinerRecipeElement.xml">
         <Property name="Id" value="SPACEGUNK1" />
@@ -174,9 +180,9 @@ RecipeAdd =
 
 NMS_MOD_DEFINITION_CONTAINER = 
 {
-    ["MOD_FILENAME"]    = "Activated_Metal_Recipes.pak",
-    ["MOD_AUTHOR"]      = "Exosolar+Gumsk+Babscoole", -- Expanded upon by Copper
-    ["NMS_VERSION"]     = "3.84",
+    ["MOD_FILENAME"]    = "C_Activated_Metal_Recipes.pak",
+    ["MOD_AUTHOR"]      = "Exosolar+Gumsk", -- Expanded upon by Copper
+    ["NMS_VERSION"]     = "4.46",
     ["MODIFICATIONS"]   = 
     {
         {

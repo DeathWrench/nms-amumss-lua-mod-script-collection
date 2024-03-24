@@ -1,17 +1,17 @@
 NMS_MOD_DEFINITION_CONTAINER = 
 {
-	["MOD_FILENAME"] 		= "shoemakers Gameplay Changes.pak",
-	["MOD_DESCRIPTION"]		= "Gameplay changes",
-	["MOD_AUTHOR"]			= "shoemakerjones",
-	["LUA_AUTHOR"]      	= "shoemakerjones",
-	["NMS_VERSION"]			= "3.98",
+    ["MOD_FILENAME"]    =   "shoemakers Gameplay Adjustments.pak",
+    ["MOD_AUTHOR"]      =   "shoemakerjones",
+    ["LUA_AUTHOR"]      =   "shoemakerjones",
+    ["NMS_VERSION"]     =   "4.x",
+    ["MOD_DESCRIPTION"] =   "v1.2 - Makes significant changes to they way gameplay is handled.",
 	["MODIFICATIONS"] 		= 
 	{
 		{
 			["MBIN_CHANGE_TABLE"] =
 			{ 
 				{
-					["MBIN_FILE_SOURCE"] 	= {"GCGAMEPLAYGLOBALS.GLOBAL.MBIN"},
+					["MBIN_FILE_SOURCE"] 	= "GCGAMEPLAYGLOBALS.GLOBAL.MBIN",
 					["EXML_CHANGE_TABLE"] = 
 					{
 						{
@@ -46,7 +46,7 @@ NMS_MOD_DEFINITION_CONTAINER =
 					}
 				},
 				{
-                    ["MBIN_FILE_SOURCE"]     = {"MODELS\EFFECTS\SPEEDLINES\SPEEDLINE.SCENE.MBIN"},
+                    ["MBIN_FILE_SOURCE"]     = "MODELS\\EFFECTS\\SPEEDLINES\\SPEEDLINE.SCENE.MBIN",
                     ["EXML_CHANGE_TABLE"]     = 
                     {
                         {
@@ -69,18 +69,25 @@ NMS_MOD_DEFINITION_CONTAINER =
                             ["SPECIAL_KEY_WORDS"] = {"Name", "MiniJump1"},
                             ["REMOVE"]     = "SECTION"
                         },
-						{
-                            ["SPECIAL_KEY_WORDS"] = {"Name", "MiniJump3"},
-                            ["REMOVE"]     = "SECTION"
-                        },
-						{
-                            ["SPECIAL_KEY_WORDS"] = {"Name", "MiniJump4"},
-                            ["REMOVE"]     = "SECTION"
-                        },
                     },
                 },
+                {
+					["MBIN_FILE_SOURCE"] 	= "GCCHARACTERGLOBALS.GLOBAL.MBIN",
+					["EXML_CHANGE_TABLE"] 	=
+					{
+						{
+							["INTEGER_TO_FLOAT"] = "FORCE",
+							["VALUE_CHANGE_TABLE"] 	=
+							{
+								{"LadderDistanceToAutoMount", "-1"},
+                                {"SitPostureChangeTimeMin", "0.1"},
+                                {"SitPostureChangeTimeMax", "1"}
+							}
+						}
+                    }
+				}
 			}
-		},
+		}
 	}
 }
 --NOTE: ANYTHING NOT in table NMS_MOD_DEFINITION_CONTAINER IS IGNORED AFTER THE SCRIPT IS LOADED

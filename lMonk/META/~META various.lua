@@ -1,73 +1,120 @@
-------------------------------------------------------------
-local desc = [[
-  Restore old creature-scanned icon; Remove choice HUD icons
-  Remove tiny cargo pod frigates
-  Faster screen text
-  Increase suit tech inventory size; round stack to 10000
-  remove startup logo splash
-  add eye texture to alien head4
-  better cloud map
-]]----------------------------------------------------------
+------------------------------------------------------------------
+local mod_desc = [[
+  - Round up substances stack to 10000
+  - Replace exploration mission log menu icon
+  - Same underwater freighter crash site as on land
+  - Restore old creature-scanned icon; Remove selected HUD icons
+  - override corrupt biome filter
+  - Add civilian and pirate sentinel ships
+  - Remove tiny cargo pod frigates
+  - Faster screen text
+  - hide inventory change tab marker (bulletpoint) and slashes
+  - better cloud map
+  - keep whale song mission active
+]]----------------------------------------------------------------
 
 NMS_MOD_DEFINITION_CONTAINER = {
 	MOD_FILENAME 		= '__META various.pak',
 	MOD_AUTHOR			= 'lMonk',
-	NMS_VERSION			= 3.99,
-	MOD_DESCRIPTION		= desc,
+	NMS_VERSION			= '4.52',
+	MOD_BATCHNAME		= '_META ~@~collection.pak',
+	MOD_DESCRIPTION		= mod_desc,
 	MODIFICATIONS 		= {{
 	MBIN_CHANGE_TABLE	= {
-	{ -- 
-	---	|restore-remove HUD icons|
+	{--	|stacks|
+		MBIN_FILE_SOURCE	= 'METADATA/GAMESTATE/DIFFICULTYCONFIG.MBIN',
+		EXML_CHANGE_TABLE	= {
+			{
+				REPLACE_TYPE 		= 'All',
+				VALUE_MATCH			= 9999,
+				VALUE_CHANGE_TABLE 	= {
+					{'ignore',		10000}
+				}
+			}
+		}
+	},
+	{--	|exploration mission icon|
+		MBIN_FILE_SOURCE	= 'METADATA/SIMULATION/MISSIONS/COREMISSIONTABLE.MBIN',
+		EXML_CHANGE_TABLE	= {
+			{
+				SPECIAL_KEY_WORDS	= {'MissionID', 'EXPLORE_LOG', 'MissionIconSelected', 'TkTextureResource.xml'},
+				VALUE_CHANGE_TABLE 	= {
+					{'Filename', 'TEXTURES/UI/FRONTEND/ICONS/MISSIONS/MISSION.EXPLORATIONLOG.SYSTEM.ON.DDS'}
+				}
+			},
+			{
+				SPECIAL_KEY_WORDS	= {'MissionID', 'EXPLORE_LOG', 'MissionIconNotSelected', 'TkTextureResource.xml'},
+				VALUE_CHANGE_TABLE 	= {
+					{'Filename', 'TEXTURES/UI/FRONTEND/ICONS/MISSIONS/MISSION.EXPLORATIONLOG.SYSTEM.OFF.DDS'}
+				}
+			}
+		}
+	},
+	{--	|alt HUD icons|
 		MBIN_FILE_SOURCE	= 'METADATA/UI/HUD/SCANNERICONS.MBIN',
 		EXML_CHANGE_TABLE	= {
 			{
 				PRECEDING_KEY_WORDS = 'CreatureDiscovered',
 				VALUE_CHANGE_TABLE 	= {
-					{'Filename', 'TEXTURES/UI/HUD/CREATURE.DISCOVERED.DDS'}
+					{'Filename', 'TEXTURES/UI/HUD/ICONS/CREATURE.GREEN2.DDS'}
 				}
 			},
 			{
-				REPLACE_TYPE 		= 'All',
-				PRECEDING_KEY_WORDS = 'MessageBeacon',
+				PRECEDING_KEY_WORDS = {'RareEgg', 'Main'},
 				VALUE_CHANGE_TABLE 	= {
-					{'Filename', 'TEXTURES/BLANK.64.DDS'}
+					{'Filename', 'TEXTURES/UI/HUD/ICONS/PICKUPS/PICKUP.HAZARDEGG.DDS'}
 				}
 			},
 			{
-				REPLACE_TYPE 		= 'All',
-				PRECEDING_KEY_WORDS = 'MessageBeaconSmall',
+				SPECIAL_KEY_WORDS = {
+					{'MessageBeacon',		'GcScannerIcon.xml'},
+					{'MessageBeaconSmall',	'GcScannerIcon.xml'},
+					{'FreighterBase',		'GcScannerIcon.xml'},
+					-- {'PlayerFreighter',		'GcScannerIcon.xml'},
+				},
 				VALUE_CHANGE_TABLE 	= {
 					{'Filename', 'TEXTURES/BLANK.64.DDS'}
 				}
-			},
-			{
-				REPLACE_TYPE 		= 'All',
-				PRECEDING_KEY_WORDS = 'FreighterBase',
-				VALUE_CHANGE_TABLE 	= {
-					{'Filename', 'TEXTURES/BLANK.64.DDS'}
-				}
-			},
-			-- {
-				-- REPLACE_TYPE 		= 'All',
-				-- PRECEDING_KEY_WORDS = 'PlayerFreighter',
-				-- VALUE_CHANGE_TABLE 	= {
-					-- {'Filename', 'TEXTURES/BLANK.64.DDS'}
-				-- }
-			-- }
+			}
 		}
 	},
-	{
-	---	|No tiny frigates|
-		MBIN_FILE_SOURCE	= 'METADATA/SIMULATION/SPACE/AISPACESHIPMANAGER.MBIN',
+	{--	|screen filters|
+		MBIN_FILE_SOURCE	= 'METADATA/EFFECTS/SCREENFILTERS.MBIN',
 		EXML_CHANGE_TABLE	= {
 			{
-				SPECIAL_KEY_WORDS	= {'Filename', 'MODELS/COMMON/SPACECRAFT/INDUSTRIAL/FREIGHTERTINY_PROC.SCENE.MBIN'},
+				SPECIAL_KEY_WORDS 	= {
+					{'Filename', 'TEXTURES/LUT/FILTERS/BINOCULARS.DDS'},
+					{'Filename', 'TEXTURES/LUT/FILTERS/SURVEYING1.DDS'},
+					{'Filename', 'TEXTURES/LUT/FILTERS/MISSIONSURVEY.DDS'},
+				},
+				VALUE_CHANGE_TABLE 	= {
+					{'Filename',	'TEXTURES/LUT/FILTERS/DEFAULT.DDS'}
+				}
+			},
+			{
+				PRECEDING_KEY_WORDS = 'CorruptSentinels',
+				VALUE_CHANGE_TABLE 	= {
+					{'Filename',	'TEXTURES/LUT/FILTERS/VIBRANT.DDS'}
+				}
+			}
+		}
+	},
+	{--	|text images styles|
+		MBIN_FILE_SOURCE	= 'METADATA/UI/SPECIALSTYLESIMAGESDATA.MBIN',
+		EXML_CHANGE_TABLE	= {
+			{
+				SPECIAL_KEY_WORDS	= {'Name', 'BULLETPOINT'},
+				VALUE_CHANGE_TABLE 	= {
+					{'Path',		''}
+				}
+			},
+			{
+				SPECIAL_KEY_WORDS	= {'Name', 'SLASH'},
 				REMOVE				= 'Section'
 			}
 		}
 	},
-	{
-	---	|Faster screen text|
+	{--	|Faster screen text|
 		MBIN_FILE_SOURCE	= 'METADATA/UI/SPECIALTEXTPUNCTUATIONDELAYDATA.MBIN',
 		EXML_CHANGE_TABLE	= {
 			{
@@ -81,41 +128,28 @@ NMS_MOD_DEFINITION_CONTAINER = {
 			}
 		}
 	},
-	{
-	---	|Increase suit tech inventory| size; round stack to 10000
-		MBIN_FILE_SOURCE	= {
-			'METADATA/GAMESTATE/DEFAULTINVENTORYBALANCE.MBIN',
-			'METADATA/GAMESTATE/DEFAULTINVENTORYBALANCESURVIVAL.MBIN'
-		},
+	{--	|ai ship manager|
+		MBIN_FILE_SOURCE	= 'METADATA/SIMULATION/SPACE/AISPACESHIPMANAGER.MBIN',
 		EXML_CHANGE_TABLE	= {
 			{
-				VALUE_CHANGE_TABLE 	= {
-					{'DefaultSubstanceMaxAmount',			10000},
-					{'SubstanceMaxAmountLimit',				10000},
-					{'ProductMaxAmountLimit',				10000},
-					{'ShipProductStorageMultiplier',		10},	-- 5
-					{'PlayerPersonalInventoryTechWidth',	6},
-					{'PlayerPersonalInventoryTechHeight',	5},
-					{'DeconstructRefundPercentage',			0.75}	-- 0.5
-				}
+				SPECIAL_KEY_WORDS	= {'Filename', 'MODELS/COMMON/SPACECRAFT/INDUSTRIAL/FREIGHTERTINY_PROC.SCENE.MBIN'},
+				REMOVE				= 'Section'
+			},
+			{
+				PRECEDING_KEY_WORDS	= {'Police', 'Spaceships', 'GcAISpaceshipModelData.xml'},
+				SECTION_SAVE_TO		= 'ai_spaceship_model_data'
+			},
+			{
+				PRECEDING_KEY_WORDS	= {'Civilian', 'Spaceships'},
+				SECTION_ADD_NAMED 	= 'ai_spaceship_model_data'
+			},
+			{
+				PRECEDING_KEY_WORDS	= {'Pirate', 'Spaceships'},
+				SECTION_ADD_NAMED 	= 'ai_spaceship_model_data'
 			}
 		}
 	},
-	{
-	---	Increase |substance stack in survival| mode
-		MBIN_FILE_SOURCE	= 'METADATA/GAMESTATE/DEFAULTINVENTORYBALANCESURVIVAL.MBIN',
-		EXML_CHANGE_TABLE	= {
-			{
-				VALUE_CHANGE_TABLE 	= {
-					{'DefaultSubstanceMaxAmount',			1000},
-					{'PlayerPersonalInventoryTechWidth',	5},
-					{'PlayerPersonalInventoryTechHeight',	5},
-				}
-			}
-		}
-	},
-	{
-	---	|faster splash logo|
+	{--	|faster splash logo|
 		MBIN_FILE_SOURCE	= 'METADATA/UI/BOOTLOGOPC.MBIN',
 		EXML_CHANGE_TABLE	= {
 			{
@@ -128,21 +162,7 @@ NMS_MOD_DEFINITION_CONTAINER = {
 			}
 		}
 	},
-	{
-	---	|restore eyes to head4| alien
-		MBIN_FILE_SOURCE	= 'METADATA/GAMESTATE/PLAYERDATA/CHARACTERCUSTOMISATIONDESCRIPTORGROUPSDATA.MBIN',
-		EXML_CHANGE_TABLE	= {
-			{
-				SPECIAL_KEY_WORDS	= {'GroupID', 'FOURTH_HEAD_1'},
-				PRECEDING_KEY_WORDS = 'Descriptors',
-				ADD 				= [[<Property value="NMSString0x20.xml">
-											<Property name="Value" value="_EYES_DEFAULT1"/>
-										</Property>]]
-			}
-		}
-	},
-	{
-	---	|better clouds|
+	{--	|better clouds|
 		MBIN_FILE_SOURCE	= 'MATERIALS/ATMOSPHERE.MATERIAL.MBIN',
 		EXML_CHANGE_TABLE	= {
 			{
@@ -152,5 +172,44 @@ NMS_MOD_DEFINITION_CONTAINER = {
 				}
 			}
 		}
-	}
+	},
+	{--	|keep whale song mission active|
+		MBIN_FILE_SOURCE	= 'METADATA/SIMULATION/MISSIONS/SPACEPOIMISSIONTABLE.MBIN',
+		EXML_CHANGE_TABLE	= {
+			{
+				SPECIAL_KEY_WORDS	= {'MissionID', 'BIO_FRIG'},
+				PRECEDING_KEY_WORDS	= 'CancelingConditions',
+				REMOVE				= 'Section',
+			},
+			{
+				SPECIAL_KEY_WORDS	= {'MissionID', 'BIO_FRIG'},
+				SECTION_ACTIVE		= -1,
+				VALUE_CHANGE_TABLE	= {
+					{'RestartOnCompletion', 'True'}
+				}
+			},
+			{
+				SPECIAL_KEY_WORDS	= {'MissionID', 'BIO_FRIG', 'Stage', 'GcMissionSequenceCreateSpecificPulseEncounter.xml'},
+				VALUE_CHANGE_TABLE	= {
+					{'PulseEncounterID', 'BIO_FRIG'}
+				}
+			}
+		}
+	},
+	-- {--	|deeper oceans|
+		-- MBIN_FILE_SOURCE	= 'METADATA/SIMULATION/SOLARSYSTEM/VOXELGENERATORSETTINGS.MBIN',
+		-- EXML_CHANGE_TABLE	= {
+			-- {
+				-- -- MATH_OPERATION 		= '+',
+				-- REPLACE_TYPE 		= 'All',
+				-- PRECEDING_KEY_WORDS = 'UnderWater',
+				-- VALUE_CHANGE_TABLE 	= {
+					-- {'Subtract',	true},
+					-- -- {'Height',		1000},
+					-- {'OffsetType',	'Base'}, -- Zero, Base, All, SeaLevel
+					-- {'HeightOffset',200}
+				-- }
+			-- },
+		-- }
+	-- }
 }}}}

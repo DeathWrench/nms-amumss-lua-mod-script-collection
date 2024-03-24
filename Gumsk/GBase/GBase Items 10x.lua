@@ -2,7 +2,7 @@ Author = "Gumsk"
 ModName = "gBase"
 ModNameSub = "Items 10x"
 BaseDescription = "Removes restrictions on base building items"
-GameVersion = "401"
+GameVersion = "452"
 ModVersion = "a"
 FileSource1 = "METADATA\REALITY\TABLES\BASEBUILDINGOBJECTSTABLE.MBIN"
 
@@ -108,6 +108,18 @@ NMS_MOD_DEFINITION_CONTAINER = {
 						},
 						{
 							["SPECIAL_KEY_WORDS"] = {"ID","T_DOOR1"},
+							["VALUE_CHANGE_TABLE"] = {
+								{"BuildableOnPlanet", "False"},
+							}
+						},
+						{
+							["SPECIAL_KEY_WORDS"] = {"ID","T_ARCH"},
+							["VALUE_CHANGE_TABLE"] = {
+								{"BuildableOnPlanet", "False"},
+							}
+						},
+						{
+							["SPECIAL_KEY_WORDS"] = {"ID","T_ROOF_C"},
 							["VALUE_CHANGE_TABLE"] = {
 								{"BuildableOnPlanet", "False"},
 							}
@@ -314,7 +326,7 @@ for i = 1,#PlantableList do
 		["SPECIAL_KEY_WORDS"] = {"ID",PlantableList[i]},
 		["PRECEDING_KEY_WORDS"] = {"DependentConnections"},
 		["VALUE_CHANGE_TABLE"] = {
-			{"ConnectionDistance",100},
+			{"ConnectionDistance",30},
 		},
 	}
 	--Assign temporary table to the next entry in the EXML_CHANGE_TABLE

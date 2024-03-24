@@ -1,5 +1,5 @@
 ModName = "PTSd Higher Frigate Cost + Expedition Difficulty"
-GameVersion = "3_98"
+GameVersion = "4_45"
 Description = "Makes Frigates more expensive to buy, and enables 4 star difficulty Frigate missions, and increases by 2~3x how many stat points needed to make a fleet of a particular Star ranking"
 
 PercentChangeOfFrigateBeingPurchasable =			80			--60		Percentage of AI Frigates you encounter surrounding AI freigthers being purchasable
@@ -45,28 +45,31 @@ FrigateCostChanges =
 		},
 		{
 			{
-				"Combat",			6				--2,000,000
+				"Combat",			2				--2,000,000
 			},
 			{
-				"Exploration",		6				--2,000,000
+				"Exploration",		2				--2,000,000
 			},
 			{
-				"Mining",			6				--2,000,000
+				"Mining",			2				--2,000,000
 			},
 			{
-				"Diplomacy",		6				--2,000,000
+				"Diplomacy",		2				--2,000,000
 			},
 			{
-				"Support",			6				--2,000,000
+				"Support",			2				--2,000,000
 			},
 			{
-				"Normandy",			1				--200,000,000
+				"Normandy",			0.5				--200,000,000
 			},
 			{
-				"DeepSpace",		1				--200,000,000
+				"DeepSpace",		0.5				--200,000,000
 			},
 			{
-				"DeepSpaceCommon",	2.4				--10,000,000
+				"DeepSpaceCommon",	0.8				--10,000,000
+			},
+			{
+				"Pirate",			1.2				--5,000,000
 			}
 		}
 	},
@@ -76,19 +79,19 @@ FrigateCostChanges =
 		},
 		{
 			{
-				"Combat",			6				--500,000
+				"Combat",			2				--500,000
 			},
 			{
-				"Exploration",		6				--500,000
+				"Exploration",		2				--500,000
 			},
 			{
-				"Mining",			6				--500,000
+				"Mining",			2				--500,000
 			},
 			{
-				"Diplomacy",		6				--500,000
+				"Diplomacy",		2				--500,000
 			},
 			{
-				"Support",			6				--500,000
+				"Support",			2				--500,000
 			},
 			{
 				"Normandy",			0				--0
@@ -97,7 +100,10 @@ FrigateCostChanges =
 				"DeepSpace",		0				--0
 			},
 			{
-				"DeepSpaceCommon",	0				--0
+				"DeepSpaceCommon",	4				--500,000
+			},
+			{
+				"Pirate",			3				--500,000
 			}
 		}
 	},
@@ -164,20 +170,6 @@ NMS_MOD_DEFINITION_CONTAINER = {
 ["NMS_VERSION"]			= GameVersion,
 ["MODIFICATIONS"]		= {{
 ["MBIN_CHANGE_TABLE"]	= {
-	{
-		["MBIN_FILE_SOURCE"] 	= {"GCFLEETGLOBALS.GLOBAL.MBIN"},
-		["EXML_CHANGE_TABLE"] 	= 
-		{
-			--This entry intentionally left blank, to be filled in by the FrigateCostChanges at the bottom of this script
-		}
-	},
-	{
-		["MBIN_FILE_SOURCE"] 	= {"GCFLEETGLOBALS.GLOBAL.MBIN"},
-		["EXML_CHANGE_TABLE"] 	= 
-		{
-			--This entry intentionally left blank, to be filled in by the FrigateRankChanges at the bottom of this script
-		}
-	},
 	{
 		["MBIN_FILE_SOURCE"] 	= {"GCFLEETGLOBALS.GLOBAL.MBIN"},
 		["EXML_CHANGE_TABLE"] 	= 
@@ -264,7 +256,7 @@ NMS_MOD_DEFINITION_CONTAINER = {
 	}
 }}}}
 
-local ChangesToFrigateCosts = NMS_MOD_DEFINITION_CONTAINER["MODIFICATIONS"][1]["MBIN_CHANGE_TABLE"][1]["EXML_CHANGE_TABLE"]
+local ChangesToFrigates = NMS_MOD_DEFINITION_CONTAINER["MODIFICATIONS"][1]["MBIN_CHANGE_TABLE"][1]["EXML_CHANGE_TABLE"]
 
 for i = 1, #FrigateCostChanges do
 	local CostType = FrigateCostChanges[i][1][1]
@@ -275,7 +267,7 @@ for i = 1, #FrigateCostChanges do
 		local CostID = Costs[j][1]
 		local CostMult = Costs[j][2]
 
-			ChangesToFrigateCosts_temp =
+			ChangesToFrigates[#ChangesToFrigates+1] =
 			{
 				--["PRECEDING_FIRST"] = "TRUE",
 				["REPLACE_TYPE"] 		= "",
@@ -288,12 +280,8 @@ for i = 1, #FrigateCostChanges do
 					{CostID, CostMult}
 				}
 			}
-			ChangesToFrigateCosts[#ChangesToFrigateCosts+1] = ChangesToFrigateCosts_temp
 	end
 end
-
-local ChangesToFrigateRanks = NMS_MOD_DEFINITION_CONTAINER["MODIFICATIONS"][1]["MBIN_CHANGE_TABLE"][2]["EXML_CHANGE_TABLE"]
-
 for i = 1, #FrigateRankChanges do
 	local Name = FrigateRankChanges[i][1][1]
 	local Values = FrigateRankChanges[i][2]
@@ -302,7 +290,7 @@ for i = 1, #FrigateRankChanges do
 		local OldValue = Values[j][1]
 		local NewValue = Values[j][2]
 
-			ChangesToFrigateRanks_temp =
+			ChangesToFrigates[#ChangesToFrigates+1] =
 			{
 				--["PRECEDING_FIRST"] = "TRUE",
 				["REPLACE_TYPE"] 		= "",
@@ -315,6 +303,5 @@ for i = 1, #FrigateRankChanges do
 					{OldValue,	NewValue}
 				}
 			}
-			ChangesToFrigateRanks[#ChangesToFrigateRanks+1] = ChangesToFrigateRanks_temp
 	end
 end

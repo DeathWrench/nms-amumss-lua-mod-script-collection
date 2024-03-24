@@ -1,8 +1,8 @@
 Author = "Gumsk"
-ModName = "gCreatures Predators"
+ModName = "gCreatures Predators Danger"
 ModNameSub = "Deadly"
 BaseDescription = "More aggressive and dangerous predators"
-GameVersion = "401"
+GameVersion = "450"
 ModVersion = "a"
 FileSource1 = "GCCREATUREGLOBALS.MBIN"
 
@@ -80,6 +80,7 @@ NMS_MOD_DEFINITION_CONTAINER = {
 	["MOD_DESCRIPTION"]	= BaseDescription,
 	["MOD_AUTHOR"]		= Author,
 	["NMS_VERSION"]		= GameVersion,
+	["GLOBAL_INTEGER_TO_FLOAT"] = "FORCE",
 	["MODIFICATIONS"]	= {
 		{
 			["MBIN_CHANGE_TABLE"] = {

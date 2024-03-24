@@ -2,7 +2,7 @@ Author = "Gumsk"
 ModName = "gShip Flight PC"
 ModNameSub = ""
 BaseDescription = "Flight modifications"
-GameVersion = "398"
+GameVersion = "411"
 ModVersion = "a"
 FileSource1 = "GCSPACESHIPGLOBALS.GLOBAL.MBIN"
 
@@ -90,6 +90,20 @@ NMS_MOD_DEFINITION_CONTAINER = {
 								{"TurnStrength", 1.0},						--1.3
 							}
 						},
+						{
+							["PRECEDING_KEY_WORDS"] = {"Control","AtmosCombatEngine"},
+							["INTEGER_TO_FLOAT"] = "FORCE",
+							["VALUE_CHANGE_TABLE"] = {
+								{"ThrustForce", 100},						--40
+								{"MaxSpeed", 160},							--80
+								{"MinSpeed", 0.01},							--10
+								{"Falloff", 0.05},							--0.7
+								{"BoostThrustForce", 140},					--100
+								{"BoostMaxSpeed", 200},						--155
+								{"BoostFalloff", 0.05},						--0.7
+								{"TurnStrength", 1.0},						--1.3
+							}
+						},
 
 						{
 							["PRECEDING_KEY_WORDS"] = {"ControlLight","SpaceEngine"},
@@ -133,7 +147,21 @@ NMS_MOD_DEFINITION_CONTAINER = {
 								{"TurnStrength", 1.5},						--1.5
 							}
 						},
-
+						{
+							["PRECEDING_KEY_WORDS"] = {"ControlLight","AtmosCombatEngine"},
+							["INTEGER_TO_FLOAT"] = "FORCE",
+							["VALUE_CHANGE_TABLE"] = {
+								{"ThrustForce", 150},						--80
+								{"MaxSpeed", 240},							--80
+								{"MinSpeed", 0.01},							--10
+								{"Falloff", 0.05},							--0.7
+								{"BoostThrustForce", 140},					--100
+								{"BoostMaxSpeed", 200},						--155
+								{"BoostFalloff", 0.05},						--0.7
+								{"TurnStrength", 1.5},						--1.5
+							}
+						},
+						
 						{
 							["PRECEDING_KEY_WORDS"] = {"ControlHeavy","SpaceEngine"},
 							["INTEGER_TO_FLOAT"] = "FORCE",
@@ -172,6 +200,20 @@ NMS_MOD_DEFINITION_CONTAINER = {
 								{"Falloff", 0.05},							--0.7
 								{"BoostThrustForce", 200},					--500
 								{"BoostMaxSpeed", 500},						--1100
+								{"BoostFalloff", 0.05},						--0.7
+								{"TurnStrength", 0.5},						--1
+							}
+						},
+						{
+							["PRECEDING_KEY_WORDS"] = {"ControlHeavy","AtmosCombatEngine"},
+							["INTEGER_TO_FLOAT"] = "FORCE",
+							["VALUE_CHANGE_TABLE"] = {
+								{"ThrustForce", 50},						--40
+								{"MaxSpeed", 80},							--80
+								{"MinSpeed", 0.01},							--10
+								{"Falloff", 0.05},							--0.7
+								{"BoostThrustForce", 60},					--50
+								{"BoostMaxSpeed", 120},						--120
 								{"BoostFalloff", 0.05},						--0.7
 								{"TurnStrength", 0.5},						--1
 							}

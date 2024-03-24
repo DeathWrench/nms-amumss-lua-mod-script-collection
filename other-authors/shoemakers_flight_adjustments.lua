@@ -3,8 +3,8 @@ NMS_MOD_DEFINITION_CONTAINER =
     ["MOD_FILENAME"]    =   "shoemakers Flight Adjustments.pak",
     ["MOD_AUTHOR"]      =   "shoemakerjones",
     ["LUA_AUTHOR"]      =   "shoemakerjones",
-    ["NMS_VERSION"]     =   "3.98",
-    ["MOD_DESCRIPTION"] =   "v2.1 - Makes significant changes to they way flight is handled, both in space as well as in planetary athmosphere.",
+    ["NMS_VERSION"]     =   "4.x",
+    ["MOD_DESCRIPTION"] =   "v2.3 - Makes significant changes to they way flight is handled, both in space as well as in planetary athmosphere.",
     ["MODIFICATIONS"]   = 
     {
         {
@@ -113,40 +113,8 @@ NMS_MOD_DEFINITION_CONTAINER =
                     ["EXML_CHANGE_TABLE"] =
                     {
                         {
-							["SPECIAL_KEY_WORDS"] = {"ID","HYPERDRIVE",},
-							["PRECEDING_KEY_WORDS"] = {"Ship_Hyperdrive_JumpDistance",},
-                            ["VALUE_CHANGE_TABLE"] =
-                            {
-								{"Bonus", "10000"}, 
-                            }
-                        },
-                        {
-							["SPECIAL_KEY_WORDS"] = {"ID","WARP_ALIEN",},
-							["PRECEDING_KEY_WORDS"] = {"Ship_Hyperdrive_JumpDistance",},
-                            ["VALUE_CHANGE_TABLE"] =
-                            {
-								{"Bonus", "10000"}, 
-                            }
-                        },
-                        {
-							["SPECIAL_KEY_WORDS"] = {"ID","F_HYPERDRIVE",},
-							["PRECEDING_KEY_WORDS"] = {"Freighter_Hyperdrive_JumpDistance",},
-                            ["VALUE_CHANGE_TABLE"] =
-                            {
-								{"Bonus", "10000"}, 
-                            }
-                        },
-                        {
-							["SPECIAL_KEY_WORDS"] = {"ID","HYPERDRIVE_SPEC",},
-							["PRECEDING_KEY_WORDS"] = {"Ship_Hyperdrive_JumpsPerCell",},
-                            ["VALUE_CHANGE_TABLE"] =
-                            {
-								{"Bonus", "10000"}, 
-                            }
-                        },
-                        {
-							["SPECIAL_KEY_WORDS"] = {"ID","CARGOSHIELD",},
-							["PRECEDING_KEY_WORDS"] = {"Ship_Hyperdrive_JumpsPerCell",},
+                            ["SPECIAL_KEY_WORDS"] = {"StatsType", "Ship_Hyperdrive_JumpDistance"},
+                            ["SECTION_UP"] = 2,
                             ["VALUE_CHANGE_TABLE"] =
                             {
 								{"Bonus", "10000"}, 

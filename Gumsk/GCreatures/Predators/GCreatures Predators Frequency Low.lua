@@ -1,8 +1,8 @@
 Author = "Gumsk"
-ModName = "gPredators Frequency"
+ModName = "gCreatures Predators Frequency"
 ModNameSub = "Low"
 BaseDescription = "More dense predators"
-GameVersion = "401"
+GameVersion = "450"
 ModVersion = "a"
 
 FileSource1 = "METADATA\SIMULATION\ECOSYSTEM\GROUND\GROUNDTABLEPLAYERPREDATORMED.MBIN"

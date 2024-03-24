@@ -2,7 +2,7 @@ Author = "Gumsk"
 ModName = "gBobble"
 ModNameSub = "Chibi"
 BaseDescription = "Changes bobbleheads to chibi"
-GameVersion = "382"
+GameVersion = "411"
 ModVersion = "a"
 
 NMS_MOD_DEFINITION_CONTAINER = 

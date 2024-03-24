@@ -1,7 +1,7 @@
 -----------------------------------------------------------------------------
 ModName = 'PTSd Starship And Living Ship Tech + Speed Changes'
 ModAuthor = 'Xen0nex and lMonk'		--Edited by Xen0nex
-Version = '3.98'
+Version = '4.41'
 local desc = [[
   Changes to various aspects of starship speeds and charging.
   Includes improvements to Living Ships and related quest timers from "Living Ship Upgrades" by lMonk
@@ -9,12 +9,12 @@ local desc = [[
 
 --These changes originally by lMonk
 ShipTeleportMult = 7.5									--1			a value of 7.5 expands the range to ~= 750u range	
-TeleportAndScannerStatus = 'AllShips'					--'Ship'	determines if only metallic ships or also Living Ships can install Ship Teleport ( Economy/Combat Scanners no longer needed as Living ships now have a dedicated upgrade for those)
-LivingShipQuestTimers = 14400							--79200 seconds = 22 hours in vanilla
+TeleportAndScannerStatus = 'AllShips'					--'AllShipsExceptAlien'	determines if only metallic ships or also Living Ships & Sentinel Interceptors can install Ship Teleport ( Economy/Combat Scanners no longer needed as Living ships now have a dedicated upgrade for those)
+LivingShipQuestTimers = 28800							--79200 seconds = 22 hours in vanilla
 
 	--These sections includes additions by Xen0nex
 --Multipliers to apply to the base attributes of all ships
-EngSpdMult = 0.667										--	Multiplier to apply to the base speed for all starship Pulse Engines (or lIving Ship equivalent)
+EngSpdMult = 0.667										--	Multiplier to apply to the base speed for all starship Pulse Engines (or Living Ship equivalent)
 EngManMult = 1											--	Multiplier to apply to the base Maneuverability for all starship Pulse Engines (or lIving Ship equivalent)
 --BaseShieldStrength = 0.65								--0.65 	(NOTE: Changing this value seems to cause issues, negative shield values displayed in UI, etc.)	The base Ship_Armour_Shield_Strength for all starship default Shields (0.65 by default, results in 165 core shields without any bonuses)
 
@@ -23,33 +23,75 @@ EngManMult = 1											--	Multiplier to apply to the base Maneuverability for 
 --RechargeLivingModuleRate = 0.5							--1				From S Class Living Ship Launcher upgrade Module
 --RechargeSolarRate = 1									--1				On all Solar ships
 
-LnchModSpdMult = 0.333										--	Multiplier to apply to the bonus boost speed from regular ship Launcher upgrade modules
-LnchModLSSpdMult = 0.3999									--	Multiplier to apply to the bonus boost speed from Living ship Launcher upgrade modules	(By default this mod gives Living ship Launcher modules the same boost speed bonus that regular ship Launcher modules have, instead of no speed boost)
+LnchModSpdMult = 0.333*0.5								--	Multiplier to apply to the bonus boost speed from regular ship Launcher upgrade modules
+LnchModLSSpdMult = 0.333*0.5*1.2						--	Multiplier to apply to the bonus boost speed from Living ship Launcher upgrade modules	(By default this mod gives Living ship Launcher modules the same boost speed bonus that regular ship Launcher modules have, instead of no speed boost)
 
-EngModSpdMult = 0.333										--	Multiplier to apply to the bonus boost speed from regular ship Pulse Engine upgrade modules (And also the Photonix Core and the Ship Trails / bobblehead bonuses)
-EngModLSSpdMult = 0.3999										--	Multiplier to apply to the bonus boost speed from Living ship Pulse Engine upgrade modules
+EngModSpdMult = 0.333*0.5								--	Multiplier to apply to the bonus boost speed from regular ship Pulse Engine upgrade modules (And also the Photonix Core and the bobblehead bonus)
+EngModLSSpdMult = 0.333*0.5*1.2							--	Multiplier to apply to the bonus boost speed from Living ship Pulse Engine upgrade modules
+
+EngModManMult = 0.5										--	Multiplier to apply to the bonus maneuverability from regular ship Pulse Engine upgrade modules 
+EngModLSManMult = 0.5									--	Multiplier to apply to the bonus maneuverability from Living ship Pulse Engine upgrade modules
+
+EngModBstManMult = 0.25									--	Multiplier to apply to the bonus boost maneuverability from regular ship Pulse Engine upgrade modules 
+EngModLSBstManMult = 0.25								--	Multiplier to apply to the bonus boost maneuverability from Living ship Pulse Engine upgrade modules
 
 ShieldModMult = 1										--	Multiplier to apply to the bonus shield from regular ship Shield upgrade modules	NOTE, the game increases this by 50%
 ShieldLSModMult = 1										--	Multiplier to apply to the bonus shield from Living ship Shield upgrade modules	NOTE, the game increases this by 50%
 
+--Changes the bonus Pulse Jump speed for Sub-Light Amplifier, since it is greatly increased when supercharged.
+SublightBonus = 1.2										--1.3
+
+--Changes the bonus for Starship Trail techs
+TrailStat = "Ship_Hyperdrive_JumpDistance"				--"Ship_Boost"
+TrailBonus = 10											--1.01
+
+--Removes all Maneuverability stats from the Vesper Sail tech so it no longer provides Maneuverability adjacency/supercharge bonuses
+RemoveVesperManeuver = true								--false
+
+--Removes the Auto-Recharging effect from the Vesper Sail tech, replaces it with a -34% Takeoff discount like Shuttles
+RemoveVesperAutoCharge = true							--false
+
+--Set to true to remove the Auto-Recharging effect for Living Ship S-Class Launcher upgrade modules (Living Ships now have a dedicated tech for that)
+RemoveLivingAutoCharge = true							--false
+
 --Changes to using items to recharge starship tech
-ShipLaunchRechargeMult = 2								--	Multiplier to apply to the cost of Uranium on recharging ship launchers										40 to fully charge
+ShipLaunchRechargeMult = 3								--	Multiplier to apply to the cost of Uranium on recharging ship launchers										40 to fully charge
 LivingShipLaunchRechargeMult = 0.75						--	Multiplier to apply to the cost of Mordite / Oxygen / Cond. Carbon on recharging Living ship launchers		200 / 200 / ? to fully charge
 ShipPulseRechargeMult = 1.25							--	Multiplier to apply to the cost of Tritium / Pyrite on recharging ship Pulse engine							100 / 40 to fully charge
 LivingShipPulseRechargeMult = 1							--	Multiplier to apply to the cost of Silver / Carbon / Viscous Fluids on recharging Living ship Pulse engine	200 / ? to fully charge
 LivingShipWarpRechargeMult = 1.5						--	Multiplier to apply to the cost of Chromatic Metal / Processed Meat / Living Slime on recharging Living ship Hyperdive		60 / ? / ? to fully charge
 
-ShipShieldRechargeMult = 2								--	Multiplier to apply to the cost of Sodium / Sodium Nitrate on recharging ship shields						100 / 40 to fully charge
+ShipShieldRechargeMult = 1.5							--	Multiplier to apply to the cost of Sodium / Sodium Nitrate on recharging ship shields						100 / 40 to fully charge
 LivingShipShieldRechargeMult = 0.75						--	Multiplier to apply to the cost of Pugneum / Mordite / Di-Hydrogen recharging Living ship shields			200 / ? / ? to fully charge
 
 StarshieldBattMult = 2									--	Multiplier to apply to the effectiveness of Starshield Battery. In vanilla it only refills half of your starship's shield
-LivingShipUseBatt = true								--	Allows Living Ships to use Starshield Batteries to recharge shields in addition to Pugneum
+LivingShipUseBatt = true								--false		Allows Living Ships to use Starshield Batteries to recharge shields in addition to Pugneum
+RoboUseBattNotSodium = true								--false		Allows Sentinel Interceptors to use Starshield Batteries to recharge shields INSTEAD OF Sodium
+
+--Price to buy an additional Living Ship aftering completing the Starbirth missionline
+LivingNanitePrice = 8000								--10000
+
+--Sets the Consciousness Bridge item used at the start of the Living Ship Starbirth mission to require Emeril instead of Pugneum
+ConBridgeSubstance = "GREEN2"							--"ROBOT1"
 
 --Multipliers to apply to the "Approximate Location" distance for missions in the "Starbith" mission line.
 DistanceMultLong = 4									--Multiplier to apply to distances greater than 650
 DistanceMultShort = 10									--Multiplier to apply to distances 650 or lower
 
---Replacers for attributes of all ships be adjusting specific pre-installed tech, or otehr tech adjustments
+--Changes for Hyperdrive upgrade modules
+HyperEffBonusMin = 0.5									--1		Minimum efficiency bonus for A, S, X Class Hyperdrive upgrade modules for all starships & freigthers. Vanilla value of 1 = 100% more efficient (double)
+HyperEffBonusMax = 0.5									--1		Maximum efficiency bonus for A, S, X Class Hyperdrive upgrade modules for all starships & freigthers. Vanilla value of 1 = 100% more efficient (double)
+HyperDistBonusMult = 1.1								--1		Multiplier to apply to the strength of the distance bonus on all starships & freigthers hyperdrive upgrades
+
+--Changes some attributes of the special tech that Sentinel Interceptors start with
+RemoveRoboAutoCharge = true								--false		Set to true to remove the Sentinel Interceptor's innate Launch Thruster autocharge ability
+RemoveRoboJumpSpeed = true								--false		Set to true to remove the Sentinel Interceptor's bonus to Pulse Jump speed so it no longer provides adjacency/supercharge bonuses
+RoboJumpDist = 600										--600		How many lightyears the Sentinel Interceptor can jump at base level	(Other ships = 100)
+RoboWarpsPerCell = 1									--2			How many times the Sentinel Interceptor can warp from the fuel in a single Warp Cell (24 units of fuel per cell, fuel tank size is 120) (Other ships = 1, IE they use 24 units of fuel, or 20% of a full hyperdrive tank per warp) 
+RoboWarpTankSize = 48									--120		How much fuel the Crimson Core can hold when full. By default each warp consumes 24 units of fuel, so the default tank holds enough for 5 warps
+RoboPulseTankSize = 80									--200		How much fuel the Luminence Engine can hold when full. 
+
+--Replacers for attributes of all ships be adjusting specific pre-installed tech, or other tech adjustments
 ShipTechChanges =
 {
 	{
@@ -64,7 +106,7 @@ ShipTechChanges =
 				"Ship_Maneuverability",				1*EngManMult					--1
 			},
 			--[[{
-				"Ship_BoostManeuverability",		1								--1
+				"Ship_BoostManeuverability",		1								-- N/A
 			},]]
 			{
 				"Ship_PulseDrive_MiniJumpSpeed",	1								--1
@@ -76,20 +118,20 @@ ShipTechChanges =
 	},
 	{
 		{
-			"SHIPJUMP_ALIEN"		--Living Ship starting Pulse Engine
+			"SHIPJUMP_ALIEN"		--Living Ship Pulse Engine equivalent
 		},
 		{
 			{
 				"Ship_Boost",						72*EngSpdMult					--100
 			},
 			{
-				"Ship_Maneuverability",				1.25*EngManMult					--1
+				"Ship_Maneuverability",				1*EngManMult					--1
 			},
 			--[[{
-				"Ship_BoostManeuverability",		1								--1
+				"Ship_BoostManeuverability",		1								-- N/A
 			},]]
 			{
-				"Ship_PulseDrive_MiniJumpSpeed",	1								--1
+				"Ship_PulseDrive_MiniJumpSpeed",	1.15							--1
 			},
 			{
 				"Ship_PulseDrive_MiniJumpFuelSpending",		1						--1
@@ -127,13 +169,13 @@ ShipTechChanges =
 		},
 		{
 			{
-				"Ship_Boost",						1.15							--1.15
+				"Ship_Boost",						0.85							--1.15
 			},
 			{
-				"Ship_Maneuverability",				0.75							--1
+				"Ship_Maneuverability",				1								--1
 			},
 			{
-				"Ship_BoostManeuverability",		1.05							--1.1
+				"Ship_BoostManeuverability",		1								--1.1
 			},
 			{
 				"Ship_PulseDrive_MiniJumpSpeed",	1.15							--1
@@ -141,6 +183,51 @@ ShipTechChanges =
 			{
 				"Ship_PulseDrive_MiniJumpFuelSpending",		0.4						--0.2
 			}
+		}
+	},
+	{
+		{
+			"UT_PULSESPEED"			--Sub-Light Amplifier, increases Pulse Jump speed
+		},
+		{
+			{
+				"Ship_PulseDrive_MiniJumpSpeed",	SublightBonus					--1.3
+			},
+		}
+	},
+	{
+		{
+			"SHIPJUMP_ROBO"			--Sentinel Interceptor Pulse Engine equivalent			(PTSd gives it its own custom engine speed & handling in "PTSd Starship Speed Rebalance.lua")
+		},
+		{
+			{
+				"Ship_Boost",						60*EngSpdMult					--120
+			},
+			{
+				"Ship_Maneuverability",				1*EngManMult					--1
+			},
+			{
+				"Ship_BoostManeuverability",		1.25							--1.5
+			},
+			{
+				"Ship_PulseDrive_MiniJumpSpeed",	1								--1.1
+			},
+			{
+				"Ship_PulseDrive_MiniJumpFuelSpending",		0.8						--1
+			}
+		}
+	},
+	{
+		{
+			"HYPERDRIVE_ROBO"			--Sentinel Interceptor Hyperdrive equivalent
+		},
+		{
+			{
+				"Ship_Hyperdrive_JumpDistance",		RoboJumpDist					--600		(Other ships 100)
+			},
+			{
+				"Ship_Hyperdrive_JumpsPerCell",		RoboWarpsPerCell				--2			(Other ships 1)
+			},
 		}
 	},
 	--[[{
@@ -206,10 +293,28 @@ function LauncherClassSpeed (ValueMin, ValueMax)
         </Property>]]
 end
 
+AddLaunchDiscount =
+[[<Property value="GcStatsBonus.xml">
+          <Property name="Stat" value="GcStatsTypes.xml">
+            <Property name="StatsType" value="Ship_Launcher_TakeOffCost" />
+          </Property>
+          <Property name="Bonus" value="0.66" />
+          <Property name="Level" value="2" />
+        </Property>]]
+
 AddStarShieldBatt =
 [[<Property value="NMSString0x10.xml">
           <Property name="Value" value="SHIPCHARGE" />
         </Property>]]
+
+ShipTrailTechs =
+{"T_SHIP_DARK", "T_SHIP_GOLD", "T_SHIP_GREEN", "T_SHIP_PIRATE", "T_SHIP_RAINBOW", "T_SHIP_RED", "T_SHIP_ROGUE"}
+
+ShipPulseMods =
+{"UP_PULSE1", "UP_PULSE2", "UP_PULSE3", "UP_PULSE4", "UP_PULSEX"}
+
+LivingShipPulseMods =
+{"UA_PULSE1", "UA_PULSE2", "UA_PULSE3", "UA_PULSE4"}
 
 NMS_MOD_DEFINITION_CONTAINER = {
 	MOD_FILENAME 		= ModName..Version..".pak",
@@ -229,7 +334,7 @@ NMS_MOD_DEFINITION_CONTAINER = {
 				}
 			},
 			{
-				SPECIAL_KEY_WORDS	= {'ID', 'SHIP_TELEPORT', 'TechnologyCategory', 'Ship'},
+				SPECIAL_KEY_WORDS	= {'ID', 'SHIP_TELEPORT', 'TechnologyCategory', 'AllShipsExceptAlien'},
 				VALUE_CHANGE_TABLE 	= {
 					{'TechnologyCategory', TeleportAndScannerStatus}
 				}
@@ -354,6 +459,21 @@ NMS_MOD_DEFINITION_CONTAINER = {
 				}
 			},
 			{
+				SPECIAL_KEY_WORDS	= {"ID", "HYPERDRIVE_ROBO"},
+				MATH_OPERATION 		= '',
+				VALUE_CHANGE_TABLE 	= {
+					{'ChargeAmount', RoboWarpTankSize}
+				}
+			},
+			{
+				SPECIAL_KEY_WORDS	= {"ID", "SHIPJUMP_ROBO"},
+				MATH_OPERATION 		= '',
+				VALUE_CHANGE_TABLE 	= {
+					{'ChargeAmount', RoboPulseTankSize}
+				}
+			},
+			--[[
+			{
 				SPECIAL_KEY_WORDS	= {"ID", "T_SHIP_RAINBOW", "StatsType", "Ship_Boost"},
 				MATH_OPERATION 		= '',
 				SECTION_UP = 1,
@@ -401,6 +521,7 @@ NMS_MOD_DEFINITION_CONTAINER = {
 					{'Bonus', BonusMult (1.01, EngModSpdMult)},
 				}
 			},
+			]]
 		}
 	},
 	{
@@ -408,7 +529,7 @@ NMS_MOD_DEFINITION_CONTAINER = {
 		["EXML_CHANGE_TABLE"] 	= 
 		{
 			{
-				SPECIAL_KEY_WORDS	= {"Id", "LAUNCHFUEL"},
+				SPECIAL_KEY_WORDS	= {"ID", "LAUNCHFUEL"},
 				MATH_OPERATION 		= '*',
 				INTEGER_TO_FLOAT	= 'PRESERVE',
 				VALUE_CHANGE_TABLE 	= {
@@ -416,7 +537,7 @@ NMS_MOD_DEFINITION_CONTAINER = {
 				}
 			},
 			{
-				SPECIAL_KEY_WORDS	= {"Id", "SHIPCHARGE"},
+				SPECIAL_KEY_WORDS	= {"ID", "SHIPCHARGE"},
 				MATH_OPERATION 		= '*',
 				INTEGER_TO_FLOAT	= 'PRESERVE',
 				VALUE_CHANGE_TABLE 	= {
@@ -585,29 +706,11 @@ NMS_MOD_DEFINITION_CONTAINER = {
 				SECTION_UP = 1,
 				VALUE_CHANGE_TABLE 	= {
 					{'ValueMin', BonusMult (1.01, EngModSpdMult)},
-					{'ValueMax', BonusMult (1.05, EngModSpdMult)}
-				}
-			},
-			{
-				SPECIAL_KEY_WORDS	= {"ID", "UP_PULSE2", "StatsType", "Ship_Boost"},
-				MATH_OPERATION 		= '',
-				SECTION_UP = 1,
-				VALUE_CHANGE_TABLE 	= {
-					{'ValueMin', BonusMult (1.05, EngModSpdMult)},
 					{'ValueMax', BonusMult (1.1, EngModSpdMult)}
 				}
 			},
 			{
-				SPECIAL_KEY_WORDS	= {"ID", "UP_PULSE3", "StatsType", "Ship_Boost"},
-				MATH_OPERATION 		= '',
-				SECTION_UP = 1,
-				VALUE_CHANGE_TABLE 	= {
-					{'ValueMin', BonusMult (1.05, EngModSpdMult)},
-					{'ValueMax', BonusMult (1.15, EngModSpdMult)}
-				}
-			},
-			{
-				SPECIAL_KEY_WORDS	= {"ID", "UP_PULSE4", "StatsType", "Ship_Boost"},
+				SPECIAL_KEY_WORDS	= {"ID", "UP_PULSE2", "StatsType", "Ship_Boost"},
 				MATH_OPERATION 		= '',
 				SECTION_UP = 1,
 				VALUE_CHANGE_TABLE 	= {
@@ -616,12 +719,30 @@ NMS_MOD_DEFINITION_CONTAINER = {
 				}
 			},
 			{
+				SPECIAL_KEY_WORDS	= {"ID", "UP_PULSE3", "StatsType", "Ship_Boost"},
+				MATH_OPERATION 		= '',
+				SECTION_UP = 1,
+				VALUE_CHANGE_TABLE 	= {
+					{'ValueMin', BonusMult (1.1, EngModSpdMult)},
+					{'ValueMax', BonusMult (1.2, EngModSpdMult)}
+				}
+			},
+			{
+				SPECIAL_KEY_WORDS	= {"ID", "UP_PULSE4", "StatsType", "Ship_Boost"},
+				MATH_OPERATION 		= '',
+				SECTION_UP = 1,
+				VALUE_CHANGE_TABLE 	= {
+					{'ValueMin', BonusMult (1.1, EngModSpdMult)},
+					{'ValueMax', BonusMult (1.25, EngModSpdMult)}
+				}
+			},
+			{
 				SPECIAL_KEY_WORDS	= {"ID", "UP_PULSEX", "StatsType", "Ship_Boost"},
 				MATH_OPERATION 		= '',
 				SECTION_UP = 1,
 				VALUE_CHANGE_TABLE 	= {
 					{'ValueMin', BonusMult (1.01, EngModSpdMult)},
-					{'ValueMax', BonusMult (1.2, EngModSpdMult)}
+					{'ValueMax', BonusMult (1.3, EngModSpdMult)}
 				}
 			},
 			{
@@ -630,7 +751,7 @@ NMS_MOD_DEFINITION_CONTAINER = {
 				SECTION_UP = 1,
 				VALUE_CHANGE_TABLE 	= {
 					{'ValueMin', BonusMult (1.01, EngModLSSpdMult)},
-					{'ValueMax', BonusMult (1.05, EngModLSSpdMult)}
+					{'ValueMax', BonusMult (1.1, EngModLSSpdMult)}
 				}
 			},
 			{
@@ -638,8 +759,8 @@ NMS_MOD_DEFINITION_CONTAINER = {
 				MATH_OPERATION 		= '',
 				SECTION_UP = 1,
 				VALUE_CHANGE_TABLE 	= {
-					{'ValueMin', BonusMult (1.05, EngModLSSpdMult)},
-					{'ValueMax', BonusMult (1.1, EngModLSSpdMult)}
+					{'ValueMin', BonusMult (1.1, EngModLSSpdMult)},
+					{'ValueMax', BonusMult (1.15, EngModLSSpdMult)}
 				}
 			},
 			{
@@ -647,8 +768,8 @@ NMS_MOD_DEFINITION_CONTAINER = {
 				MATH_OPERATION 		= '',
 				SECTION_UP = 1,
 				VALUE_CHANGE_TABLE 	= {
-					{'ValueMin', BonusMult (1.05, EngModLSSpdMult)},
-					{'ValueMax', BonusMult (1.15, EngModLSSpdMult)}
+					{'ValueMin', BonusMult (1.1, EngModLSSpdMult)},
+					{'ValueMax', BonusMult (1.2, EngModLSSpdMult)}
 				}
 			},
 			{
@@ -657,7 +778,7 @@ NMS_MOD_DEFINITION_CONTAINER = {
 				SECTION_UP = 1,
 				VALUE_CHANGE_TABLE 	= {
 					{'ValueMin', BonusMult (1.1, EngModLSSpdMult)},
-					{'ValueMax', BonusMult (1.15, EngModLSSpdMult)}
+					{'ValueMax', BonusMult (1.25, EngModLSSpdMult)}
 				}
 			},
 			{
@@ -741,6 +862,50 @@ NMS_MOD_DEFINITION_CONTAINER = {
 					{'ValueMax', 0.2*ShieldLSModMult}
 				}
 			},
+			{
+				SPECIAL_KEY_WORDS	= {"StatsType", "Ship_Hyperdrive_JumpsPerCell"},
+				REPLACE_TYPE 		= 'ALL',
+				MATH_OPERATION 		= '',
+				INTEGER_TO_FLOAT	= 'FORCE',
+				SECTION_UP = 1,
+				VALUE_CHANGE_TABLE 	= {
+					{'ValueMin', HyperEffBonusMin},
+					{'ValueMax', HyperEffBonusMax}
+				}
+			},
+			{
+				SPECIAL_KEY_WORDS	= {"StatsType", "Freighter_Hyperdrive_JumpsPerCell"},
+				REPLACE_TYPE 		= 'ALL',
+				MATH_OPERATION 		= '',
+				INTEGER_TO_FLOAT	= 'FORCE',
+				SECTION_UP = 1,
+				VALUE_CHANGE_TABLE 	= {
+					{'ValueMin', HyperEffBonusMin},
+					{'ValueMax', HyperEffBonusMax}
+				}
+			},
+			{
+				SPECIAL_KEY_WORDS	= {"StatsType", "Ship_Hyperdrive_JumpDistance"},
+				REPLACE_TYPE 		= 'ALL',
+				MATH_OPERATION 		= '*',
+				INTEGER_TO_FLOAT	= 'PRESERVE',
+				SECTION_UP = 1,
+				VALUE_CHANGE_TABLE 	= {
+					{'ValueMin', HyperDistBonusMult},
+					{'ValueMax', HyperDistBonusMult}
+				}
+			},
+			{
+				SPECIAL_KEY_WORDS	= {"StatsType", "Freighter_Hyperdrive_JumpDistance"},
+				REPLACE_TYPE 		= 'ALL',
+				MATH_OPERATION 		= '*',
+				INTEGER_TO_FLOAT	= 'PRESERVE',
+				SECTION_UP = 1,
+				VALUE_CHANGE_TABLE 	= {
+					{'ValueMin', HyperDistBonusMult},
+					{'ValueMax', HyperDistBonusMult}
+				}
+			},
 		}
 	},
 	--Living Ship Speed and Maneuverability now handled by ShipTechChanges above
@@ -787,6 +952,24 @@ NMS_MOD_DEFINITION_CONTAINER = {
 		EXML_CHANGE_TABLE	= {
 			{
 				MATH_OPERATION 		= '',
+				VALUE_MATCH 		= 'ROBOT1',
+				VALUE_MATCH_OPTIONS = '=',
+				REPLACE_TYPE 		= '',	
+				VALUE_CHANGE_TABLE 	= {
+					{'Substance',		ConBridgeSubstance}
+				}
+			},
+			{
+				MATH_OPERATION 		= '',
+				VALUE_MATCH 		= '10000',
+				VALUE_MATCH_OPTIONS = '=',
+				REPLACE_TYPE 		= '',	
+				VALUE_CHANGE_TABLE 	= {
+					{'Cost',		LivingNanitePrice}
+				}
+			},
+			{
+				MATH_OPERATION 		= '',
 				VALUE_MATCH 		= '79200',
 				VALUE_MATCH_OPTIONS = '=',
 				REPLACE_TYPE 		= 'ALL',	
@@ -812,6 +995,20 @@ NMS_MOD_DEFINITION_CONTAINER = {
 				VALUE_CHANGE_TABLE 	=
 				{
 					{'SurveyDistance', DistanceMultShort}
+				}
+			},
+		}
+	},
+	{
+		MBIN_FILE_SOURCE	= 'METADATA\REALITY\TABLES\NMS_REALITY_GCPRODUCTTABLE.MBIN',
+		EXML_CHANGE_TABLE	= {
+			{
+				["REPLACE_TYPE"] 		= "",
+				["MATH_OPERATION"] 		= "",
+				["SPECIAL_KEY_WORDS"] = {"ID", "BIOSHIP_COMP1",		"ID", "ROBOT1"},
+				["VALUE_CHANGE_TABLE"] 	=
+				{
+					{"ID", ConBridgeSubstance}
 				}
 			},
 		}
@@ -848,11 +1045,242 @@ if LivingShipUseBatt then
 ChangesToShipTech[#ChangesToShipTech+1] =
 			{
 				--["PRECEDING_FIRST"] = "TRUE",
-				["REPLACE_TYPE"] 		= "",
+				--["REPLACE_TYPE"] 		= "",
 				["MATH_OPERATION"] 		= "",
 				["SPECIAL_KEY_WORDS"] = {"ID", "SHIELD_ALIEN"},
 				["PRECEDING_KEY_WORDS"] = {"ChargeBy",		"NMSString0x10.xml"},
 				["REPLACE_TYPE"] = "ADDAFTERSECTION",
 				["ADD"] = AddStarShieldBatt
+			}
+end
+if RoboUseBattNotSodium then
+ChangesToShipTech[#ChangesToShipTech+1] =
+			{
+				["SPECIAL_KEY_WORDS"] = {"ID", "SHIPSHIELD_ROBO",	"Value", "CATALYST1"},
+				["REMOVE"] = "SECTION"
+			}
+ChangesToShipTech[#ChangesToShipTech+1] =
+			{
+				--["PRECEDING_FIRST"] = "TRUE",
+				--["REPLACE_TYPE"] 		= "",
+				["MATH_OPERATION"] 		= "",
+				["SPECIAL_KEY_WORDS"] = {"ID", "SHIPSHIELD_ROBO"},
+				["PRECEDING_KEY_WORDS"] = {"ChargeBy",		"NMSString0x10.xml"},
+				["REPLACE_TYPE"] = "ADDAFTERSECTION",
+				["ADD"] = AddStarShieldBatt
+			}
+
+end
+for i = 1, #ShipTrailTechs do
+	local TrailID = ShipTrailTechs[i]
+
+			ChangesToShipTech[#ChangesToShipTech+1] =
+			{
+				["MATH_OPERATION"] 		= "",
+				["SPECIAL_KEY_WORDS"] = {"ID", TrailID},
+				["PRECEDING_KEY_WORDS"] = {"StatBonuses"},
+				["VALUE_CHANGE_TABLE"] 	=
+				{
+					{"StatsType", TrailStat},
+					{"Bonus", TrailBonus}
+				}
+			}
+end
+if RemoveVesperManeuver then
+ChangesToShipTech[#ChangesToShipTech+1] =
+			{
+				["SPECIAL_KEY_WORDS"] = {"ID", "SOLAR_SAIL",	"StatsType", "Ship_BoostManeuverability"},
+				["SECTION_UP"] = 1,
+				["REMOVE"] = "SECTION"
+			}
+ChangesToShipTech[#ChangesToShipTech+1] =
+			{
+				["SPECIAL_KEY_WORDS"] = {"ID", "SOLAR_SAIL",	"StatsType", "Ship_Maneuverability"},
+				["SECTION_UP"] = 1,
+				["REMOVE"] = "SECTION"
+			}
+end
+if RemoveVesperAutoCharge then
+ChangesToShipTech[#ChangesToShipTech+1] =
+			{
+				["SPECIAL_KEY_WORDS"] = {"ID", "SOLAR_SAIL",	"StatsType", "Ship_Launcher_AutoCharge"},
+				["SECTION_UP"] = 1,
+				["REMOVE"] = "SECTION"
+			}
+ChangesToShipTech[#ChangesToShipTech+1] =
+			{
+				["SPECIAL_KEY_WORDS"] = {"ID", "SOLAR_SAIL"},
+				["PRECEDING_KEY_WORDS"] = {"GcStatsBonus.xml"},
+				["REPLACE_TYPE"] = "ADDAFTERSECTION",
+				["ADD"] = AddLaunchDiscount
+			}
+end
+if RemoveRoboAutoCharge then
+ChangesToShipTech[#ChangesToShipTech+1] =
+			{
+				["SPECIAL_KEY_WORDS"] = {"ID", "LAUNCHER_ROBO",	"StatsType", "Ship_Launcher_AutoCharge"},
+				["SECTION_UP"] = 1,
+				["REMOVE"] = "SECTION"
+			}
+end
+if RemoveRoboJumpSpeed then
+ChangesToShipTech[#ChangesToShipTech+1] =
+			{
+				["SPECIAL_KEY_WORDS"] = {"ID", "SHIPJUMP_ROBO",	"StatsType", "Ship_PulseDrive_MiniJumpSpeed"},
+				["SECTION_UP"] = 1,
+				["REMOVE"] = "SECTION"
+			}
+end
+
+local ChangesToProcTech = NMS_MOD_DEFINITION_CONTAINER["MODIFICATIONS"][1]["MBIN_CHANGE_TABLE"][4]["EXML_CHANGE_TABLE"]
+
+if RemoveLivingAutoCharge then
+ChangesToProcTech[#ChangesToProcTech+1] =
+			{
+				["SPECIAL_KEY_WORDS"] = {"ID", "UA_LAUN4",	"StatsType", "Ship_Launcher_AutoCharge"},
+				["SECTION_UP"] = 1,
+				["REMOVE"] = "SECTION"
+			}
+end
+for i = 1, #ShipPulseMods do
+	local ModID = ShipPulseMods[i]
+
+			ChangesToProcTech[#ChangesToProcTech+1] =
+			{
+				["MATH_OPERATION"] 		= "-",
+				["SPECIAL_KEY_WORDS"] = {"ID", ModID,		"StatsType", "Ship_BoostManeuverability"},
+				["SECTION_UP"] = 1,
+				["VALUE_CHANGE_TABLE"] 	=
+				{
+					{"ValueMin", 1},
+					{"ValueMax", 1}
+				}
+			}
+			ChangesToProcTech[#ChangesToProcTech+1] =
+			{
+				["MATH_OPERATION"] 		= "*",
+				["SPECIAL_KEY_WORDS"] = {"ID", ModID,		"StatsType", "Ship_BoostManeuverability"},
+				["SECTION_UP"] = 1,
+				["VALUE_CHANGE_TABLE"] 	=
+				{
+					{"ValueMin", EngModBstManMult},
+					{"ValueMax", EngModBstManMult}
+				}
+			}
+			ChangesToProcTech[#ChangesToProcTech+1] =
+			{
+				["MATH_OPERATION"] 		= "+",
+				["SPECIAL_KEY_WORDS"] = {"ID", ModID,		"StatsType", "Ship_BoostManeuverability"},
+				["SECTION_UP"] = 1,
+				["VALUE_CHANGE_TABLE"] 	=
+				{
+					{"ValueMin", 1},
+					{"ValueMax", 1}
+				}
+			}
+			
+			ChangesToProcTech[#ChangesToProcTech+1] =
+			{
+				["MATH_OPERATION"] 		= "-",
+				["SPECIAL_KEY_WORDS"] = {"ID", ModID,		"StatsType", "Ship_Maneuverability"},
+				["SECTION_UP"] = 1,
+				["VALUE_CHANGE_TABLE"] 	=
+				{
+					{"ValueMin", 1},
+					{"ValueMax", 1}
+				}
+			}
+			ChangesToProcTech[#ChangesToProcTech+1] =
+			{
+				["MATH_OPERATION"] 		= "*",
+				["SPECIAL_KEY_WORDS"] = {"ID", ModID,		"StatsType", "Ship_Maneuverability"},
+				["SECTION_UP"] = 1,
+				["VALUE_CHANGE_TABLE"] 	=
+				{
+					{"ValueMin", EngModManMult},
+					{"ValueMax", EngModManMult}
+				}
+			}
+			ChangesToProcTech[#ChangesToProcTech+1] =
+			{
+				["MATH_OPERATION"] 		= "+",
+				["SPECIAL_KEY_WORDS"] = {"ID", ModID,		"StatsType", "Ship_Maneuverability"},
+				["SECTION_UP"] = 1,
+				["VALUE_CHANGE_TABLE"] 	=
+				{
+					{"ValueMin", 1},
+					{"ValueMax", 1}
+				}
+			}
+end
+for i = 1, #LivingShipPulseMods do
+	local ModID = LivingShipPulseMods[i]
+
+			ChangesToProcTech[#ChangesToProcTech+1] =
+			{
+				["MATH_OPERATION"] 		= "-",
+				["SPECIAL_KEY_WORDS"] = {"ID", ModID,		"StatsType", "Ship_BoostManeuverability"},
+				["SECTION_UP"] = 1,
+				["VALUE_CHANGE_TABLE"] 	=
+				{
+					{"ValueMin", 1},
+					{"ValueMax", 1}
+				}
+			}
+			ChangesToProcTech[#ChangesToProcTech+1] =
+			{
+				["MATH_OPERATION"] 		= "*",
+				["SPECIAL_KEY_WORDS"] = {"ID", ModID,		"StatsType", "Ship_BoostManeuverability"},
+				["SECTION_UP"] = 1,
+				["VALUE_CHANGE_TABLE"] 	=
+				{
+					{"ValueMin", EngModLSBstManMult},
+					{"ValueMax", EngModLSBstManMult}
+				}
+			}
+			ChangesToProcTech[#ChangesToProcTech+1] =
+			{
+				["MATH_OPERATION"] 		= "+",
+				["SPECIAL_KEY_WORDS"] = {"ID", ModID,		"StatsType", "Ship_BoostManeuverability"},
+				["SECTION_UP"] = 1,
+				["VALUE_CHANGE_TABLE"] 	=
+				{
+					{"ValueMin", 1},
+					{"ValueMax", 1}
+				}
+			}
+			
+			ChangesToProcTech[#ChangesToProcTech+1] =
+			{
+				["MATH_OPERATION"] 		= "-",
+				["SPECIAL_KEY_WORDS"] = {"ID", ModID,		"StatsType", "Ship_Maneuverability"},
+				["SECTION_UP"] = 1,
+				["VALUE_CHANGE_TABLE"] 	=
+				{
+					{"ValueMin", 1},
+					{"ValueMax", 1}
+				}
+			}
+			ChangesToProcTech[#ChangesToProcTech+1] =
+			{
+				["MATH_OPERATION"] 		= "*",
+				["SPECIAL_KEY_WORDS"] = {"ID", ModID,		"StatsType", "Ship_Maneuverability"},
+				["SECTION_UP"] = 1,
+				["VALUE_CHANGE_TABLE"] 	=
+				{
+					{"ValueMin", EngModLSManMult},
+					{"ValueMax", EngModLSManMult}
+				}
+			}
+			ChangesToProcTech[#ChangesToProcTech+1] =
+			{
+				["MATH_OPERATION"] 		= "+",
+				["SPECIAL_KEY_WORDS"] = {"ID", ModID,		"StatsType", "Ship_Maneuverability"},
+				["SECTION_UP"] = 1,
+				["VALUE_CHANGE_TABLE"] 	=
+				{
+					{"ValueMin", 1},
+					{"ValueMax", 1}
+				}
 			}
 end

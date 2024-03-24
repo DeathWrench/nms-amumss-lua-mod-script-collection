@@ -5,10 +5,10 @@ SHIELD_COLLISION_RADIUS = 1.6
 SHIELD_COLLISION_THICKNESS = 0.3
 SHIELD_VOLUME_TRIGGER_TYPE = "HazardProtection"
 
--- VolumeTriggerType = 
--- { 
--- "Open", "GenericInterior", "GenericGlassInterior", "Corridor", "SmallRoom", "LargeRoom", "OpenCovered", 
--- "HazardProtection", "FieldBoundary", "Custom_Biodome", "Portal", "VehicleBoost", "NexusPlaza", "NexusCommunityHub", "NexusHangar" 
+-- VolumeTriggerType =
+-- {
+-- "Open", "GenericInterior", "GenericGlassInterior", "Corridor", "SmallRoom", "LargeRoom", "OpenCovered",
+-- "HazardProtection", "FieldBoundary", "Custom_Biodome", "Portal", "VehicleBoost", "NexusPlaza", "NexusCommunityHub", "NexusHangar"
 -- }
 
 SHIELD_SCENE = ""
@@ -17,7 +17,7 @@ SHIELD_COLLISION =
 [[
         <Property value="TkSceneNodeData.xml">
           <Property name="Name" value="MODELS\COMMON\PLAYER\PLAYERCHARACTER\SHIELD" />
-          <Property name="NameHash" value="0" />
+          <Property name="NameHash" value="3121049417" />
           <Property name="Type" value="COLLISION" />
           <Property name="Transform" value="TkTransformData.xml">
             <Property name="TransX" value="-]] .. SHIELD_COLLISION_RADIUS .. [[" />
@@ -56,7 +56,7 @@ SHIELD_COLLISION =
         </Property>
         <Property value="TkSceneNodeData.xml">
           <Property name="Name" value="MODELS\COMMON\PLAYER\PLAYERCHARACTER\SHIELD" />
-          <Property name="NameHash" value="0" />
+          <Property name="NameHash" value="3121049417" />
           <Property name="Type" value="COLLISION" />
           <Property name="Transform" value="TkTransformData.xml">
             <Property name="TransX" value="0" />
@@ -95,7 +95,7 @@ SHIELD_COLLISION =
         </Property>
         <Property value="TkSceneNodeData.xml">
           <Property name="Name" value="MODELS\COMMON\PLAYER\PLAYERCHARACTER\SHIELD" />
-          <Property name="NameHash" value="0" />
+          <Property name="NameHash" value="3121049417" />
           <Property name="Type" value="COLLISION" />
           <Property name="Transform" value="TkTransformData.xml">
             <Property name="TransX" value="]] .. SHIELD_COLLISION_RADIUS .. [[" />
@@ -134,7 +134,7 @@ SHIELD_COLLISION =
         </Property>
         <Property value="TkSceneNodeData.xml">
           <Property name="Name" value="MODELS\COMMON\PLAYER\PLAYERCHARACTER\SHIELD" />
-          <Property name="NameHash" value="0" />
+          <Property name="NameHash" value="3121049417" />
           <Property name="Type" value="COLLISION" />
           <Property name="Transform" value="TkTransformData.xml">
             <Property name="TransX" value="0" />
@@ -173,7 +173,7 @@ SHIELD_COLLISION =
         </Property>
         <Property value="TkSceneNodeData.xml">
           <Property name="Name" value="MODELS\COMMON\PLAYER\PLAYERCHARACTER\SHIELD" />
-          <Property name="NameHash" value="0" />
+          <Property name="NameHash" value="3121049417" />
           <Property name="Type" value="COLLISION" />
           <Property name="Transform" value="TkTransformData.xml">
             <Property name="TransX" value="0" />
@@ -209,10 +209,10 @@ SHIELD_COLLISION =
             </Property>
           </Property>
           <Property name="Children" />
-        </Property>	
+        </Property>
         <Property value="TkSceneNodeData.xml">
           <Property name="Name" value="MODELS\COMMON\PLAYER\PLAYERCHARACTER\SHIELD" />
-          <Property name="NameHash" value="0" />
+          <Property name="NameHash" value="3121049417" />
           <Property name="Type" value="COLLISION" />
           <Property name="Transform" value="TkTransformData.xml">
             <Property name="TransX" value="0" />
@@ -248,45 +248,45 @@ SHIELD_COLLISION =
             </Property>
           </Property>
           <Property name="Children" />
-        </Property>	
+        </Property>
 ]]
 
 COLLISION_NODE =
 [[
-		<Property value="TkSceneNodeData.xml">
-		  <Property name="Name" value="Data" />
-		  <Property name="NameHash" value="2810148397" />
-		  <Property name="Type" value="LOCATOR" />
-		  <Property name="Transform" value="TkTransformData.xml">
-			<Property name="TransX" value="0" />
-			<Property name="TransY" value="3.871552" />
-			<Property name="TransZ" value="0" />
-			<Property name="RotX" value="0" />
-			<Property name="RotY" value="0" />
-			<Property name="RotZ" value="0" />
-			<Property name="ScaleX" value="1" />
-			<Property name="ScaleY" value="1" />
-			<Property name="ScaleZ" value="1" />
-		  </Property>
-		  <Property name="Attributes">
-			<Property value="TkSceneNodeAttributeData.xml">
-			  <Property name="Name" value="ATTACHMENT" />
-			  <Property name="AltID" value="" />
-			  <Property name="Value" value="MODELS\COMMON\PLAYER\PLAYERCHARACTER\SHIELD\ENTITIES\SHIELD_A.ENTITY.MBIN" />
-			</Property>
-			<Property value="TkSceneNodeAttributeData.xml">
-			  <Property name="Name" value="ATTACHMENT" />
-			  <Property name="AltID" value="" />
-			  <Property name="Value" value="MODELS\COMMON\PLAYER\PLAYERCHARACTER\SHIELD\ENTITIES\SHIELD_B.ENTITY.MBIN" />
-			</Property>		
-		  </Property>
-		  <Property name="Children">
-	]] .. SHIELD_COLLISION .. [[
-		  </Property>
-		</Property> 
+        <Property value="TkSceneNodeData.xml">
+          <Property name="Name" value="Data" />
+          <Property name="NameHash" value="2810148397" />
+          <Property name="Type" value="LOCATOR" />
+          <Property name="Transform" value="TkTransformData.xml">
+            <Property name="TransX" value="0" />
+            <Property name="TransY" value="3.871552" />
+            <Property name="TransZ" value="0" />
+            <Property name="RotX" value="0" />
+            <Property name="RotY" value="0" />
+            <Property name="RotZ" value="0" />
+            <Property name="ScaleX" value="1" />
+            <Property name="ScaleY" value="1" />
+            <Property name="ScaleZ" value="1" />
+          </Property>
+          <Property name="Attributes">
+            <Property value="TkSceneNodeAttributeData.xml">
+              <Property name="Name" value="ATTACHMENT" />
+              <Property name="AltID" value="" />
+              <Property name="Value" value="MODELS\COMMON\PLAYER\PLAYERCHARACTER\SHIELD\ENTITIES\SHIELD_A.ENTITY.MBIN" />
+            </Property>
+            <Property value="TkSceneNodeAttributeData.xml">
+              <Property name="Name" value="ATTACHMENT" />
+              <Property name="AltID" value="" />
+              <Property name="Value" value="MODELS\COMMON\PLAYER\PLAYERCHARACTER\SHIELD\ENTITIES\SHIELD_B.ENTITY.MBIN" />
+            </Property>
+          </Property>
+          <Property name="Children">
+    ]] .. SHIELD_COLLISION .. [[
+          </Property>
+        </Property>
 ]]
 
-if not ENABLE_SHIELD_COLLSION then SHIELD_COLLISION="" 
+if not ENABLE_SHIELD_COLLSION then SHIELD_COLLISION=""
 end
 
 SHIELD_SCENE =
@@ -295,7 +295,7 @@ SHIELD_SCENE =
 
 <Data template="TkSceneNodeData">
   <Property name="Name" value="MODELS\COMMON\PLAYER\PLAYERCHARACTER\SHIELD" />
-  <Property name="NameHash" value="0" />
+  <Property name="NameHash" value="3121049417" />
   <Property name="Type" value="MODEL" />
   <Property name="Transform" value="TkTransformData.xml">
     <Property name="TransX" value="0" />
@@ -307,7 +307,7 @@ SHIELD_SCENE =
     <Property name="ScaleX" value="1" />
     <Property name="ScaleY" value="1" />
     <Property name="ScaleZ" value="1" />
-	</Property>
+  </Property>
   <Property name="Attributes">
     <Property value="TkSceneNodeAttributeData.xml">
       <Property name="Name" value="GEOMETRY" />
@@ -320,8 +320,8 @@ SHIELD_SCENE =
       <Property name="Value" value="1" />
     </Property>
   </Property>
-  <Property name="Children">  
-   <Property value="TkSceneNodeData.xml">
+  <Property name="Children">
+    <Property value="TkSceneNodeData.xml">
       <Property name="Name" value="BubbleShield" />
       <Property name="NameHash" value="2175858882" />
       <Property name="Type" value="MESH" />
@@ -834,64 +834,47 @@ SHIELD_SCENE =
       </Property>
     </Property>
   </Property>
-</Data>	
+</Data>
 ]]
 
-NMS_MOD_DEFINITION_CONTAINER = 
+NMS_MOD_DEFINITION_CONTAINER =
 {
 ["MOD_FILENAME"]    = "ProtectionShield.pak",
 ["MOD_AUTHOR"]      = "Mjjstral",
 ["MOD_MAINTENANCE"] = "Babscoole",
-["NMS_VERSION"]     = "4.00",
+["NMS_VERSION"]     = "4.52",
 ["DESCRIPTION"]     = "Protective shield against hazards, bullets ...",
-["MODIFICATIONS"]   = 
-	{	
-		{
-			["MBIN_CHANGE_TABLE"] = 
-			{  
-				{
-					["MBIN_FILE_SOURCE"]  = "MODELS\COMMON\PLAYER\PLAYERCHARACTER\PLAYERCHARACTER\ENTITIES\PLAYERCHARACTER.ENTITY.MBIN",
-					["EXML_CHANGE_TABLE"] = 
-					{
-						{
-							["SPECIAL_KEY_WORDS"] = {"Anim","0H_GREET_MOB_04"}, 
-							["SECTION_ACTIVE"]    = {2,},
-							["ADD_OPTION"]        = "ADDafterSECTION",						
-							["ADD"] = 
-[[
-        <Property value="TkAnimationData.xml">
-          <Property name="Anim" value="TOGGLE_SHIELD" />
-          <Property name="Filename" value="MODELS/COMMON/PLAYER/PLAYERCHARACTER/ANIMS/EMOTES/NULL.ANIM.MBIN" />
-          <Property name="AnimType" value="OneShot" />
-          <Property name="FrameStart" value="0" />
-          <Property name="FrameEnd" value="0" />
-          <Property name="StartNode" value="" />
-          <Property name="ExtraStartNodes" />
-          <Property name="Priority" value="0" />
-          <Property name="OffsetMin" value="0" />
-          <Property name="OffsetMax" value="0" />
-          <Property name="Delay" value="0" />
-          <Property name="Speed" value="1" />
-          <Property name="ActionStartFrame" value="0" />
-          <Property name="ActionFrame" value="-1" />
-          <Property name="CreatureSize" value="AllSizes" />
-          <Property name="Additive" value="False" />
-          <Property name="Mirrored" value="False" />
-          <Property name="Active" value="True" />
-          <Property name="AdditiveBaseAnim" value="" />
-          <Property name="AdditiveBaseFrame" value="0" />
-          <Property name="GameData" value="TkAnimationGameData.xml">
-            <Property name="RootMotionEnabled" value="False" />
-            <Property name="BlockPlayerMovement" value="False" />
-            <Property name="BlockPlayerWeapon" value="Unblocked" />
-          </Property>
-        </Property>
-]]
-						},
-						{
-							["PRECEDING_KEY_WORDS"] = {"GcPlayerEffectsComponentData.xml"}, 
-							["ADD_OPTION"]        = "ADDafterSECTION",
-							["ADD"] = 
+["MODIFICATIONS"]   =
+    {
+        {
+            ["MBIN_CHANGE_TABLE"] =
+            {
+                {
+                    ["MBIN_FILE_SOURCE"] = "MODELS\COMMON\PLAYER\PLAYERCHARACTER\PLAYERCHARACTER\ENTITIES\PLAYERCHARACTER.ENTITY.MBIN",
+                    ["EXML_CHANGE_TABLE"] =
+                    {
+                        {
+                            ["SPECIAL_KEY_WORDS"] = {"Anim", "0H_TURN_L"},
+                            ["SEC_SAVE_TO"] = "ADD_ANIM",
+                        },
+                        {
+                            ["SEC_EDIT"] = "ADD_ANIM",
+                            ["VALUE_CHANGE_TABLE"] =
+                            {
+                                {"Anim",     "TOGGLE_SHIELD"},
+                                {"Filename", "MODELS/TESTS/EFFECTTEST.ANIM.MBIN"},
+                            }
+                        },
+                        {
+                            ["SPECIAL_KEY_WORDS"] = {"Anim", "0H_GREET_MOB_04"},
+                            ["SECTION_ACTIVE"] = {2},
+                            ["ADD_OPTION"] = "ADDafterSECTION",
+                            ["SEC_ADD_NAMED"] = "ADD_ANIM",
+                        },
+                        {
+                            ["PRECEDING_KEY_WORDS"] = {"GcPlayerEffectsComponentData.xml"},
+                            ["ADD_OPTION"] = "ADDafterSECTION",
+                            ["ADD"] =
 [[
     <Property value="TkReferenceComponentData.xml">
       <Property name="Reference" value="MODELS/COMMON/PLAYER/PLAYERCHARACTER/SHIELD/SHIELD.SCENE.MBIN" />
@@ -922,7 +905,7 @@ NMS_MOD_DEFINITION_CONTAINER =
                   <Property name="UseLocalNode" value="False" />
                   <Property name="RestartEmitters" value="False" />
                   <Property name="AffectModels" value="True" />
-                </Property>		
+                </Property>
               </Property>
             </Property>
             <Property value="GcActionTrigger.xml">
@@ -958,7 +941,7 @@ NMS_MOD_DEFINITION_CONTAINER =
                   <Property name="Shake" value="SLOWRUMBLE" />
                   <Property name="FalloffMin" value="5" />
                   <Property name="FalloffMax" value="15" />
-                </Property>		
+                </Property>
               </Property>
             </Property>
           </Property>
@@ -968,82 +951,77 @@ NMS_MOD_DEFINITION_CONTAINER =
       <Property name="PersistentState" value="" />
       <Property name="ResetShotTimeOnStateChange" value="False" />
       <Property name="LinkStateToBaseGrid" value="False" />
-    </Property>	
-]]
-						}
-					}
-				},
-				{
-					["MBIN_FILE_SOURCE"]  = "METADATA\UI\EMOTEMENU.MBIN",
-					["EXML_CHANGE_TABLE"] = 
-					{
-						{
-							["PRECEDING_KEY_WORDS"] = {"Emotes"}, 
-							["LINE_OFFSET"]         = "+0",
-							["ADD"] = 
-[[
-    <Property value="GcPlayerEmote.xml">
-      <Property name="Title" value="Shield" />
-      <Property name="ChatText" value="" />
-      <Property name="ChatUsesPrefix" value="False" />
-      <Property name="AnimationName" value="TOGGLE_SHIELD" />
-      <Property name="Icon" value="TkTextureResource.xml">
-        <Property name="Filename" value="TEXTURES/UI/FRONTEND/ICONS/STATS/STATS.SUIT.PROTECTION.DDS" />
-      </Property>
-      <Property name="LinkedSpecialID" value="" />
-      <Property name="NeverShowInMenu" value="False" />
-      <Property name="LoopAnimUntilMove" value="" />
-      <Property name="CloseMenuOnSelect" value="False" />
-      <Property name="MoveToCancel" value="False" />
-      <Property name="GekAnimationName" value="" />
-      <Property name="GekLoopAnimUntilMove" value="" />
-      <Property name="AvailableUnderwater" value="False" />
-      <Property name="RidingAnimationName" value="" />
-      <Property name="IsPetCommand" value="False" />
-      <Property name="PetCommandTitle" value="" />
-      <Property name="PetCommandIcon" value="TkTextureResource.xml">
-        <Property name="Filename" value="" />
-      </Property>
-    </Property>
-    <Property value="GcPlayerEmote.xml">
-      <Property name="Title" value="Shield" />
-      <Property name="ChatText" value="" />
-      <Property name="ChatUsesPrefix" value="False" />
-      <Property name="AnimationName" value="TOGGLE_SHIELD" />
-      <Property name="Icon" value="TkTextureResource.xml">
-        <Property name="Filename" value="TEXTURES/UI/FRONTEND/ICONS/STATS/STATS.SUIT.PROTECTION.DDS" />
-      </Property>
-      <Property name="LinkedSpecialID" value="" />
-      <Property name="NeverShowInMenu" value="False" />
-      <Property name="LoopAnimUntilMove" value="" />
-      <Property name="CloseMenuOnSelect" value="False" />
-      <Property name="MoveToCancel" value="False" />
-      <Property name="GekAnimationName" value="" />
-      <Property name="GekLoopAnimUntilMove" value="" />
-      <Property name="AvailableUnderwater" value="True" />
-      <Property name="RidingAnimationName" value="" />
-      <Property name="IsPetCommand" value="False" />
-      <Property name="PetCommandTitle" value="" />
-      <Property name="PetCommandIcon" value="TkTextureResource.xml">
-        <Property name="Filename" value="" />
-      </Property>
     </Property>
 ]]
-						}
-					}
-				}
-			}
-		}
-	},
-["ADD_FILES"] = 
-	{
-		{
-			["FILE_DESTINATION"] = [[MODELS\COMMON\PLAYER\PLAYERCHARACTER\SHIELD\SHIELD.SCENE.EXML]],
-			["FILE_CONTENT"] 	 = SHIELD_SCENE
-		},
-		{
-			["FILE_DESTINATION"] = [[MODELS\COMMON\PLAYER\PLAYERCHARACTER\SHIELD\ENTITIES\SHIELD_A.ENTITY.EXML]],
-			["FILE_CONTENT"] 	 = 
+                        }
+                    }
+                },
+                {
+                    ["MBIN_FILE_SOURCE"] = "METADATA\UI\EMOTEMENU.MBIN",
+                    ["EXML_CHANGE_TABLE"] =
+                    {
+                        {
+                            ["SPECIAL_KEY_WORDS"] = {"Title", "EMOTE_WAVE"},
+                            ["SEC_SAVE_TO"] = "ADD_EMOTE",
+                        },
+                        {
+                            ["SEC_EDIT"] = "ADD_EMOTE",
+                            ["VALUE_CHANGE_TABLE"] =
+                            {
+                                {"Title",               "Shield"},
+                                {"ChatText",            ""},
+                                {"ChatUsesPrefix",      "False"},
+                                {"EmoteID",             "TOGGLE_SHIELD"},
+                                {"AnimationName",       "TOGGLE_SHIELD"},
+                                {"Filename",            "TEXTURES/UI/FRONTEND/ICONS/STATS/STATS.SUIT.PROTECTION.DDS"},
+                                {"MoveToCancel",        "True"},
+                                {"RidingAnimationName", ""},
+                            }
+                        },
+                        {
+                            ["PRECEDING_KEY_WORDS"] = {"Emotes"},
+                            ["ADD_OPTION"] = "ADDafterLINE",
+                            ["SEC_ADD_NAMED"] = "ADD_EMOTE",
+                        },
+                        {
+                            ["SEC_EDIT"] = "ADD_EMOTE",
+                            ["VALUE_CHANGE_TABLE"] =
+                            {
+                                {"AvailableUnderwater", "True"},
+                            }
+                        },
+                        {
+                            ["PRECEDING_KEY_WORDS"] = {"Emotes"},
+                            ["ADD_OPTION"] = "ADDafterLINE",
+                            ["SEC_ADD_NAMED"] = "ADD_EMOTE",
+                        },
+                    }
+                },
+                {
+                    ["MBIN_FILE_SOURCE"] = "MODELS\TESTS\EFFECTTEST.ANIM.MBIN",
+                    ["EXML_CHANGE_TABLE"] =
+                    {
+                        {
+                            ["VALUE_CHANGE_TABLE"] =
+                            {
+                                {"FrameCount", "10"},
+                                {"NodeCount",  "0"},
+                            }
+                        },
+                    }
+                },
+            }
+        }
+    },
+["ADD_FILES"] =
+    {
+        {
+            ["FILE_DESTINATION"] = "MODELS\COMMON\PLAYER\PLAYERCHARACTER\SHIELD\SHIELD.SCENE.EXML",
+            ["FILE_CONTENT"] = SHIELD_SCENE
+        },
+        {
+            ["FILE_DESTINATION"] = "MODELS\COMMON\PLAYER\PLAYERCHARACTER\SHIELD\ENTITIES\SHIELD_A.ENTITY.EXML",
+            ["FILE_CONTENT"] =
 [[
 <?xml version="1.0" encoding="utf-8"?>
 
@@ -1079,6 +1057,8 @@ NMS_MOD_DEFINITION_CONTAINER =
     </Property>
     <Property value="GcShootableComponentData.xml">
       <Property name="Health" value="3000" />
+      <Property name="LevelledExtraHealth" value="0" />
+      <Property name="UseSpaceLevelForExtraHealth" value="False" />
       <Property name="AutoAimTarget" value="False" />
       <Property name="PlayerOnly" value="False" />
       <Property name="IgnorePlayer" value="False" />
@@ -1088,6 +1068,7 @@ NMS_MOD_DEFINITION_CONTAINER =
         <Property name="Impact" value="Default" />
       </Property>
       <Property name="IncreaseWanted" value="0" />
+      <Property name="IncreaseCorruptSentinelWanted" value="0" />
       <Property name="IncreaseWantedThresholdTime" value="0.5" />
       <Property name="FiendCrimeType" value="GcFiendCrime.xml">
         <Property name="FiendCrime" value="None" />
@@ -1116,9 +1097,11 @@ NMS_MOD_DEFINITION_CONTAINER =
       <Property name="VehicleDestroyEffect" value="VEHICLECRASH" />
       <Property name="TriggerAction" value="IDLE" />
       <Property name="IncreaseWanted" value="0" />
+      <Property name="IncreaseCorruptSentinelWanted" value="0" />
       <Property name="IncreaseFiendWanted" value="False" />
       <Property name="IncreaseFiendWantedChance" value="1" />
       <Property name="NotifyEncounter" value="False" />
+      <Property name="DamagesParentWhenDestroyed" value="False" />
       <Property name="LootReward" value="" />
       <Property name="LootRewardAmountMin" value="0" />
       <Property name="LootRewardAmountMax" value="0" />
@@ -1128,8 +1111,11 @@ NMS_MOD_DEFINITION_CONTAINER =
         <Property name="StatEnum" value="None" />
       </Property>
       <Property name="GivesReward" value="" />
+      <Property name="BlockDestructionIfRewardFails" value="False" />
+      <Property name="OverrideChipAmount" value="-1" />
       <Property name="PirateSystemAltReward" value="" />
       <Property name="RewardIfDestroyedByOther" value="False" />
+      <Property name="NoConsequencesDuringPirateBattle" value="False" />
       <Property name="HideReward" value="False" />
       <Property name="OverrideRewardLoc" value="" />
       <Property name="RewardOverrideTable" />
@@ -1144,6 +1130,18 @@ NMS_MOD_DEFINITION_CONTAINER =
         <Property name="Rare" value="NMSString0x10.xml">
           <Property name="Value" value="" />
         </Property>
+      </Property>
+      <Property name="StandingChangeOnDeath">
+        <Property name="Gek" value="0" />
+        <Property name="Korvax" value="0" />
+        <Property name="Vykeen" value="0" />
+        <Property name="TradeGuild" value="0" />
+        <Property name="WarriorGuild" value="0" />
+        <Property name="ExplorerGuild" value="0" />
+        <Property name="Nexus" value="0" />
+        <Property name="Pirates" value="0" />
+        <Property name="Builders" value="0" />
+        <Property name="None" value="0" />
       </Property>
       <Property name="UseSystemColorsForTexture" value="False" />
       <Property name="RemoveModel" value="False" />
@@ -1167,6 +1165,7 @@ NMS_MOD_DEFINITION_CONTAINER =
       <Property name="ShowInteract" value="True" />
       <Property name="HideInteractWhenAllArmourDestroyed" value="False" />
       <Property name="ShowInteractRange" value="20" />
+      <Property name="HideInteractWhenShielded" value="False" />
       <Property name="GrenadeSingleHit" value="True" />
       <Property name="LootItems" />
     </Property>
@@ -1180,10 +1179,10 @@ NMS_MOD_DEFINITION_CONTAINER =
   </Property>
 </Data>
 ]]
-		},
-		{
-			["FILE_DESTINATION"] = [[MODELS\COMMON\PLAYER\PLAYERCHARACTER\SHIELD\ENTITIES\SHIELD_B.ENTITY.EXML]],
-			["FILE_CONTENT"] 	 = 
+        },
+        {
+            ["FILE_DESTINATION"] = "MODELS\COMMON\PLAYER\PLAYERCHARACTER\SHIELD\ENTITIES\SHIELD_B.ENTITY.EXML",
+            ["FILE_CONTENT"] =
 [[
 <?xml version="1.0" encoding="utf-8"?>
 
@@ -1199,10 +1198,10 @@ NMS_MOD_DEFINITION_CONTAINER =
         <Property name="Gravity" value="20" />
       </Property>
       <Property name="TriggerVolumeType" value="TkVolumeTriggerType.xml">
-        <Property name="VolumeTriggerType" value="]] .. SHIELD_VOLUME_TRIGGER_TYPE .. [[" />
+        <Property name="VolumeTriggerType" value="HazardProtection" />
       </Property>
       <Property name="SurfaceProperties" value="None" />
-      <Property name="TriggerVolume" value="True" />
+      <Property name="TriggerVolume" value="False" />
       <Property name="Climbable" value="False" />
       <Property name="Floor" value="False" />
       <Property name="IgnoreModelOwner" value="True" />
@@ -1219,6 +1218,8 @@ NMS_MOD_DEFINITION_CONTAINER =
     </Property>
     <Property value="GcShootableComponentData.xml">
       <Property name="Health" value="3000" />
+      <Property name="LevelledExtraHealth" value="0" />
+      <Property name="UseSpaceLevelForExtraHealth" value="False" />
       <Property name="AutoAimTarget" value="False" />
       <Property name="PlayerOnly" value="False" />
       <Property name="IgnorePlayer" value="False" />
@@ -1228,6 +1229,7 @@ NMS_MOD_DEFINITION_CONTAINER =
         <Property name="Impact" value="Default" />
       </Property>
       <Property name="IncreaseWanted" value="0" />
+      <Property name="IncreaseCorruptSentinelWanted" value="0" />
       <Property name="IncreaseWantedThresholdTime" value="0.5" />
       <Property name="FiendCrimeType" value="GcFiendCrime.xml">
         <Property name="FiendCrime" value="None" />
@@ -1256,9 +1258,11 @@ NMS_MOD_DEFINITION_CONTAINER =
       <Property name="VehicleDestroyEffect" value="VEHICLECRASH" />
       <Property name="TriggerAction" value="IDLE" />
       <Property name="IncreaseWanted" value="0" />
+      <Property name="IncreaseCorruptSentinelWanted" value="0" />
       <Property name="IncreaseFiendWanted" value="False" />
       <Property name="IncreaseFiendWantedChance" value="1" />
       <Property name="NotifyEncounter" value="False" />
+      <Property name="DamagesParentWhenDestroyed" value="False" />
       <Property name="LootReward" value="" />
       <Property name="LootRewardAmountMin" value="0" />
       <Property name="LootRewardAmountMax" value="0" />
@@ -1268,8 +1272,11 @@ NMS_MOD_DEFINITION_CONTAINER =
         <Property name="StatEnum" value="None" />
       </Property>
       <Property name="GivesReward" value="" />
+      <Property name="BlockDestructionIfRewardFails" value="False" />
+      <Property name="OverrideChipAmount" value="-1" />
       <Property name="PirateSystemAltReward" value="" />
       <Property name="RewardIfDestroyedByOther" value="False" />
+      <Property name="NoConsequencesDuringPirateBattle" value="False" />
       <Property name="HideReward" value="False" />
       <Property name="OverrideRewardLoc" value="" />
       <Property name="RewardOverrideTable" />
@@ -1284,6 +1291,18 @@ NMS_MOD_DEFINITION_CONTAINER =
         <Property name="Rare" value="NMSString0x10.xml">
           <Property name="Value" value="" />
         </Property>
+      </Property>
+      <Property name="StandingChangeOnDeath">
+        <Property name="Gek" value="0" />
+        <Property name="Korvax" value="0" />
+        <Property name="Vykeen" value="0" />
+        <Property name="TradeGuild" value="0" />
+        <Property name="WarriorGuild" value="0" />
+        <Property name="ExplorerGuild" value="0" />
+        <Property name="Nexus" value="0" />
+        <Property name="Pirates" value="0" />
+        <Property name="Builders" value="0" />
+        <Property name="None" value="0" />
       </Property>
       <Property name="UseSystemColorsForTexture" value="False" />
       <Property name="RemoveModel" value="False" />
@@ -1307,6 +1326,7 @@ NMS_MOD_DEFINITION_CONTAINER =
       <Property name="ShowInteract" value="True" />
       <Property name="HideInteractWhenAllArmourDestroyed" value="False" />
       <Property name="ShowInteractRange" value="20" />
+      <Property name="HideInteractWhenShielded" value="False" />
       <Property name="GrenadeSingleHit" value="True" />
       <Property name="LootItems" />
     </Property>
@@ -1320,30 +1340,6 @@ NMS_MOD_DEFINITION_CONTAINER =
   </Property>
 </Data>
 ]]
-		},
-		{
-			["FILE_DESTINATION"] = [[MODELS\COMMON\PLAYER\PLAYERCHARACTER\ANIMS\EMOTES\NULL.ANIM.EXML]],
-			["FILE_CONTENT"] 	 = 
-[[
-<?xml version="1.0" encoding="utf-8"?>
-<Data template="TkAnimMetadata">
-  <Property name="FrameCount" value="10" />
-  <Property name="NodeCount" value="0" />
-  <Property name="NodeData" /> 
-  <Property name="AnimFrameData">
-    <Property value="TkAnimNodeFrameData.xml">
-    <Property name="Rotations" />  
-	<Property name="Translations" /> 
-	<Property name="Scales" />
-    </Property>  
-  </Property>	
-  <Property name="StillFrameData" value="TkAnimNodeFrameData.xml">
-    <Property name="Rotations" />  
-	<Property name="Translations" /> 
-	<Property name="Scales" />	  
- </Property>
-</Data>	
-]]			
-		}
-	}
+        }
+    }
 }

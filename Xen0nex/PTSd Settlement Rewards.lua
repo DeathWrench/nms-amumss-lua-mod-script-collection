@@ -1,15 +1,18 @@
 ModName = "PTSd Settlement Rewards"
-GameVersion = "3_93"
+GameVersion = "4_41"
 Description = "Rebalances settlement produced items by race & wealth, Increases cap on stored settlement rewards, and can optionally change settlement timers"
 
 --Multiplier to apply to the Max Production cap and Production StatProductivityContributionModifier
 --MaxProductionCapMult = 					1						--Multiplier to apply to the vanilla cap for Production of 1,000,000 units per day		(Changing this has side effects, avoid for now)
 ExtraDebtMult =							1						--Extra Multiplier to apply to the DailyDebtPaymentModifier, which if left at 1 will result in a DailyDebtPaymentModifier that is 2x whatever the max Production Cap is.
 
-ProductMult = 							1						--Multiplier to apply to the vanilla "default" amount of Products made per day of 50.		In practice this seems to vary from around 9 ~ 29 based on Settlement Pop, Happiness, Production.
-SubstanceMult =							4						--Multiplier to apply to the vanilla "default" amount of Substances made per day of 500.	In practice this seems to vary from around 90 ~ 290 based on Settlement Pop, Happiness, Production.
+ProductionCycleMult =					0.3						--Multiplier to apply to the vanilla ProductionCycleDurationInSeconds of 72000 (20 hours), determines how often the settlement outputs its products
+ProductMult = 							1*0.3*1.2				--Multiplier to apply to the vanilla "default" amount of Products made per day of 50.		In practice this seems to vary from around 9 ~ 29 based on Settlement Pop, Happiness, Production.
+SubstanceMult =							4*0.3					--Multiplier to apply to the vanilla "default" amount of Substances made per day of 500.	In practice this seems to vary from around 90 ~ 290 based on Settlement Pop, Happiness, Production.
 
+--WIP
 --ProductionContributionModifier =		30						--30 Not quite sure how this works, supposedly controls how strongly each settlement stat affects the final item output rate in some way, but changing it gives strange results
+--DebtContributionModifier =				1						--0		Replacer for StatProductivityContributionModifiers for Debt
 
 MaxProductionSlotUnits =				9999					--Vanilla cap is 999, is probably how many items can be "stocked" in the settlement waiting for you to come pick them up
 
@@ -18,7 +21,7 @@ JudgementTimeMultiplier = 				1						--Multiplier to apply to the Min and Max wa
 
 BuildingUpgradeTimeInSeconds =			7200					--7200		Unclear what this controls
 
-SettlementMiniExpeditionSuccessChance = 0.85					--0.7	Chance that a settlement "expedition" will succeeed
+SettlementMiniExpeditionSuccessChance = 0.7						--0.7	Chance that a settlement "expedition" will succeeed
 
 ProducedItemChanges =	
 {
@@ -27,7 +30,7 @@ ProducedItemChanges =
 		{	--Vanilla item			Replacement item
 			{"PLANT_POOP",			"LAUNCHSUB"},			--Faecium		20 x 10,		Di-Hydrogen		34 x 10
 			{"PLANT_WATER",			"ROCKETSUB"},			--Kelp Sac		41 x 10,		Tritium			6 x 10		(36 x 10)
-			{"PLANT_CAVE",			"FOOD_R_SCUSTARD"},		--Marrow Bulb	41 x 10,		Stellar Custard	28000
+			{"PLANT_CAVE",			"FOOD_R_PASTRY"},		--Marrow Bulb	41 x 10,		Pastry			24000
 			{"PLANT_LUSH",			"ALLOY5"},				--Star Bulb		32 x 10,		Magno-Gold		25000
 			{"TRA_CURIO2",			"ASTEROID3"}			--Geknip		20625,			Platinum		505 x 10
 		}
@@ -90,6 +93,23 @@ ProducedItemChanges =
 	}
 }
 
+--Adds +1 population when completing a Settlement Expedition regardless of outcome
+AddedExpeditionReward =
+[[<Property value="GcRewardTableItem.xml">
+                <Property name="PercentageChance" value="100" />
+				<Property name="LabelID" value="" />
+                <Property name="Reward" value="GcRewardSettlementStat.xml">
+                  <Property name="StatToAward" value="GcSettlementStatChange.xml">
+                    <Property name="Stat" value="GcSettlementStatType.xml">
+                      <Property name="SettlementStatType" value="Population" />
+                    </Property>
+                    <Property name="Strength" value="GcSettlementStatStrength.xml">
+                      <Property name="SettlementStatStrength" value="PositiveSmall" />
+                    </Property>
+                  </Property>
+                  <Property name="Silent" value="False" />
+                </Property>
+              </Property>]]
 
 NMS_MOD_DEFINITION_CONTAINER = 
 {
@@ -102,13 +122,6 @@ NMS_MOD_DEFINITION_CONTAINER =
 	    {
 			["MBIN_CHANGE_TABLE"] 	= 
 			{ 
-				{
-					["MBIN_FILE_SOURCE"] 	= {"GCSETTLEMENTGLOBALS.MBIN"},
-					["EXML_CHANGE_TABLE"] 	= 
-					{
-						--This entry intentionally left blank, to be filled in by the ProducedItemChanges at the bottom of this script
-					}
-				},
 				{
 					["MBIN_FILE_SOURCE"] 	= {"GCSETTLEMENTGLOBALS.MBIN"},
 					["EXML_CHANGE_TABLE"] 	= 
@@ -139,6 +152,7 @@ NMS_MOD_DEFINITION_CONTAINER =
 							["VALUE_CHANGE_TABLE"] 	=
 							{
 								{"DailyDebtPaymentModifier",	ExtraDebtMult},					--Sometimes this seems like it should be doubled again, to be 4x Production cap in order to closely match expected time?
+								{"ProductionCycleDurationInSeconds",	ProductionCycleMult},
 								{"ProductUnitsPerCycleRateModifier",	ProductMult},
 								{"SubstanceUnitsPerCycleRateModifier",	SubstanceMult},
 								{"JudgementWaitTimeMin",	JudgementTimeMultiplier},
@@ -156,15 +170,18 @@ NMS_MOD_DEFINITION_CONTAINER =
 								{"BuildingUpgradeTimeInSeconds",	BuildingUpgradeTimeInSeconds},
 							}
 						},
-						--[[{
+						--[[
+						{
 							["PRECEDING_KEY_WORDS"] = {"StatProductivityContributionModifiers"},
 							["REPLACE_TYPE"] 		= "",
 							["MATH_OPERATION"] = "", 
 							["VALUE_CHANGE_TABLE"] 	=
 							{
-								{"Production",	ProductionContributionModifier}	
+								--{"Production",	ProductionContributionModifier},
+								{"Debt",	DebtContributionModifier},
 							}
-						},]]
+						},
+						]]
 						{
 							["PRECEDING_KEY_WORDS"] = {"SettlementBuildingTimes"},
 							["MATH_OPERATION"] = "*",  
@@ -174,6 +191,18 @@ NMS_MOD_DEFINITION_CONTAINER =
 							{
 								{"IGNORE",	ConstructionTimeMultiplier}
 							}
+						},
+					}
+				},
+				{
+					["MBIN_FILE_SOURCE"] 	= {"METADATA\SIMULATION\MISSIONS\SENTINELSETTLEMENTMISSIONTABLE.MBIN"},
+					["EXML_CHANGE_TABLE"] 	= 
+					{
+						{
+							["SPECIAL_KEY_WORDS"] = {"Id", "R_SETTEXPEDDONE"},
+							["PRECEDING_KEY_WORDS"] = {"GcRewardTableItem.xml"},
+							["ADD"] = AddedExpeditionReward,
+							["REPLACE_TYPE"] = "ADDAFTERSECTION",
 						},
 					}
 				}
@@ -192,7 +221,7 @@ for i = 1, #ProducedItemChanges do
 		local OldItem = Items[j][1]
 		local NewItem = Items[j][2]
 
-			ChangesToProducedItems_temp =
+			ChangesToProducedItems[#ChangesToProducedItems+1] =
 			{
 				["REPLACE_TYPE"] 		= "",
 				["MATH_OPERATION"] 		= "",
@@ -203,6 +232,5 @@ for i = 1, #ProducedItemChanges do
 					{"Value", NewItem}
 				}
 			}
-			ChangesToProducedItems[#ChangesToProducedItems+1] = ChangesToProducedItems_temp
 	end
 end

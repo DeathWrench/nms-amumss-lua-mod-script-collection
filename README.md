@@ -3,7 +3,7 @@ A collection of public amumss lua mod scripts for nms.
 
 Mod script authors:
 
-- [Mjstral aka MetaIdea](https://www.nexusmods.com/users/45932167?tab=user+files)
+- [Mjstral aka MetaIdea](https://www.nexusmods.com/users/45932167?tab=user+files) -> Also check out my [ship customizer tool](https://nms.center/)
 - [Gumsk](https://www.nexusmods.com/users/38106355?tab=user+files)
 - [WinderTP](https://www.nexusmods.com/users/2666883?tab=user+files)
 - [IMonk](https://www.nexusmods.com/users/166479?tab=user+files)
@@ -18,9 +18,13 @@ Mod script authors:
 - [Jackty89/GameMaster-BE](https://www.nexusmods.com/nomanssky/users/1932252?tab=user+files)
 - [Xen0nex](https://www.nexusmods.com/nomanssky/users/8462873?tab=user+files)
 - [Lasagna](https://www.nexusmods.com/nomanssky/users/126633893?tab=user+files)
-- [JustRuthless](https://www.nexusmods.com/nomanssky/users/21587394?tab=user+files)
 - [Silent369](https://www.nexusmods.com/nomanssky/users/122177308?tab=user+files)
 - [PyronoxOmega](https://www.nexusmods.com/nomanssky/users/26756114?tab=user+files)
+- [Lowkie](https://www.nexusmods.com/nomanssky/users/1972404?tab=user+files)
+- [Redmas](https://www.nexusmods.com/nomanssky/users/44146502?tab=user+files)
+- [Lyravega](https://www.nexusmods.com/nomanssky/users/2635811?tab=user+files)
+- [Syzzle](https://www.nexusmods.com/nomanssky/users/28917005?tab=user+files)
+- [FriendlyFirePL](https://www.nexusmods.com/nomanssky/users/90068138?tab=user+files)
 
 Additional mod script repos:
 - [Ignacio](https://www.nexusmods.com/nomanssky/users/5842786?tab=user+files) -> [Mod scripts](https://github.com/ignamiranda/NMS-ModScripts) / [Open Biome Extender scripts](https://github.com/ignamiranda/OpenBiomeExtender)
@@ -38,6 +42,10 @@ NMS LUA Mod Tools:
 Other NMS Mod Tools:
 - [NMSMB](https://github.com/cmkushnir/NMSModBuilder)
 - [NMSMB cs Script Repository](https://github.com/cmkushnir/NMSModBuilderContrib)
+
+Discords:
+- [NMS Modding Discord](https://discord.gg/22ZAU9H)
+- [NMS Creative and Sharing Hub](https://discord.gg/AEXcap6)
 
 Any in the form of a .zip file have additional files that need to be added by placing into ModExtraFilesToInclude in AMUMSS when the LUA is run.
 

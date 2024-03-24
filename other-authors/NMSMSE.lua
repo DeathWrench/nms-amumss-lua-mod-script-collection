@@ -1,22 +1,11 @@
 Languages =
 {
-    ["English"]               = "English",
-    ["French"]                = "French",
-    ["Italian"]               = "Italian",
-    ["German"]                = "German",
-    ["Spanish"]               = "Spanish",
-    ["Russian"]               = "Russian",
-    ["Polish"]                = "Polish",
-    ["Dutch"]                 = "Dutch",
-    ["Portuguese"]            = "Portuguese",
-    ["LatinAmeraicanSpanish"] = "LatinAmericanSpanish", --this is not a typo
-    ["BrazilianPortuguese"]   = "BrazilianPortuguese",
-    ["SimplifiedChinese"]     = "SimplifiedChinese",
-    ["TraditionalChinese"]    = "TraditionalChinese",
-    ["TencentChinese"]        = "TencentChinese",
-    ["Korean"]                = "Korean",
-    ["Japanese"]              = "Japanese",
-    ["USEnglish"]             = "USEnglish"
+    ["English"]				= "English",
+	["Italian"]					= "Italian",
+	["French"]					= "French",
+	["Spanish"]				= "Spanish",
+    ["German"]				= "German",
+	["Russian"]				= "Russian",
 }
 
 SubstanceOrProduct = { ["Substance"] = "Substance", ["Product"] =  "Product"}
@@ -26,13 +15,32 @@ SubstanceOrProduct = { ["Substance"] = "Substance", ["Product"] =  "Product"}
 -- TLDR: --
 -- Speed is in SECONDS and MUST be a negative value, THE LOWER THE VALUE, THE FASTER THE EXTRACTOR FILLS
 --Storage is self explanatory lol
+gExtrSpeed =  -3600 -- 1hr
+gExtrCap = 9999 -- max cap
 
-ExtrSpeed = -3660 -- 1hr
-ExtrCap = 9999 -- max cap
+gExtrConfTable =
+{
+	DoExtrConf = { false, [[Would you like to set Extraction Speed and Capacity?]] },
+	gExtrSpeed			= { gExtrSpeed, [[Extr Speed, (default: ]]..gExtrSpeed..[[ )
+	enter a number less than or equal to -1  (Must be negative) :
+	]]},
+	gExtrCap				= { gExtrCap, [[gExtrCap (default: ]]..gExtrCap..[[)
+	enter a number between 1 and 9999 (inclusive):
+	]]}
+}
 
--- Extr Speed is calculated as a countdown, the lower the countdown value, the faster the extractor fills up. Higher Capacity + Faster ExtrSpeed = Higher Yields.
--- ExtrSpeed Default is -79200, or 22 hrs. I currently have it set to -3600, which is 1 hr
--- ExtrCap Default is 350, I set it to 9999.
+DoExtrConf = GUIF( gExtrConfTable.DoExtrConf )
+if DoExtrConf then
+	gExtrSpeed = GUIF( gExtrConfTable.gExtrSpeed )
+	gExtrCap = GUIF( gExtrConfTable.gExtrCap )
+end
+
+assert(type(gExtrSpeed) == "number" and gExtrSpeed <= -1, "Invalid Extractor Speed defined: Must be a numeric value less than -1")
+assert(type(gExtrCap) == "number" and gExtrCap >= 1 and gExtrCap <= 9999, "Invalid Extractor Capacity defined: Must be a numeric value between 1 and 9999 (inclusive)")
+
+-- Extr Speed is calculated as a countdown, the lower the countdown value, the faster the extractor fills up. Higher Capacity + Smaller gExtrSpeed = Higher Yields.
+-- gExtrSpeed Default is -79200, or 22 hrs. I currently have it set to -3600, which is 1 hr
+-- gExtrCap Default is 350, I set it to 9999.
 -- You can adjust this stuff to suit your needs, just be aware that making the extractors too fast/too slow may break immersion
 
 
@@ -48,8 +56,14 @@ AddNewExtrRooms =
         },
         ["Languages"] =
         {
-            --					language									name											subtitle																								description					--
-            {Languages["English"], "Stellar Extractor: Exotic Materials", "Moar Useful Elements", "Naturally ocurring in Stars, Helium is the product of the nuclear fusion of hydrogen atoms. New synthesis tehcnologies allow for Helium to be created in refiners."}
+            --					language									name											subtitle																								description																																																		UI Description--
+            {Languages["English"], "Stellar Extractor: Exotic Materials", "Moar Useful Elements", "Naturally occurring in Stars, Helium is the product of the nuclear fusion of hydrogen atoms. New synthesis technologies allow for Helium to be created in refiners.", "Harvest Exotic Materials"},
+            {Languages["French"], "Extracteur Stellaire : Matériaux Exotiques", "Plus d'Éléments Utiles", "Naturellement présent dans les étoiles, l'hélium est le produit de la fusion nucléaire des atomes d'hydrogène. De nouvelles technologies de synthèse permettent de créer de l'hélium dans les raffineries.", "Récoltez des Matériaux Exotiques"},
+            {Languages["Italian"], "Estrattore Stellare: Materiali Esotici", "Elementi più Utili", "Presente naturalmente nelle stelle, l'elio è il prodotto della fusione nucleare degli atomi di idrogeno. Nuove tecnologie di sintesi consentono di creare elio nei raffinatori.", "Raccogli Materiali Esotici"},
+            {Languages["Spanish"], "Extractor Estelar: Materiales Exóticos", "Más Elementos Útiles", "Presente de forma natural en las estrellas, el helio es el producto de la fusión nuclear de los átomos de hidrógeno. Las nuevas tecnologías de síntesis permiten crear helio en los refinadores.", "Cosecha Materiales Exóticos"},
+            {Languages["German"], "Stellarer Extraktor: Exotische Materialien", "Mehr Nützliche Elemente", "Natürlich vorkommend in Sternen, ist Helium das Produkt der Kernfusion von Wasserstoffatomen. Neue Synthesetechnologien ermöglichen die Erzeugung von Helium in Raffinerien.", "Sammeln Sie Exotische Materialien"},
+            {Languages["Russian"], "Звездный Экстрактор: Экзотические Материалы", "Больше Полезных Элементов", "Природным образом образующийся в звездах, гелий является продуктом ядерного синтеза атомов водорода. Новые технологии синтеза позволяют создавать гелий в рефайнерах.", "Добывайте Экзотические Материалы"}
+
         }
     },
 	{
@@ -63,7 +77,12 @@ AddNewExtrRooms =
         ["Languages"] =
         {
             --					language									name											subtitle																								description					--
-            {Languages["English"], "Stellar Extractor: Gasses", "Moar Stellar Extractors", "A modified variant of the standard Stellar Extractor, this Extractor Harvests Gasses like Carbon, Di-Hydrogen, and Ammonia from matter-dense Nebulae."}
+            {Languages["English"], "Stellar Extractor: Gasses", "Moar Stellar Extractors", "A modified variant of the standard Stellar Extractor, this Extractor Harvests Gasses like Carbon, Di-Hydrogen, and Ammonia from matter-dense Nebulae.", "Harvest Space Gasses"},
+			{Languages["French"], "Extracteur Stellaire : Gaz", "Moar extracteurs stellaires", "Une variante modifiée de l'extracteur stellaire standard, cet extracteur récolte des gaz comme le carbone, le di-hydrogène et l'ammoniac à partir de nébuleuses riches en matière.", "Récolte de gaz spatiaux"},
+			{Languages["Italian"], "Estrattore Stellare: Gas", "Più Estrattori Stellari", "Una variante modificata dello Stellar Extractor standard, questo estrattore raccoglie gas come Carbonio, Di-Idrogeno e Ammoniaca da nebulose dense di materia.", "Raccogli Gas Spaziali"},
+			{Languages["Spanish"], "Extractora Estelar: Gases", "Más extractoras estelares", "Una variante modificada del Extractor Estelar estándar, este extractor cosecha gases como Carbono, Di-Hidrógeno y Amoniaco de nebulosas densas en materia.", "Cosecha de gases espaciales"},
+			{Languages["German"], "Stellar Extraktor: Gase", "Mehr Stellar Extraktoren", "Eine modifizierte Variante des Standard Stellar Extraktors, dieser Extraktor erntet Gase wie Kohlenstoff, Di-Wasserstoff und Ammoniak aus dichtem Nebel.", "Ernte von Weltraumgasen"},
+			{Languages["Russian"], "Звездный экстрактор: газы", "Больше звездных экстракторов", "Измененный вариант стандартного звездного экстрактора, этот экстрактор собирает газы, такие как углерод, ди-водород и аммиак, из плотных туманностей.", "Сбор космических газов"}
         }
     },
 	{
@@ -77,7 +96,12 @@ AddNewExtrRooms =
         ["Languages"] =
         {
             --					language									name											subtitle																								description					--
-            {Languages["English"], "Stellar Extractor: Metals", "Moar Stellar Extractors", "A modified variant of the standard Stellar Extractor, this Extractor Harvests Metals like Pure Ferrite, Cobalt, and Salt from matter-dense Nebulae."}
+            {Languages["English"], "Stellar Extractor: Metals", "Moar Stellar Extractors", "A modified variant of the standard Stellar Extractor, this Extractor Harvests Metals like Pure Ferrite, Cobalt, and Salt from matter-dense Nebulae.", "Harvest Deep Space Metals"},
+			{Languages["French"], "Extracteur stellaire : Métaux", "Plus d'extracteurs stellaires", "Une variante modifiée de l'extracteur stellaire standard, cet extracteur récolte des métaux tels que la ferrite pure, le cobalt et le sel à partir de nébuleuses riches en matière.", "Récoltez des métaux en profondeur dans l'espace"},
+			{Languages["Italian"], "Estrattore Stellare: Metalli", "Più Estrattori Stellari", "Una variante modificata dello standard Estrattore Stellare, questo Estrattore raccoglie metalli come la ferrite pura, il cobalto e il sale dalle nebulose dense di materia.", "Raccogli metalli profondi nello spazio"},
+			{Languages["Spanish"], "Extractor Estelar: Metales", "Más Extractores Estelares", "Una variante modificada del Extractor Estelar estándar, este extractor cosecha metales como ferrita pura, cobalto y sal de nebulosas densas en materia.", "Cosecha metales profundos del espacio"},
+			{Languages["German"], "Stellar Extraktor: Metalle", "Mehr Stellar Extraktoren", "Eine modifizierte Variante des Standard Stellar Extraktors, dieser Extraktor erntet Metalle wie Reine Ferrite, Kobalt und Salz aus materiedichten Nebeln.", "Ernte tiefe Raummetalle"},
+			{Languages["Russian"], "Звездный экстрактор: металлы", "Больше звездных экстракторов", "Измененная версия стандартного звездного экстрактора, этот экстрактор собирает металлы, такие как чистый феррит, кобальт и соль из плотных туманностей материи.", "Собирайте глубокие космические металлы"} 
         }
     },
 	{
@@ -91,7 +115,12 @@ AddNewExtrRooms =
         ["Languages"] =
         {
             --					language									name											subtitle																								description					--
-            {Languages["English"], "Stellar Extractor: Stellar Materials", "Moar Stellar Extractors", "A modified variant of the standard Stellar Extractor, this Extractor Harvests Stellar Materials like Copper, Cadmium, and Indium from matter-dense Nebulae."}
+            {Languages["English"], "Stellar Extractor: Stellar Materials", "Moar Stellar Extractors", "A modified variant of the standard Stellar Extractor, this Extractor Harvests Stellar Materials like Copper, Cadmium, and Indium from matter-dense Nebulae.", "Harvest Stellar Materials"},
+			{Languages["French"], "Extracteur Stellaire : Matériaux stellaires", "Moar extracteurs stellaires", "Une variante modifiée de l'extracteur stellaire standard, cet extracteur récolte des matériaux stellaires comme le cuivre, le cadmium et l'indium à partir de nébuleuses riches en matière.", "Récolte de matériaux stellaires"},
+			{Languages["Italian"], "Estrattore Stellare: Materiali stellari", "Altri estrattori stellari", "Una variante modificata dello standard Estrattore Stellare, questo Estrattore raccoglie Materiali stellari come Rame, Cadmio e Indio dalle nebulose dense di materia.", "Raccolta di Materiali stellari"},
+			{Languages["Spanish"], "Extractor Estelar: Materiales estelares", "Más extractores estelares", "Una variante modificada del Extractor Estelar estándar, este extractor recolecta materiales estelares como Cobre, Cadmio e Indio de nebulosas densas de materia.", "Recolección de materiales estelares"},
+			{Languages["German"], "Sternenextraktor: Sternmaterialien", "Mehr Sternenextraktoren", "Eine modifizierte Variante des Standard-Sternenextraktors, dieser Extraktor erntet Sternmaterialien wie Kupfer, Cadmium und Indium aus materialreichen Nebeln.", "Ernte von Sternmaterialien"},
+			{Languages["Russian"], "Звездный экстрактор: звездные материалы", "Еще звездные экстракторы", "Измененный вариант стандартного Звездного экстрактора, этот экстрактор собирает звездные материалы, такие как медь, кадмий и индий из плотных небул.", "Сбор звездных материалов"}
         }
     }
 }
@@ -360,17 +389,17 @@ AddNewSnapPTSpignFace =
 -------------------------------		CODE LOGIC STARTS HERE, NO TOUCHY UNLESS YOU WANNA BREAKY		------------------------------------
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-ModName 						= "NMS Moar Stellar Extractors "
-Author								= "EchoTree "
+ModName 						= "Moar Stellar Extractors "
+Author								= "EchoTree"
 LuaAuthor							= "EchoTree & Jackty89"
 ModDescription				=	"Adds 4 new Stellar Extractor rooms to the game. Adds 20 New Files, Modifies METADATA/REALITY DEFAULTSAVEDATA.MBIN, DEFAULTSAVEDATACREATIVE.MBIN, /TABLES BASEBUILDINGOBJECTSTABLE.MBIN, BASEBUILDINGPARTSTABLE.MBIN, BASEBUILDINGPARTSNAVDATATABLE.MBIN, NMS_REALITY_GCPRODUCTTABLE.MBIN, and all of the PLACEMENTDATA.ENTITY.MBINS for the Industrial Rooms."
-GameVersion					=	"v4.0.0"
+GameVersion					=	"v4.2.3"
 Build									= ".1"
 CustomLanguageTag		= "NMSMSE"
 
 NMS_MOD_DEFINITION_CONTAINER = 
 {
-	["MOD_FILENAME"] 			= Author..ModName..GameVersion..Build..".pak",
+	["MOD_FILENAME"] 			= Author.."'s "..ModName..GameVersion..Build..".pak",
 	["MOD_DESCRIPTION"]      = ModDescription.."Compatible with NMS"..GameVersion,
 	["MOD_AUTHOR"]				= Author,
 	["LUA_AUTHOR"]					= LuaAuthor,
@@ -501,8 +530,8 @@ NMS_MOD_DEFINITION_CONTAINER =
 							["VALUE_CHANGE_TABLE"] 	= 
 							{
 								{"Id",				"ROCKETSUB"},
-								{"MaxCapacity",				ExtrCap},
-								{"AmountEmptyTimePeriod", 				ExtrSpeed}
+								{"MaxCapacity",				gExtrCap},
+								{"AmountEmptyTimePeriod", 				gExtrSpeed}
 							},
 						},
 						{	--								 GREEN								--
@@ -510,8 +539,8 @@ NMS_MOD_DEFINITION_CONTAINER =
 							["VALUE_CHANGE_TABLE"] 	= 
 							{
 								{"Id",				"ASTEROID2"},
-								{"MaxCapacity",				ExtrCap},
-								{"AmountEmptyTimePeriod", 				ExtrSpeed}
+								{"MaxCapacity",				gExtrCap},
+								{"AmountEmptyTimePeriod", 				gExtrSpeed}
 							},
 						},
 						{	--								  BLUE									--
@@ -519,8 +548,8 @@ NMS_MOD_DEFINITION_CONTAINER =
 							["VALUE_CHANGE_TABLE"] 	= 
 							{
 								{"Id",				"ASTEROID3"},
-								{"MaxCapacity",				ExtrCap},
-								{"AmountEmptyTimePeriod", 				ExtrSpeed}
+								{"MaxCapacity",				gExtrCap},
+								{"AmountEmptyTimePeriod", 				gExtrSpeed}
 							},
 						},
 						{	--								  RED									--
@@ -528,8 +557,8 @@ NMS_MOD_DEFINITION_CONTAINER =
 							["VALUE_CHANGE_TABLE"] 	= 
 							{
 								{"Id", "ASTEROID1"},
-								{"MaxCapacity",				ExtrCap},
-								{"AmountEmptyTimePeriod", 				ExtrSpeed}
+								{"MaxCapacity",				gExtrCap},
+								{"AmountEmptyTimePeriod", 				gExtrSpeed}
 							},
 						},
 						{
@@ -616,8 +645,8 @@ NMS_MOD_DEFINITION_CONTAINER =
 							["VALUE_CHANGE_TABLE"] 	= 
 							{
 								{"Id",				"OXYGEN"},
-								{"MaxCapacity",				ExtrCap},
-								{"AmountEmptyTimePeriod", 				ExtrSpeed}
+								{"MaxCapacity",				gExtrCap},
+								{"AmountEmptyTimePeriod", 				gExtrSpeed}
 							},
 						},
 						{	--								 GREEN								--
@@ -625,8 +654,8 @@ NMS_MOD_DEFINITION_CONTAINER =
 							["VALUE_CHANGE_TABLE"] 	= 
 							{
 								{"Id",				"TOXIC1"},
-								{"MaxCapacity",				ExtrCap},
-								{"AmountEmptyTimePeriod", 				ExtrSpeed}
+								{"MaxCapacity",				gExtrCap},
+								{"AmountEmptyTimePeriod", 				gExtrSpeed}
 							},
 						},
 						{	--								  BLUE									--
@@ -634,8 +663,8 @@ NMS_MOD_DEFINITION_CONTAINER =
 							["VALUE_CHANGE_TABLE"] 	= 
 							{
 								{"Id",				"LAUNCHSUB"},
-								{"MaxCapacity",				ExtrCap},
-								{"AmountEmptyTimePeriod", 				ExtrSpeed}
+								{"MaxCapacity",				gExtrCap},
+								{"AmountEmptyTimePeriod", 				gExtrSpeed}
 							},
 						},
 						{	--								  RED									--
@@ -643,8 +672,8 @@ NMS_MOD_DEFINITION_CONTAINER =
 							["VALUE_CHANGE_TABLE"] 	= 
 							{
 								{"Id",				"FUEL1"},
-								{"MaxCapacity",				ExtrCap},
-								{"AmountEmptyTimePeriod", 				ExtrSpeed}
+								{"MaxCapacity",				gExtrCap},
+								{"AmountEmptyTimePeriod", 				gExtrSpeed}
 							},
 						},
 						{
@@ -731,8 +760,8 @@ NMS_MOD_DEFINITION_CONTAINER =
 							["VALUE_CHANGE_TABLE"] 	= 
 							{
 								{"Id",				"CATALYST1"},
-								{"MaxCapacity",				ExtrCap},
-								{"AmountEmptyTimePeriod", 				ExtrSpeed}
+								{"MaxCapacity",				gExtrCap},
+								{"AmountEmptyTimePeriod", 				gExtrSpeed}
 							},
 						},
 						{	--								 GREEN								--
@@ -740,8 +769,8 @@ NMS_MOD_DEFINITION_CONTAINER =
 							["VALUE_CHANGE_TABLE"] 	= 
 							{
 								{"Id",				"WATER1"},
-								{"MaxCapacity",				ExtrCap},
-								{"AmountEmptyTimePeriod", 				ExtrSpeed}
+								{"MaxCapacity",				gExtrCap},
+								{"AmountEmptyTimePeriod", 				gExtrSpeed}
 							},
 						},
 						{	--								  BLUE									--
@@ -749,8 +778,8 @@ NMS_MOD_DEFINITION_CONTAINER =
 							["VALUE_CHANGE_TABLE"] 	= 
 							{
 								{"Id", "CAVE1"},
-								{"MaxCapacity",				ExtrCap},
-								{"AmountEmptyTimePeriod", 				ExtrSpeed},
+								{"MaxCapacity",				gExtrCap},
+								{"AmountEmptyTimePeriod", 				gExtrSpeed},
 							},
 						},
 						{	--								  RED									--
@@ -758,8 +787,8 @@ NMS_MOD_DEFINITION_CONTAINER =
 							["VALUE_CHANGE_TABLE"] 	= 
 							{
 								{"Id",				"LAND2"},
-								{"MaxCapacity",				ExtrCap},
-								{"AmountEmptyTimePeriod", 				ExtrSpeed}								
+								{"MaxCapacity",				gExtrCap},
+								{"AmountEmptyTimePeriod", 				gExtrSpeed}								
 							},
 						},
 						{
@@ -846,8 +875,8 @@ NMS_MOD_DEFINITION_CONTAINER =
 							["VALUE_CHANGE_TABLE"] 	= 
 							{
 								{"Id",				"YELLOW2"},
-								{"MaxCapacity",				ExtrCap},
-								{"AmountEmptyTimePeriod", 				ExtrSpeed}
+								{"MaxCapacity",				gExtrCap},
+								{"AmountEmptyTimePeriod", 				gExtrSpeed}
 							},
 						},
 						{	--								 GREEN								--
@@ -855,8 +884,8 @@ NMS_MOD_DEFINITION_CONTAINER =
 							["VALUE_CHANGE_TABLE"] 	= 
 							{
 								{"Id",				"GREEN2"},
-								{"MaxCapacity",				ExtrCap},
-								{"AmountEmptyTimePeriod", 				ExtrSpeed}
+								{"MaxCapacity",				gExtrCap},
+								{"AmountEmptyTimePeriod", 				gExtrSpeed}
 							},
 						},
 						{	--								  BLUE									--
@@ -864,8 +893,8 @@ NMS_MOD_DEFINITION_CONTAINER =
 							["VALUE_CHANGE_TABLE"] 	= 
 							{
 								{"Id",				"BLUE2"},
-								{"MaxCapacity",				ExtrCap},
-								{"AmountEmptyTimePeriod", 				ExtrSpeed}
+								{"MaxCapacity",				gExtrCap},
+								{"AmountEmptyTimePeriod", 				gExtrSpeed}
 							},
 						},
 						{	--								  RED									--
@@ -873,8 +902,8 @@ NMS_MOD_DEFINITION_CONTAINER =
 							["VALUE_CHANGE_TABLE"] 	= 
 							{
 								{"Id",				"RED2"},
-								{"MaxCapacity",				ExtrCap},
-								{"AmountEmptyTimePeriod", 				ExtrSpeed}
+								{"MaxCapacity",				gExtrCap},
+								{"AmountEmptyTimePeriod", 				gExtrSpeed}
 							},
 						},
 						{
@@ -894,32 +923,32 @@ NMS_MOD_DEFINITION_CONTAINER =
 						    ["SPECIAL_KEY_WORDS"] = {"Id", "STELLAR2" ,},
 							["VALUE_CHANGE_TABLE"] 	= 
 							{
-								{"MaxCapacity",				ExtrCap},
-								{"AmountEmptyTimePeriod",				ExtrSpeed}
+								{"MaxCapacity",				gExtrCap},
+								{"AmountEmptyTimePeriod",				gExtrSpeed}
 							},
 						},											
 						{	--								 GREEN								--
 						    ["SPECIAL_KEY_WORDS"] = {"Id","GAS1",},
 							["VALUE_CHANGE_TABLE"] 	= 
 							{
-								{"MaxCapacity",				ExtrCap},
-								{"AmountEmptyTimePeriod",				 ExtrSpeed}
+								{"MaxCapacity",				gExtrCap},
+								{"AmountEmptyTimePeriod",				 gExtrSpeed}
 							},
 						},
 						{	--								  BLUE									--
 						    ["SPECIAL_KEY_WORDS"] = {"Id","GAS2",},
 							["VALUE_CHANGE_TABLE"] 	= 
 							{
-								{"MaxCapacity",				ExtrCap},
-								{"AmountEmptyTimePeriod", 				ExtrSpeed}
+								{"MaxCapacity",				gExtrCap},
+								{"AmountEmptyTimePeriod", 				gExtrSpeed}
 							},
 						},
 						{	--								  RED									--
 						    ["SPECIAL_KEY_WORDS"] = {"Id","GAS3",},
 							["VALUE_CHANGE_TABLE"] 	= 
 							{
-								{"MaxCapacity",				ExtrCap},
-								{"AmountEmptyTimePeriod",				ExtrSpeed}
+								{"MaxCapacity",				gExtrCap},
+								{"AmountEmptyTimePeriod",				gExtrSpeed}
 							},
 						},					
 					}
@@ -1130,9 +1159,9 @@ function CreateProductRequirement(IngredientID, IngredientType, IngredientAmount
 end
 
 local AddToProductTable = NMS_MOD_DEFINITION_CONTAINER["MODIFICATIONS"][1]["MBIN_CHANGE_TABLE"][29]["EXML_CHANGE_TABLE"]
+local PTETable = {}
 for i = 1, #AddNewExtrRooms do
     local Requirements        = {}
-    local ProductRequirements = ""
     local ProductID           = string.upper(AddNewExtrRooms[i]["ProductID"])
     local ProductName         = "BLD_"..string.upper(ProductID).."_NAME"
     local ProductNameLC       = "BLD_"..string.upper(ProductID).."_NAME_L"
@@ -1151,19 +1180,20 @@ for i = 1, #AddNewExtrRooms do
         RequirementAmount       = RequirementsList[k][2]
         table.insert(Requirements, CreateProductRequirement(RequirementID, RequirementType, RequirementAmount))
     end
-    ProductRequirements = table.concat(Requirements)
+    
+		table.insert(PTETable, CreateNewProduct(ProductID, ProductName, ProductNameLC, ProductSub, ProductDesc, table.concat(Requirements)))
 
-    AddToProductTable[#AddToProductTable + 1]  =
-    {
-        ["SPECIAL_KEY_WORDS"] = {"ID", "FRE_ROOM_EXTR",},
-		["ADD_OPTION"] = "ADDafterSECTION",
-        ["ADD"] = CreateNewProduct(ProductID, ProductName, ProductNameLC, ProductSub, ProductDesc, ProductRequirements)
-    }
 end
+AddToProductTable[#AddToProductTable + 1]  =
+{
+	["SPECIAL_KEY_WORDS"] = {"ID", "FRE_ROOM_EXTR",},
+	["ADD_OPTION"] = "ADDafterSECTION",
+	["ADD"] = table.concat(PTETable)
+}
 
 function CreateNewBBObjects(NewBBObjectID, NewBBObjectFileName)
 	return [[
-		<Property value="GcBaseBuildingEntry.xml">
+	<Property value="GcBaseBuildingEntry.xml">
       <Property name="ID" value="]]..NewBBObjectID..[[" />
       <Property name="IsTemporary" value="False" />
       <Property name="IsFromModFolder" value="False" />
@@ -1283,16 +1313,18 @@ function CreateNewBBObjects(NewBBObjectID, NewBBObjectFileName)
 end
 
 local AddToBBObjectsTable = NMS_MOD_DEFINITION_CONTAINER["MODIFICATIONS"][1]["MBIN_CHANGE_TABLE"][26]["EXML_CHANGE_TABLE"]
+local BBOTable = {}
 for i = 1, #AddNewBBObjects do
     local BBObjectID         				= string.upper(AddNewBBObjects[i]["BBObjectID"])
     local BBObjectFileName          = string.upper(AddNewBBObjects[i]["BBObjectFileName"])
-
-    AddToBBObjectsTable[#AddToBBObjectsTable + 1]  =
-    {
-        ["PRECEDING_KEY_WORDS"] = {"Objects"},
-        ["ADD"] = CreateNewBBObjects(BBObjectID, BBObjectFileName)
-    }
+	
+	table.insert(BBOTable, CreateNewBBObjects(BBObjectID, BBObjectFileName))
 end
+AddToBBObjectsTable[#AddToBBObjectsTable + 1]  =
+{
+	["PRECEDING_KEY_WORDS"] = {"Objects"},
+	["ADD"] = table.concat(BBOTable)
+}
 
 function CreateNewBBParts(NewFloor0ID, NewFloor0Path)
     return [[
@@ -1322,16 +1354,18 @@ function CreateNewBBParts(NewFloor0ID, NewFloor0Path)
 end
 
 local AddToBBPartsTable = NMS_MOD_DEFINITION_CONTAINER["MODIFICATIONS"][1]["MBIN_CHANGE_TABLE"][27]["EXML_CHANGE_TABLE"]
+local BBPartsTable = {}
 for i = 1, #AddNewBBParts do
     local Floor0ID         				= string.upper(AddNewBBParts[i]["Floor0ID"])
 	local Floor0Path					= string.upper(AddNewBBParts[i]["Floor0Path"])
-
-    AddToBBPartsTable[#AddToBBPartsTable + 1]  =
-    {
-        ["PRECEDING_KEY_WORDS"] = {"Parts"},
-        ["ADD"] = CreateNewBBParts(Floor0ID, Floor0Path)
-    }
+	
+	table.insert(BBPartsTable, CreateNewBBParts(Floor0ID, Floor0Path))
 end
+AddToBBPartsTable[#AddToBBPartsTable + 1]  =
+{
+	["PRECEDING_KEY_WORDS"] = {"Parts"},
+	["ADD"] = table.concat(BBPartsTable)
+}
 
 function CreateNewBBPartsNavData(NewBBPartsNavID)
 	return 
@@ -1619,13 +1653,16 @@ function CreateNewBBPartsNavData(NewBBPartsNavID)
 end
 
 local AddToBBPartsNavDataTable = NMS_MOD_DEFINITION_CONTAINER["MODIFICATIONS"][1]["MBIN_CHANGE_TABLE"][28]["EXML_CHANGE_TABLE"]
+local BBPartsNavTable = {}
+
 for i = 1, #AddNewBBPartsNavData do
     local BBPartsNavID   				= string.upper(AddNewBBPartsNavData[i]["BBPartsNavID"])
-
+	
+	table.insert(BBPartsNavTable, CreateNewBBPartsNavData(BBPartsNavID))
     AddToBBPartsNavDataTable[#AddToBBPartsNavDataTable + 1]  =
     {
         ["PRECEDING_KEY_WORDS"] = {"Parts"},
-        ["ADD"] = CreateNewBBPartsNavData(BBPartsNavID)
+        ["ADD"] = table.concat(BBPartsNavTable)
     }
 end
 
@@ -1664,111 +1701,6 @@ function CreateNewPDEntity(NewEntityId, NewSnapPt)
 	]]
 end
 
-local AddToPDEFront = NMS_MOD_DEFINITION_CONTAINER["MODIFICATIONS"][1]["MBIN_CHANGE_TABLE"][31]["EXML_CHANGE_TABLE"]
-for i = 1, #AddNewPDEFront do
-    local EntityId           = (AddNewPDEFront[i]["EntityId"])
-	local SnapPt			  = (AddNewPDEFront[i]["SnapPt"])
-    AddToPDEFront[#AddToPDEFront + 1]  =
-    {
-		["SPECIAL_KEY_WORDS"] 				=		{"ObjectId", "FRE_ROOM_EXTR",},
-		["SECTION_ACTIVE"] 						= 		{5,7,11,20,23,},
-		["ADD_OPTION"]								=		"ADDafterSECTION",
-		["ADD"]												= 		CreateNewPDEntity(EntityId, SnapPt)
-	}
-end
-
-local AddToPDEBack = NMS_MOD_DEFINITION_CONTAINER["MODIFICATIONS"][1]["MBIN_CHANGE_TABLE"][31]["EXML_CHANGE_TABLE"]
-for i = 1, #AddNewPDEBack do
-    local EntityId           = (AddNewPDEBack[i]["EntityId"])
-	local SnapPt			  = (AddNewPDEBack[i]["SnapPt"])
-    AddToPDEBack[#AddToPDEBack + 1]  =
-    {
-		["SPECIAL_KEY_WORDS"] 				=		{"ObjectId", "FRE_ROOM_EXTR",},
-		["SECTION_ACTIVE"] 						= 		{1,3,9,14,17,},
-		["ADD_OPTION"]								=		"ADDafterSECTION",
-		["ADD"]												= 		CreateNewPDEntity(EntityId, SnapPt)
-    }
-end
-
-local AddToPDELeft = NMS_MOD_DEFINITION_CONTAINER["MODIFICATIONS"][1]["MBIN_CHANGE_TABLE"][31]["EXML_CHANGE_TABLE"]
-for i = 1, #AddNewPDELeft do
-    local EntityId           = (AddNewPDELeft[i]["EntityId"])
-	local SnapPt			  = (AddNewPDELeft[i]["SnapPt"])
-    AddToPDELeft[#AddToPDELeft + 1]  =
-    {
-		["SPECIAL_KEY_WORDS"] 				=		{"ObjectId", "FRE_ROOM_EXTR",},
-		["SECTION_ACTIVE"] 						= 		{4,6,12,18,21,},
-		["ADD_OPTION"]								=		"ADDafterSECTION",
-		["ADD"]												= 		CreateNewPDEntity(EntityId, SnapPt)
-    }
-end
-
-local AddToPDERight = NMS_MOD_DEFINITION_CONTAINER["MODIFICATIONS"][1]["MBIN_CHANGE_TABLE"][31]["EXML_CHANGE_TABLE"]
-for i = 1, #AddNewPDERight do
-    local EntityId           = (AddNewPDERight[i]["EntityId"])
-	local SnapPt			  = (AddNewPDERight[i]["SnapPt"])
-    AddToPDERight[#AddToPDERight + 1]  =
-    {
-		["SPECIAL_KEY_WORDS"] 				=		{"ObjectId", "FRE_ROOM_EXTR",},
-		["SECTION_ACTIVE"] 						= 		{2,8,10,15,24,},
-		["ADD_OPTION"]								=		"ADDafterSECTION",
-		["ADD"]												= 		CreateNewPDEntity(EntityId, SnapPt)
-    }
-end
-
-local AddToPDEFR = NMS_MOD_DEFINITION_CONTAINER["MODIFICATIONS"][1]["MBIN_CHANGE_TABLE"][31]["EXML_CHANGE_TABLE"]
-for i = 1, #AddNewPDEFR do
-    local EntityId           = (AddNewPDEFR[i]["EntityId"])
-	local SnapPt			  = (AddNewPDEFR[i]["SnapPt"])
-    AddToPDEFR[#AddToPDEFR + 1]  =
-    {
-		["SPECIAL_KEY_WORDS"] 				=		{"ObjectId", "FRE_ROOM_EXTR",},
-		["SECTION_ACTIVE"] 						= 		{22,},
-		["ADD_OPTION"]								=		"ADDafterSECTION",
-		["ADD"]												= 		CreateNewPDEntity(EntityId, SnapPt)
-    }
-end
-
-local AddToPDEFL = NMS_MOD_DEFINITION_CONTAINER["MODIFICATIONS"][1]["MBIN_CHANGE_TABLE"][31]["EXML_CHANGE_TABLE"]
-for i = 1, #AddNewPDEFL do
-    local EntityId           = (AddNewPDEFL[i]["EntityId"])
-	local SnapPt			  = (AddNewPDEFL[i]["SnapPt"])
-    AddToPDEFL[#AddToPDEFL + 1]  =
-    {
-		["SPECIAL_KEY_WORDS"] 				=		{"ObjectId", "FRE_ROOM_EXTR",},
-		["SECTION_ACTIVE"] 						= 		{19,},
-		["ADD_OPTION"]								=		"ADDafterSECTION",
-		["ADD"]												= 		CreateNewPDEntity(EntityId, SnapPt)
-    }
-end
-
-local AddToPDEnBR = NMS_MOD_DEFINITION_CONTAINER["MODIFICATIONS"][1]["MBIN_CHANGE_TABLE"][31]["EXML_CHANGE_TABLE"]
-for i = 1, #AddNewPDEBR do
-    local EntityId           = (AddNewPDEBR[i]["EntityId"])
-	local SnapPt			  = (AddNewPDEBR[i]["SnapPt"])
-    AddToPDEnBR[#AddToPDEnBR + 1]  =
-    {
-		["SPECIAL_KEY_WORDS"] 				=		{"ObjectId", "FRE_ROOM_EXTR",},
-		["SECTION_ACTIVE"] 						= 		{13,},
-		["ADD_OPTION"]								=		"ADDafterSECTION",
-		["ADD"]												= 		CreateNewPDEntity(EntityId, SnapPt)
-    }
-end
-
-local AddToPDEBL = NMS_MOD_DEFINITION_CONTAINER["MODIFICATIONS"][1]["MBIN_CHANGE_TABLE"][31]["EXML_CHANGE_TABLE"]
-for i = 1, #AddNewPDEBL do
-    local EntityId           = (AddNewPDEBL[i]["EntityId"])
-	local SnapPt			  = (AddNewPDEBL[i]["SnapPt"])
-    AddToPDEBL[#AddToPDEBL + 1]  =
-    {
-		["SPECIAL_KEY_WORDS"] 				=		{"ObjectId", "FRE_ROOM_EXTR",},
-		["SECTION_ACTIVE"] 						= 		{16,},
-		["ADD_OPTION"]								=		"ADDafterSECTION",
-		["ADD"]												= 		CreateNewPDEntity(EntityId, SnapPt)
-    }
-end
-
-
 function CreateNewFaceSnaps(NewEntityID, NewSnapPt)
 	return
 	[[
@@ -1783,34 +1715,168 @@ function CreateNewFaceSnaps(NewEntityID, NewSnapPt)
 	]]
 end
 
+
+local AddToPDEFront = NMS_MOD_DEFINITION_CONTAINER["MODIFICATIONS"][1]["MBIN_CHANGE_TABLE"][31]["EXML_CHANGE_TABLE"]
+local AddToPDEBack = NMS_MOD_DEFINITION_CONTAINER["MODIFICATIONS"][1]["MBIN_CHANGE_TABLE"][31]["EXML_CHANGE_TABLE"]
+local AddToPDELeft = NMS_MOD_DEFINITION_CONTAINER["MODIFICATIONS"][1]["MBIN_CHANGE_TABLE"][31]["EXML_CHANGE_TABLE"]
+local AddToPDERight = NMS_MOD_DEFINITION_CONTAINER["MODIFICATIONS"][1]["MBIN_CHANGE_TABLE"][31]["EXML_CHANGE_TABLE"]
+local AddToPDEFR = NMS_MOD_DEFINITION_CONTAINER["MODIFICATIONS"][1]["MBIN_CHANGE_TABLE"][31]["EXML_CHANGE_TABLE"]
+local AddToPDEFL = NMS_MOD_DEFINITION_CONTAINER["MODIFICATIONS"][1]["MBIN_CHANGE_TABLE"][31]["EXML_CHANGE_TABLE"]
+local AddToPDEnBR = NMS_MOD_DEFINITION_CONTAINER["MODIFICATIONS"][1]["MBIN_CHANGE_TABLE"][31]["EXML_CHANGE_TABLE"]
+local AddToPDEBL = NMS_MOD_DEFINITION_CONTAINER["MODIFICATIONS"][1]["MBIN_CHANGE_TABLE"][31]["EXML_CHANGE_TABLE"]
 local AddToFaceSnaps = NMS_MOD_DEFINITION_CONTAINER["MODIFICATIONS"][1]["MBIN_CHANGE_TABLE"][32]["EXML_CHANGE_TABLE"]
+local PDEFrontTable = {}
+local PDEBackTable = {}
+local PDELeftTable = {}
+local PDERightTable = {}
+local PDEFRTable = {}
+local PDEFLTable = {}
+local PDEBRTable = {}
+local PDEBLTable = {}
+local SPtFaceTable = {}
+local SPtSpignFaceTable = {}
+
+for i = 1, #AddNewPDEFront do
+    local EntityId           = (AddNewPDEFront[i]["EntityId"])
+	local SnapPt			  = (AddNewPDEFront[i]["SnapPt"])
+	
+	table.insert(PDEFrontTable, CreateNewPDEntity(EntityId, SnapPt))
+end
+
+for i = 1, #AddNewPDEBack do
+    local EntityId           = (AddNewPDEBack[i]["EntityId"])
+	local SnapPt			  = (AddNewPDEBack[i]["SnapPt"])
+	
+	table.insert(PDEBackTable, CreateNewPDEntity(EntityId, SnapPt))
+end
+
+for i = 1, #AddNewPDELeft do
+    local EntityId           = (AddNewPDELeft[i]["EntityId"])
+	local SnapPt			  = (AddNewPDELeft[i]["SnapPt"])
+	
+	table.insert(PDELeftTable, CreateNewPDEntity(EntityId, SnapPt))
+end
+
+for i = 1, #AddNewPDERight do
+    local EntityId           = (AddNewPDERight[i]["EntityId"])
+	local SnapPt			  = (AddNewPDERight[i]["SnapPt"])
+	
+	table.insert(PDERightTable, CreateNewPDEntity(EntityId, SnapPt))
+end
+
+for i = 1, #AddNewPDEFR do
+    local EntityId           = (AddNewPDEFR[i]["EntityId"])
+	local SnapPt			  = (AddNewPDEFR[i]["SnapPt"])
+	
+	table.insert(PDEFRTable, CreateNewPDEntity(EntityId, SnapPt))
+end
+
+for i = 1, #AddNewPDEFL do
+    local EntityId           = (AddNewPDEFL[i]["EntityId"])
+	local SnapPt			  = (AddNewPDEFL[i]["SnapPt"])
+	
+	table.insert(PDEFLTable, CreateNewPDEntity(EntityId, SnapPt))
+end
+
+for i = 1, #AddNewPDEBR do
+    local EntityId           = (AddNewPDEBR[i]["EntityId"])
+	local SnapPt			  = (AddNewPDEBR[i]["SnapPt"])
+	
+	table.insert(PDEBRTable, CreateNewPDEntity(EntityId, SnapPt))
+end
+
+for i = 1, #AddNewPDEBL do
+    local EntityId           = (AddNewPDEBL[i]["EntityId"])
+	local SnapPt			  = (AddNewPDEBL[i]["SnapPt"])
+	
+	table.insert(PDEBLTable, CreateNewPDEntity(EntityId, SnapPt))
+end
+
 for i = 1, #AddNewSnapPTFace do
     local EntityId           = (AddNewSnapPTFace[i]["EntityId"])
 	local SnapPt			  = (AddNewSnapPTFace[i]["SnapPt"])
 	
-    AddToFaceSnaps[#AddToFaceSnaps + 1]  =
-	
-    {
-		["SPECIAL_KEY_WORDS"] 				=		{"ObjectId", "FRE_ROOM_EXTR",},
-		["SECTION_ACTIVE"] 						= 		{1, 2,},
-		["ADD_OPTION"]								=		"ADDafterSECTION",
-		["ADD"]												= 		CreateNewFaceSnaps(EntityId, SnapPt)
-    }	
+	table.insert(SPtFaceTable, CreateNewFaceSnaps(EntityId, SnapPt))
 end
 
 for j = 1, #AddNewSnapPTSpignFace do
     local EntityId           = (AddNewSnapPTSpignFace[j]["EntityId"])
 	local SnapPt			  = (AddNewSnapPTSpignFace[j]["SnapPt"])
 	
-    AddToFaceSnaps[#AddToFaceSnaps + 1]  =
-	
-    {
-		["SPECIAL_KEY_WORDS"] 				=		{"ObjectId", "FRE_ROOM_EXTR",},
-		["SECTION_ACTIVE"] 						= 		{1, 2,},
-		["ADD_OPTION"]								=		"ADDafterSECTION",
-		["ADD"]												= 		CreateNewFaceSnaps(EntityId, SnapPt)
-    }	
+	table.insert(SPtSpignFaceTable, CreateNewFaceSnaps(EntityId, SnapPt))	
 end
+
+
+AddToPDEFront[#AddToPDEFront + 1] =
+{
+	["SPECIAL_KEY_WORDS"] 				=		{"ObjectId", "FRE_ROOM_EXTR",},
+	["SECTION_ACTIVE"] 						= 		{5,7,11,20,23,},
+	["ADD_OPTION"]								=		"ADDafterSECTION",
+	["ADD"]												= 		table.concat(PDEFrontTable)
+}
+AddToPDEBack[#AddToPDEBack + 1]  =
+{
+	["SPECIAL_KEY_WORDS"] 				=		{"ObjectId", "FRE_ROOM_EXTR",},
+	["SECTION_ACTIVE"] 						= 		{1,3,9,14,17,},
+	["ADD_OPTION"]								=		"ADDafterSECTION",
+	["ADD"]												= 		table.concat(PDEBackTable)
+}
+AddToPDELeft[#AddToPDELeft + 1]  =
+{
+	["SPECIAL_KEY_WORDS"] 				=		{"ObjectId", "FRE_ROOM_EXTR",},
+	["SECTION_ACTIVE"] 						= 		{4,6,12,18,21,},
+	["ADD_OPTION"]								=		"ADDafterSECTION",
+	["ADD"]												= 		table.concat(PDELeftTable)
+}
+AddToPDERight[#AddToPDERight + 1]  =
+{
+	["SPECIAL_KEY_WORDS"] 				=		{"ObjectId", "FRE_ROOM_EXTR",},
+	["SECTION_ACTIVE"] 						= 		{2,8,10,15,24,},
+	["ADD_OPTION"]								=		"ADDafterSECTION",
+	["ADD"]												= 		table.concat(PDERightTable)
+}
+AddToPDEFR[#AddToPDEFR + 1]  =
+{
+	["SPECIAL_KEY_WORDS"] 				=		{"ObjectId", "FRE_ROOM_EXTR",},
+	["SECTION_ACTIVE"] 						= 		{22,},
+	["ADD_OPTION"]								=		"ADDafterSECTION",
+	["ADD"]												= 		table.concat(PDEFRTable)
+}
+AddToPDEFL[#AddToPDEFL + 1]  =
+{
+	["SPECIAL_KEY_WORDS"] 				=		{"ObjectId", "FRE_ROOM_EXTR",},
+	["SECTION_ACTIVE"] 						= 		{19,},
+	["ADD_OPTION"]								=		"ADDafterSECTION",
+	["ADD"]												= 		table.concat(PDEFLTable)
+}
+AddToPDEnBR[#AddToPDEnBR + 1]  =
+{
+	["SPECIAL_KEY_WORDS"] 				=		{"ObjectId", "FRE_ROOM_EXTR",},
+	["SECTION_ACTIVE"] 						= 		{13,},
+	["ADD_OPTION"]								=		"ADDafterSECTION",
+	["ADD"]												= 		table.concat(PDEBRTable)
+}
+AddToPDEBL[#AddToPDEBL + 1]  =
+{
+	["SPECIAL_KEY_WORDS"] 				=		{"ObjectId", "FRE_ROOM_EXTR",},
+	["SECTION_ACTIVE"] 						= 		{16,},
+	["ADD_OPTION"]								=		"ADDafterSECTION",
+	["ADD"]												= 		table.concat(PDEBLTable)
+}
+AddToFaceSnaps[#AddToFaceSnaps + 1]  =	
+{
+	["SPECIAL_KEY_WORDS"] 				=		{"ObjectId", "FRE_ROOM_EXTR",},
+	["SECTION_ACTIVE"] 						= 		{1, 2,},
+	["ADD_OPTION"]								=		"ADDafterSECTION",
+	["ADD"]												= 		table.concat(SPtFaceTable)
+}
+AddToFaceSnaps[#AddToFaceSnaps + 1]  =	
+{
+	["SPECIAL_KEY_WORDS"] 				=		{"ObjectId", "FRE_ROOM_EXTR",},
+	["SECTION_ACTIVE"] 						= 		{1, 2,},
+	["ADD_OPTION"]								=		"ADDafterSECTION",
+	["ADD"]												= 		table.concat(SPtSpignFaceTable)
+}
 
 function NewLanguagueFile(DescriptionEntries)
     return
@@ -1854,30 +1920,31 @@ function FillCustomlangFile(Data)
         local NameLCEntries = {}
         local NameEntries = {}
 
-        local Languages = Data[i]["Languages"]
+        local LanguagesData = Data[i]["Languages"]
 
         local NameID = ProductID.."_NAME"
         local NameLCID = "BLD_"..ProductID.."_NAME_L"
         local SubID = "BLD_"..ProductID.."_SUB"
         local DescID = "BLD_"..ProductID.."_DESC"
-		local UIDescID = "BLD_"..ProductID.."_DESC"
+		
+		local UIDescID = "UI_"..ProductID.."_DESC"
 
-        for j = 1, #Languages do
-            local Language = Languages[j][1]
+        for j = 1, #LanguagesData do
+            local Language = LanguagesData[j][1]
 
-            local NameLC = Languages[j][2]
+            local NameLC = LanguagesData[j][2]
             table.insert(NameLCEntries, NewLanguageEntry(Language, NameLC))
 
             local Name = string.upper(NameLC)
             table.insert(NameEntries, NewLanguageEntry(Language, Name))
 
-            local NewSubTitle = Languages[j][3]
+            local NewSubTitle = LanguagesData[j][3]
             table.insert(SubtitleEntries, NewLanguageEntry(Language, NewSubTitle))
 
-            local NewDescription = Languages[j][4]
+            local NewDescription = LanguagesData[j][4]
             table.insert(DescriptionEntries, NewLanguageEntry(Language, NewDescription))
 			
-			local NewUIDesc = Languages[j][2]
+			local NewUIDesc = LanguagesData[j][5]
 			table.insert(UIDescEntries, NewLanguageEntry(Language, NewUIDesc))
         end
 
@@ -1891,7 +1958,7 @@ function FillCustomlangFile(Data)
 end
 
 local AddCustomLanguageFiles = NMS_MOD_DEFINITION_CONTAINER["ADD_FILES"]
-for Key , Language in pairs(Languages) do
+for Language in pairs(Languages) do
 
     local LanguageData = { ["ProductID"] = "" , ["Languages"] = {}}
     for i = 1, #AddNewExtrRooms do
@@ -1904,7 +1971,7 @@ for Key , Language in pairs(Languages) do
 
     AddCustomLanguageFiles[#AddCustomLanguageFiles +1] =
     {
-        ["FILE_DESTINATION"] 	=	"LANGUAGE\\NMS_"..CustomLanguageTag.."_"..Key..".EXML",
+        ["FILE_DESTINATION"] 	=	"LANGUAGE\\NMS_"..CustomLanguageTag.."_"..Language..".EXML",
         ["FILE_CONTENT"] 		=	FillCustomlangFile(LanguageData)
     }
 
